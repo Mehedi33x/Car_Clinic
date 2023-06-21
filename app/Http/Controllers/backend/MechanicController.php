@@ -9,7 +9,8 @@ use Illuminate\Http\Request;
 class MechanicController extends Controller
 {
     public function mechanic_list(){
-        return view('backend.pages.mechanic.mechanic_list');
+        $mechanics=Mechanic::all();
+        return view('backend.pages.mechanic.mechanic_list',compact('mechanics'));
     }
 
     public function add_mechanic(){
