@@ -55,7 +55,7 @@
             </tr>
             @endforeach
         </tbody>
-    </table>
+    </table> <br>
     {{ $mechanics->links() }}
 </div>
 
