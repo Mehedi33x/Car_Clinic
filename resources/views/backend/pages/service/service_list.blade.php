@@ -1,7 +1,42 @@
 @extends('backend.master')
 @section('content')
 
-<div class="container mt-3">
+
+<div class="container">
+    <div class="row mt-3">
+        <div class="col-md8 offset-md-2">
+            <div class="card">
+                <div class="card-header">
+                    <div style="float:left;">
+                        <h2>Hello</h2>
+                    </div>
+                    <div style="float:right;">
+                    <a class="btn btn-black" href="">Add New Product</a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bodered" >
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Image</th>
+                                <th>Name</th>
+                                <th>id</th>
+                                <th>id</th>
+                            </tr>
+                        </thead>
+                    </table-bodered>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="container">
     <h2 style="font-size: 35px; margin-bottom:20px">Service List</h2>
 
     <div>
@@ -79,5 +114,5 @@
     </table>
 </div>
 
-    
+
 @endsection

@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class MechanicController extends Controller
 {
     public function mechanic_list(){
-        $mechanics=Mechanic::all();
+        $mechanics=Mechanic::paginate(5);
         return view('backend.pages.mechanic.mechanic_list',compact('mechanics'));
     }
 
@@ -17,9 +17,27 @@ class MechanicController extends Controller
         return view('backend.pages.mechanic.add_mechanic');
     }
 
+
+
     public function store_mechanic(Request $request){
         //dd($request->all());
+        $request->validate([
+            'name'=>'required',
+            'email'=>'required',
+            'contact'=>'required',
+            'address'=>'required',
+            'status'=>'required',
+
+        ]);
+        $mechanic_image='';
+        if($image =$request->file('image')){
+        $mechanic_image= time().'-'.uniqid().'.'.$image->getClientOriginalExtension();
+        $image->move('images/mechanics',$mechanic_image);
+        }
+
+
     Mechanic::create([
+        'image'=>$mechanic_image,
         'name'=>$request->name,
         'email'=>$request->email,
         'contact'=>$request->contact,
@@ -28,4 +46,46 @@ class MechanicController extends Controller
     ]);
     return to_route('mechanic.list');
     }
+
+    public function edit_mechanic($id){
+        $mechanic=Mechanic::findOrFail($id);
+        return view('backend.pages.mechanic.edit_mechanic',compact('mechanic'));
+    }
+    public function update_mechanic(Request $request,$id){
+
+        $request->validate([
+            'name'=>'required',
+            'email'=>'required',
+            'contact'=>'required',
+            'address'=>'required'
+        ]);
+
+        $mechanic_image='';
+        // $oldimage='images/mechanics'.$mechanic->image;
+
+        if($image=$request->file('image')){
+
+            $mechanic_image= time().'-'.uniqid().'.'.$image->getClientOriginalExtension();
+            $image->move('/images/mechanics/',$mechanic_image);
+        }
+
+        Mechanic::create([
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'contact'=>$request->contact,
+            'address'=>$request->address,
+            'status'=>$request->status
+        ]);
+
+    }
+    // public function delete($id){
+
+
+    // }
+
+
+
+
+
+
 }

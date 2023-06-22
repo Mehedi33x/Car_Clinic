@@ -71,33 +71,33 @@
 
   <div class="container">
 
-    <h2>Enter Your Information</h2>
+    <h2>Update Your Information</h2>
 
-    <form action="{{route('mehcanic.store')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('mehcanic.update',$mechanic->id)}}" method="POST" enctype="multipart/form-data">
       @csrf
     <div class="form-group">
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
+        <input type="text" id="name" value="{{$mechanic->name}}" name="name"  required>
       </div>
 
       <div class="form-group">
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
+        <input type="email" id="email" value="{{$mechanic->email}}" name="email"  required>
       </div>
 
       <div class="form-group">
         <label for="contact">Contact:</label>
-        <input type="tel" id="contact" name="contact" required>
+        <input type="tel" id="contact" value="{{$mechanic->contact}}"  name="contact"  required>
       </div>
 
       <div class="form-group">
         <label for="address">Address:</label>
-        <input type="text" id="address" name="address" required>
+        <input type="text" id="address" value="{{$mechanic->address}}" name="address" required>
       </div>
 
       <div class="form-group">
         <label for="status">Working Status:</label>
-        <select id="status" name="status" required>
+        <select id="status" value="{{$mechanic->status}}" name="status" required>
           <option value="active">Active</option>
           <option value="inactive">Inactive</option>
 
@@ -105,6 +105,7 @@
       </div>
         <div class="form-group">
              <label for="image">Image:</label>
+             <img  style="height: 80px;width=80px;" class="mb-3"   src="{{asset('images/mechanics/'.$mechanic->image)}}" alt="">
             <input type="file" id="image" name="image" required>
         </div>
       <div class="form-group">

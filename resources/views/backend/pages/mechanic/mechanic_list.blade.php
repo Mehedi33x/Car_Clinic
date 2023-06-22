@@ -2,8 +2,7 @@
 @section('content')
 
 <div class="container mt-3">
-    <h2 style="font-size: 35px; margin-bottom:20px">Mechanic List</h2>
-
+    <h2 style="font-size: 35px; margin-bottom:20px;">Mechanic List</h2>
     <div>
         <a href="{{route('mechanic.add')}}">
             <button type="submit" class="btn btn-success" style="margin-bottom: 20px">Add New Mechanic</button>
@@ -13,6 +12,7 @@
         <thead class="table-dark">
             <tr>
                 <th scope="col">#</th>
+                <th scope="col">Image</th>
                 <th scope="col">Name</th>
                 <th scope="col">Contact</th>
                 <th scope="col">Email</th>
@@ -25,6 +25,9 @@
             @foreach ( $mechanics as $key=>$mechanic)
             <tr>
                 <th scope="row">{{$key+1}}</th>
+                <td>
+                <img style="width: 80px; height:80px;" src="{{asset('images/mechanics/'.$mechanic->image)}}">
+                </td>
                 <td>{{$mechanic->name}}</td>
                 <td>{{$mechanic->email}}</td>
                 <td>{{$mechanic->contact}}</td>
@@ -43,17 +46,17 @@
                                 Action
                               </button>
                               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#"><i class="fas fa-user"></i>Edit</a>
-                                <a class="dropdown-item" href="#" onclick="return confirm('Are you sure to Delete?')"><i class="fa-solid fa-trash"></i>Delete</a>
+                                <a class="dropdown-item" href="{{route('mehcanic.edit',$mechanic->id)}}"><i class="fas fa-user"></i>Edit</a>
+                                {{-- <a class="dropdown-item" href="{{route('mehcanic.delete',$mechanic->id)}}" onclick="return confirm('Are you sure to Delete?')"><i class="fa-solid fa-trash"></i>Delete</a> --}}
                               </div>
                             </div>
                           </div>
                 </td>
             </tr>
             @endforeach
-
         </tbody>
     </table>
+    {{ $mechanics->links() }}
 </div>
 
 
