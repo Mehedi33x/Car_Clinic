@@ -4,7 +4,7 @@ namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Mechanic;
-use File;
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 
 class MechanicController extends Controller
@@ -13,6 +13,7 @@ class MechanicController extends Controller
         $mechanics=Mechanic::paginate(5);
         return view('backend.pages.mechanic.mechanic_list',compact('mechanics'));
     }
+
 
     public function add_mechanic(){
         return view('backend.pages.mechanic.add_mechanic');
@@ -48,6 +49,7 @@ class MechanicController extends Controller
     return to_route('mechanic.list');
     }
 
+
     public function edit_mechanic($id){
         $mechanic=Mechanic::findOrFail($id);
         return view('backend.pages.mechanic.edit_mechanic',compact('mechanic'));
@@ -71,7 +73,7 @@ class MechanicController extends Controller
                 File::delete($oldimage);
             }
             $mechanic_image= time().'-'.uniqid().'.'.$image->getClientOriginalExtension();
-            $image->move('/images/mechanics/',$mechanic_image);
+            $image->move('images/mechanics/',$mechanic_image);
         }
         else{
             $mechanic_image=$mechanic->image;
@@ -86,13 +88,22 @@ class MechanicController extends Controller
         ]);
         return to_route('mechanic.list');
     }
-    // public function delete($id){
 
 
-    // }
-
-
-
+   public function delete_mechanic($id)
+   {
+    $mechanic=Mechanic::findOrFail($id);
+    //dd($mechanic);
+    $oldimage ='images/mechanics'.$mechanic->image;
+    if(file_exists($oldimage))
+    {
+        // Log::useFiles('path', 'level');
+        // File::delete($oldimage);
+        File::delete($oldimage);
+    }
+     $mechanic->delete();
+     return to_route('mechanic.list');
+   }
 
 
 

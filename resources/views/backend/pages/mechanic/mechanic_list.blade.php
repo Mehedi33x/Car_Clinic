@@ -32,14 +32,8 @@
                 <td>{{$mechanic->email}}</td>
                 <td>{{$mechanic->contact}}</td>
                 <td>{{$mechanic->address}}</td>
-                <td>{{$mechanic->status}}</td>
+                <td class="text-capitalize">{{$mechanic->status}}</td>
                 <td>
-                        {{-- <a href=""><i class="fa-solid fa-eye"></i></a>
-
-                        <a href=""><i class="fa-solid fa-pen-to-square"></i></a>
-
-                        <a href="" onclick="return confirm('Are you sure to Delete?')"><i class="fa-solid fa-trash-can"></i></a> --}}
-
                         <div class="container">
                             <div class="dropdown">
                               <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -47,7 +41,7 @@
                               </button>
                               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item" href="{{route('mehcanic.edit',$mechanic->id)}}"><i class="fas fa-user"></i>Edit</a>
-                                {{-- <a class="dropdown-item" href="{{route('mehcanic.delete',$mechanic->id)}}" onclick="return confirm('Are you sure to Delete?')"><i class="fa-solid fa-trash"></i>Delete</a> --}}
+                                <a class="dropdown-item" href="{{route('mehcanic.delete',$mechanic->id)}}" onclick="return confirm('Are you sure to Delete?')"><i class="fa-solid fa-trash"></i>Delete</a>
                               </div>
                             </div>
                           </div>
