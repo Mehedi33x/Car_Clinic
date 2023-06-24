@@ -20,12 +20,15 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>dxvd</td>
-                <td>dxvd</td>
+
+            @foreach ( $users as $key=>$user)
+<tr>
+                <th scope="row">{{$key+1}}</th>
+                {{-- var---> input --}}
+                <td>{{$user->name}}</td>
+                <td>{{$user->email}}</td>
+                <td>{{$user->contact}}</td>
+                <td>{{$user->address}}</td>
                 <td>
                         {{-- <a href=""><i class="fa-solid fa-eye"></i></a>
 
@@ -46,34 +49,12 @@
                           </div>
                 </td>
             </tr>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>dxvd</td>
-                <td>dxvd</td>
-                <td>
-                        {{-- <a href=""><i class="fa-solid fa-eye"></i></a>
+            @endforeach
 
-                        <a href=""><i class="fa-solid fa-pen-to-square"></i></a>
 
-                        <a href="" onclick="return confirm('Are you sure to Delete?')"><i class="fa-solid fa-trash-can"></i></a> --}}
-
-                        <div class="container">
-                            <div class="dropdown">
-                              <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Action
-                              </button>
-                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#"><i class="fas fa-user"></i>Edit</a>
-                                <a class="dropdown-item" href="#"><i class="fa-solid fa-trash"></i>Delete</a>
-                              </div>
-                            </div>
-                          </div>
-                </td>
-            </tr>
         </tbody>
-    </table>
+    </table> <br>
+    {{$users->links()}}
 </div>
 
 @endsection

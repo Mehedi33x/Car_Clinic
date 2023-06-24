@@ -22,10 +22,11 @@ class MechanicController extends Controller
 
 
     public function store_mechanic(Request $request){
-        //dd($request->all());
+         //dd($request->all());
         $request->validate([
             'name'=>'required',
             'email'=>'required',
+            'password'=>'required',
             'contact'=>'required',
             'address'=>'required',
             'status'=>'required',
@@ -42,6 +43,7 @@ class MechanicController extends Controller
         'image'=>$mechanic_image,
         'name'=>$request->name,
         'email'=>$request->email,
+        'password'=>bcrypt($request->password),
         'contact'=>$request->contact,
         'address'=>$request->address,
         'status'=>$request->status
@@ -63,28 +65,25 @@ class MechanicController extends Controller
             'address'=>'required'
         ]);
 
-        $mechanic_image='';
-        $oldimage ='images/mechanics'.$mechanic->image;
+        $mechanic_image=$mechanic->image;
 
         if($image=$request->file('image')){
-            if(file_exists($oldimage)){
+            if(file_exists('images/mechanics/',$mechanic_image)){
                 // Log::useFiles('path', 'level');
                 // File::delete($oldimage);
-                File::delete($oldimage);
+                File::delete('images/mechanics/',$mechanic_image);
             }
             $mechanic_image= time().'-'.uniqid().'.'.$image->getClientOriginalExtension();
             $image->move('images/mechanics/',$mechanic_image);
         }
-        else{
-            $mechanic_image=$mechanic->image;
-        }
 
-        Mechanic::where('id',$id)->update([
+        $mechanic->update([
             'name'=>$request->name,
             'email'=>$request->email,
             'contact'=>$request->contact,
             'address'=>$request->address,
-            'status'=>$request->status
+            'status'=>$request->status,
+            "image"=>$mechanic_image
         ]);
         return to_route('mechanic.list');
     }

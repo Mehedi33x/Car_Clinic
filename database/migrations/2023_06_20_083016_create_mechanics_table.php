@@ -16,8 +16,9 @@ return new class extends Migration
             $table->string('image');
             $table->string('name');
             $table->string('email');
-            // $table->string('contact');
-            // $table->text('address');
+            $table->string('password');
+            $table->string('contact');
+            $table->text('address');
             $table->string('status')->default('active');
             $table->timestamps();
         });

@@ -15,6 +15,10 @@ Route::get('/admin',[DashboardController::class,'dashboard'])->name('dashboard')
 // user
 Route::get('/admin/user_list',[UserController::class,'user_list'])->name('user.list');
 Route::get('/admin/add_user',[UserController::class,'user_add'])->name('user.add');
+Route::post('/admin/store',[UserController::class,'store'])->name('user.store');
+
+
+
 
 // service
 Route::get('/admin/services_list',[ServiceController::class,'service'])->name('service.list');
