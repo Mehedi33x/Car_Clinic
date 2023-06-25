@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\backend\DashboardController;
 use App\Http\Controllers\backend\MechanicController;
+use App\Http\Controllers\backend\ServiceCenterController;
 use App\Http\Controllers\backend\ServiceController;
 use App\Http\Controllers\backend\UserController;
 use App\Http\Controllers\frontend\HomepageController;
@@ -17,6 +18,10 @@ Route::get('/admin/user_list',[UserController::class,'user_list'])->name('user.l
 Route::get('/admin/add_user',[UserController::class,'user_add'])->name('user.add');
 Route::post('/admin/store',[UserController::class,'store'])->name('user.store');
 
+//service center
+Route::get('/servcie_center',[ServiceCenterController::class,'sercive_center_list'])->name('center.list');
+Route::get('/add_center',[ServiceCenterController::class,'add_sercive_center'])->name('center.add');
+Route::post('/store_center',[ServiceCenterController::class,'store_sercive_center'])->name('center.store');
 
 
 

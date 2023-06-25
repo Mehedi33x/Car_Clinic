@@ -24,7 +24,7 @@
         <tbody>
             @foreach ( $mechanics as $key=>$mechanic)
             <tr>
-                <th scope="row">{{$key+1}}</th>
+                <th scope="row">{{$mechanics->firstitem()+$key}}</th>
                 <td>
                 <img style="width: 80px; height:80px;" src="{{asset('images/mechanics/'.$mechanic->image)}}">
                 </td>
