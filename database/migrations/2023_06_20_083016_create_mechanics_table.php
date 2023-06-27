@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('mechanics', function (Blueprint $table) {
             $table->id();
             $table->string('image');
-            $table->string('name');
-            $table->string('email');
+            $table->string('name',20);
+            $table->string('email',50)->unique();
             $table->string('password');
-            $table->string('contact');
+            $table->string('contact',20);
             $table->text('address');
-            $table->string('status')->default('active');
+            $table->string('status',20)->default('active');
             $table->timestamps();
         });
     }

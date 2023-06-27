@@ -37,8 +37,20 @@
           <i class="icon-book-open menu-icon"></i>
         </a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{route('service.request')}}">
+          <span class="menu-title">Service Request</span>
+          <i class="icon-chart menu-icon"></i>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="pages/charts/chartist.html">
+          <span class="menu-title">Reports</span>
+          <i class="icon-grid menu-icon"></i>
+        </a>
+      </li>
 
-      <li class="nav-item nav-category"><span class="nav-link">Pages</span></li>
+      <li class="nav-item nav-category"><span class="nav-link">Maintance</span></li>
       <li class="nav-item">
         <a class="nav-link" href="pages/charts/chartist.html">
           <span class="menu-title">Customer List</span>
@@ -58,7 +70,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="pages/charts/chartist.html">
+        <a class="nav-link" href="{{route('category')}}">
           <span class="menu-title">Car Type</span>
           <i class="icon-chart menu-icon"></i>
         </a>
@@ -69,12 +81,7 @@
           <i class="icon-chart menu-icon"></i>
         </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="pages/tables/basic-table.html">
-          <span class="menu-title">Reports</span>
-          <i class="icon-grid menu-icon"></i>
-        </a>
-      </li>
+
 
     </ul>
   </nav>

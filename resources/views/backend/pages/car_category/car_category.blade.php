@@ -2,9 +2,9 @@
 @section('content')
 
 <div class="container mt-3">
-    <h2 style="font-size: 35px; margin-bottom:20px">Service List</h2>
+    <h2 style="font-size: 35px; margin-bottom:20px">Car Category List</h2>
     <div>
-        <a href="{{route('service.add')}}">
+        <a href="">
             <button type="submit" class="btn btn-success" style="margin-bottom: 20px">Add New Service</button>
         </a>
     </div>
@@ -21,17 +21,13 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($services as $key=>$item )
             <tr>
-
-                <th scope="row">{{$services->firstitem()+$key}}</th>
-                <td>
-                    <img style="width: 80px; height:80px;" src="{{asset('images/service/'.$item->image)}}">
-                    </td>
-                <td>{{$item->name}}</td>
-                <td>{{$item->description}}</td>
-                <td>{{$item->cost}} Tk</td>
-                <td class="text-capitalize">{{$item->status}}</td>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>dxvd</td>
+                <td>dxvd</td>
+                <td>dxvd</td>
                 <td>
                         <div class="container">
                             <div class="dropdown">
@@ -39,18 +35,16 @@
                                 Action
                               </button>
                               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#"><i class="fas fa-user"></i>Edit</a>
-                                <a class="dropdown-item" href="{{route('service.delete',$item->id)}}" onclick="return confirm('Are you sure to Delete?')" ><i class="fa-solid fa-trash"></i>Delete</a>
+                                <a class="dropdown-item" href="#"><i class="fas fa-edit"></i>Edit</a>
+                                <a class="dropdown-item" href="#" onclick="return confirm('Are you sure to Delete?')"><i class="fa-solid fa-trash"></i>Delete</a>
                               </div>
                             </div>
                           </div>
                 </td>
             </tr>
-            @endforeach
+
         </tbody>
     </table>
-    <br>
-    {{$services->links()}}
 </div>
 
 

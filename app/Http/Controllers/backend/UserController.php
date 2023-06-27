@@ -11,6 +11,8 @@ class UserController extends Controller
     public function user_list (){
         $users=User::paginate(5);
         return view('backend.pages.user.user_list',compact('users'));
+        return view('');
+        
     }
 
     public function user_add(){

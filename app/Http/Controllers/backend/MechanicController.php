@@ -32,6 +32,7 @@ class MechanicController extends Controller
             'status'=>'required',
 
         ]);
+
         $mechanic_image='';
         if($image =$request->file('image')){
         $mechanic_image= time().'-'.uniqid().'.'.$image->getClientOriginalExtension();
@@ -102,6 +103,7 @@ class MechanicController extends Controller
     }
      $mechanic->delete();
      return to_route('mechanic.list');
+     
    }
 
 

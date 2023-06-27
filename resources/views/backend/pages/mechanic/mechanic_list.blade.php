@@ -24,7 +24,8 @@
         <tbody>
             @foreach ( $mechanics as $key=>$mechanic)
             <tr>
-                <th scope="row">{{$mechanics->firstitem()+$key}}</th>
+                {{-- <th scope="row">{{$mechanics->firstitem()+$key}}</th> --}}
+                <th scope="row">{{$key+1}}</th>
                 <td>
                 <img style="width: 80px; height:80px;" src="{{asset('images/mechanics/'.$mechanic->image)}}">
                 </td>
@@ -40,8 +41,8 @@
                                 Action
                               </button>
                               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="{{route('mehcanic.edit',$mechanic->id)}}"><i class="fas fa-user"></i>Edit</a>
-                                <a class="dropdown-item" href="{{route('mehcanic.delete',$mechanic->id)}}" onclick="return confirm('Are you sure to Delete?')"><i class="fa-solid fa-trash"></i>Delete</a>
+                                <a class="dropdown-item" href="{{route('mechanic.edit',$mechanic->id)}}"><i class="fas fa-user"></i>Edit</a>
+                                <a class="dropdown-item" href="{{route('mechanic.delete',$mechanic->id)}}" onclick="return confirm('Are you sure to Delete?')"><i class="fa-solid fa-trash"></i>Delete</a>
                               </div>
                             </div>
                           </div>
