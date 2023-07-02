@@ -13,7 +13,7 @@
 
     <h2>Enter Your Information</h2>
 
-    <form action="{{route('service.store')}}" method="POST">
+    <form action="{{route('service.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
       <div class="form-group">
         <label for="name">Service Name:</label>

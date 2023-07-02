@@ -18,7 +18,7 @@ class ServiceController extends Controller
         return view('backend.pages.service.add_servive');
     }
     public Function store_service(Request $request){
-        //  dd($request->all());
+        // dd($request->all());
         $request->validate([
             'name'=>'required',
             'description'=>'required',
@@ -26,13 +26,11 @@ class ServiceController extends Controller
             'status'=>'required',
 
         ]);
-
+        
         $service_image='';
-        if($image=$request->file('image')){
-        $service_image= time().'-'.uniqid().'.'.$image->getClientOriginalExtention();
-        $image->move('/images/service',$service_image);
-
-
+        if($image =$request->file('image')){
+        $service_image= time().'-'.uniqid().'.'.$image->getClientOriginalExtension();
+        $image->move('images/service',$service_image);
         }
 
         Service::create([
@@ -41,15 +39,14 @@ class ServiceController extends Controller
             'cost'=>$request->cost,
             'status'=>$request->status,
             'image'=>$service_image,
+
         ]);
         return to_route('service.list');
     }
-
     public function detele_service($id){
         $service=Service::findOrFail($id);
         $service->delete();
         return to_route('service.list');
-
     }
 
 }

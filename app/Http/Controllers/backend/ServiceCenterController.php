@@ -19,8 +19,14 @@ class ServiceCenterController extends Controller
     }
     public function store_sercive_center(Request $request){
         // dd($request->all());
+        $center_image='';
+        if($image =$request->file('image')){
+        $center_image= time().'-'.uniqid().'.'.$image->getClientOriginalExtension();
+        $image->move('images/center',$center_image);
+        }
         ServiceCenter::create([
             //clm name=>$request->inpt fld
+            'image'=>$center_image,
             'name'=>$request->name,
             'contact'=>$request->contact,
             'email'=>$request->email,

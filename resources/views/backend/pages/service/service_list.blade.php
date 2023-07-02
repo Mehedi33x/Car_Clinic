@@ -23,11 +23,10 @@
         <tbody>
             @foreach ($services as $key=>$item )
             <tr>
-
                 <th scope="row">{{$services->firstitem()+$key}}</th>
                 <td>
                     <img style="width: 80px; height:80px;" src="{{asset('images/service/'.$item->image)}}">
-                    </td>
+                </td>
                 <td>{{$item->name}}</td>
                 <td>{{$item->description}}</td>
                 <td>{{$item->cost}} Tk</td>

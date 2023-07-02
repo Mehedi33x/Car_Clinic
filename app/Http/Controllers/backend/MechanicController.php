@@ -38,8 +38,6 @@ class MechanicController extends Controller
         $mechanic_image= time().'-'.uniqid().'.'.$image->getClientOriginalExtension();
         $image->move('images/mechanics',$mechanic_image);
         }
-
-
     Mechanic::create([
         'image'=>$mechanic_image,
         'name'=>$request->name,
@@ -67,12 +65,13 @@ class MechanicController extends Controller
         ]);
 
         $mechanic_image=$mechanic->image;
-
+        // dd(public_path('images/mechanics/'.$mechanic_image));
         if($image=$request->file('image')){
-            if(file_exists('images/mechanics/',$mechanic_image)){
+            if(file_exists(public_path('images/mechanics/'.$mechanic_image))){
                 // Log::useFiles('path', 'level');
                 // File::delete($oldimage);
-                File::delete('images/mechanics/',$mechanic_image);
+
+                File::delete(public_path('images/mechanics/'.$mechanic_image));
             }
             $mechanic_image= time().'-'.uniqid().'.'.$image->getClientOriginalExtension();
             $image->move('images/mechanics/',$mechanic_image);
@@ -103,7 +102,7 @@ class MechanicController extends Controller
     }
      $mechanic->delete();
      return to_route('mechanic.list');
-     
+
    }
 
 

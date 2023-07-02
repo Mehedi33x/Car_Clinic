@@ -2,17 +2,18 @@
 @section('content')
 
 <div class="container mt-3">
-    <h2 style="font-size: 35px; margin-bottom:20px">Service List</h2>
+    <h2 style="font-size: 35px; margin-bottom:20px">Service Center List</h2>
 
     <div>
         <a href="{{route('center.add')}}">
-            <button type="submit" class="btn btn-success" style="margin-bottom: 20px">Add New Service</button>
+            <button type="submit" class="btn btn-success" style="margin-bottom: 20px">+ Service Center</button>
         </a>
     </div>
     <table class="table table-bordered" style="border: 2px solid black">
         <thead class="table-dark">
             <tr>
                 <th scope="col">#</th>
+                <th scope="col">Image</th>
                 <th scope="col">Center Name</th>
                 <th scope="col">Contact</th>
                 <th scope="col">Email</th>
@@ -24,6 +25,9 @@
             @foreach ($center as $key=>$item)
             <tr>
                 <th scope="row">{{$key+1}}</th>
+                <td>
+                    <img style="width: 80px; height:80px;" src="{{asset('images/center/'.$item->image)}}">
+                </td>
                 <td>{{$item->name}}</td>
                 <td>{{$item->contact}}</td>
                 <td>{{$item->email}}</td>

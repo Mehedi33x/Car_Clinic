@@ -14,7 +14,7 @@
 
     <h2>Enter Your Information</h2>
 
-    <form action="{{route('center.store')}}" method="POST">
+    <form action="{{route('center.store')}}" method="POST" enctype="multipart/form-data">
       @csrf
     <div class="form-group">
         <label for="name">Name:</label>
@@ -35,10 +35,10 @@
         <input type="text" id="address" name="address" required>
       </div>
 
-        {{-- <div class="form-group">
+        <div class="form-group">
              <label for="image">Image:</label>
             <input type="file" id="image" name="image" required>
-        </div> --}}
+        </div>
       <div class="form-group">
         <input type="submit" value="Submit">
       </div>
