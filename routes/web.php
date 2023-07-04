@@ -47,3 +47,5 @@ Route::get('/service_request',[ServiceRequestController::class,'service_request'
 
 // Car Type
 Route::get('/car_type',[CategoryController::class,'category'])->name('category');
+Route::get('/add_car_type',[CategoryController::class,'add_category'])->name('add.category');
+Route::post('/store_car_type',[CategoryController::class,'store_category'])->name('store.category');

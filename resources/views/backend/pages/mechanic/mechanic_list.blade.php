@@ -5,7 +5,7 @@
     <h2 style="font-size: 35px; margin-bottom:20px;">Mechanic List</h2>
     <div>
         <a href="{{route('mechanic.add')}}">
-            <button type="submit" class="btn btn-success" style="margin-bottom: 20px">Add New Mechanic</button>
+            <button type="submit" class="btn btn-success" style="margin-bottom: 20px">+ Mechanic</button>
         </a>
     </div>
     <table class="table table-bordered" style="border: 2px solid black">
@@ -24,8 +24,8 @@
         <tbody>
             @foreach ( $mechanics as $key=>$mechanic)
             <tr>
-                {{-- <th scope="row">{{$mechanics->firstitem()+$key}}</th> --}}
-                <th scope="row">{{$key+1}}</th>
+                <th scope="row">{{$mechanics->firstitem()+$key}}</th>
+                {{-- <th scope="row">{{$mechanic->id}}</th> --}}
                 <td>
                 <img style="width: 80px; height:80px;" src="{{asset('images/mechanics/'.$mechanic->image)}}">
                 </td>

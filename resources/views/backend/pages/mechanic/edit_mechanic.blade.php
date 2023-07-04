@@ -47,7 +47,7 @@
         <div class="form-group">
              <label for="image">Image:</label>
              <img  style="height: 80px;width=80px;" class="mb-3"   src="{{asset('images/mechanics/'.$mechanic->image)}}" alt="">
-            <input type="file" id="image" name="image" required>
+            <input type="file" id="image" name="image" >
         </div>
       <div class="form-group">
         <input type="submit" value="Submit">

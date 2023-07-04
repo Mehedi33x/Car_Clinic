@@ -4,18 +4,15 @@
 <div class="container mt-3">
     <h2 style="font-size: 35px; margin-bottom:20px">Car Category List</h2>
     <div>
-        <a href="">
-            <button type="submit" class="btn btn-success" style="margin-bottom: 20px">Add New Service</button>
-        </a>
+        <a href="{{route('add.category')}}" class="btn btn-success" style="margin-bottom: 20px">+ Category</a>
     </div>
     <table class="table table-bordered" style="border: 2px solid black">
         <thead class="table-dark">
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Image</th>
-                <th scope="col">Service Name</th>
+                <th scope="col">Category Name</th>
                 <th scope="col">Description</th>
-                <th scope="col">Service Cost</th>
                 <th scope="col">Status</th>
                 <th scope="col">Action</th>
             </tr>
@@ -25,7 +22,6 @@
                 <th scope="row">1</th>
                 <td>Mark</td>
                 <td>Otto</td>
-                <td>dxvd</td>
                 <td>dxvd</td>
                 <td>dxvd</td>
                 <td>
