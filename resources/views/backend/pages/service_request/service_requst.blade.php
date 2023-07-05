@@ -5,14 +5,13 @@
     <h2 style="font-size: 35px; margin-bottom:20px">Service Request List</h2>
     <div>
         <a href="">
-            <button type="submit" class="btn btn-success" style="margin-bottom: 20px">Add New Request</button>
+            <button type="submit" class="btn btn-success" style="margin-bottom: 20px">+ Service Request</button>
         </a>
     </div>
     <table class="table table-bordered" style="border: 2px solid black">
         <thead class="table-dark">
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Image</th>
                 <th scope="col">Service Name</th>
                 <th scope="col">Description</th>
                 <th scope="col">Service Cost</th>

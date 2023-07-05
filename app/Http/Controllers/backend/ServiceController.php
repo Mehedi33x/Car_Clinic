@@ -26,11 +26,12 @@ class ServiceController extends Controller
             'status'=>'required',
 
         ]);
-        
+
         $service_image='';
-        if($image =$request->file('image')){
-        $service_image= time().'-'.uniqid().'.'.$image->getClientOriginalExtension();
-        $image->move('images/service',$service_image);
+        if($request->hasFile('image')){
+            $image=$request->file('image');
+            $service_image=date('Ymdhsi').'.'.$image->getClientOriginalExtension();
+            $image->storeAs('/service',$service_image);
         }
 
         Service::create([

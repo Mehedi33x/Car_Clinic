@@ -2,32 +2,32 @@
 @section('content')
 
 <div class="container mt-3">
-    <h2 style="font-size: 35px; margin-bottom:20px">Car Category List</h2>
+    <h2 style="font-size: 35px; margin-bottom:20px">Payment List</h2>
     <div>
-        <a href="{{route('add.category')}}" class="btn btn-success" style="margin-bottom: 20px">+ Category</a>
+        {{-- <a href="" class="btn btn-success" style="margin-bottom: 20px">+ Service Request</a> --}}
     </div>
     <table class="table table-bordered" style="border: 2px solid black">
         <thead class="table-dark">
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Image</th>
-                <th scope="col">Category Name</th>
-                <th scope="col">Description</th>
+                <th scope="col">Transiction ID</th>
+                <th scope="col">Customer Name</th>
+                <th scope="col">Car Registration No</th>
+                <th scope="col">Total Amount</th>
+                <th scope="col">Due</th>
                 <th scope="col">Status</th>
                 <th scope="col">Action</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($category as $key=>$item )
             <tr>
-                <th scope="row">{{$category->firstitem()+$key}}</th>
-                <td>
-                    <img style="width: 50px;" src="{{url('/uploads/category/'.$item->image)}}" alt="">
-                  </td>
-
-                <td>{{$item->name}}</td>
-                <td>{{$item->description}}</td>
-                <td>{{$item->status}}</td>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>dxvd</td>
+                <td>dxvd</td>
+                <td>dxvd</td>
+                <td>dxvd</td>
                 <td>
                         <div class="container">
                             <div class="dropdown">
@@ -42,9 +42,6 @@
                           </div>
                 </td>
             </tr>
-
-
-            @endforeach
 
         </tbody>
     </table>

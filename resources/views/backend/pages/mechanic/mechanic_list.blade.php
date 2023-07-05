@@ -27,7 +27,7 @@
                 <th scope="row">{{$mechanics->firstitem()+$key}}</th>
                 {{-- <th scope="row">{{$mechanic->id}}</th> --}}
                 <td>
-                <img style="width: 80px; height:80px;" src="{{asset('images/mechanics/'.$mechanic->image)}}">
+                <img style="width: 80px; height:80px;" src="{{url('/uploads/mechanics/'.$mechanic->image)}}">
                 </td>
                 <td>{{$mechanic->name}}</td>
                 <td>{{$mechanic->email}}</td>

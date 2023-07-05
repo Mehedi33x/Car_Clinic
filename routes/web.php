@@ -3,6 +3,8 @@
 use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\backend\DashboardController;
 use App\Http\Controllers\backend\MechanicController;
+use App\Http\Controllers\backend\PaymentController;
+use App\Http\Controllers\backend\ReportController;
 use App\Http\Controllers\backend\ServiceCenterController;
 use App\Http\Controllers\backend\ServiceController;
 use App\Http\Controllers\backend\ServiceRequestController;
@@ -49,3 +51,11 @@ Route::get('/service_request',[ServiceRequestController::class,'service_request'
 Route::get('/car_type',[CategoryController::class,'category'])->name('category');
 Route::get('/add_car_type',[CategoryController::class,'add_category'])->name('add.category');
 Route::post('/store_car_type',[CategoryController::class,'store_category'])->name('store.category');
+
+// payment
+Route::get('/payment',[PaymentController::class,'payment'])->name('payment');
+
+
+
+//report
+Route::get('/report',[ReportController::class,'report'])->name('report');

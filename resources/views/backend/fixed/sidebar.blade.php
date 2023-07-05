@@ -44,7 +44,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="pages/charts/chartist.html">
+        <a class="nav-link" href="{{route('report')}}">
           <span class="menu-title">Reports</span>
           <i class="icon-grid menu-icon"></i>
         </a>
@@ -76,7 +76,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="pages/charts/chartist.html">
+        <a class="nav-link" href="{{route('payment')}}">
           <span class="menu-title">Payment</span>
           <i class="icon-chart menu-icon"></i>
         </a>

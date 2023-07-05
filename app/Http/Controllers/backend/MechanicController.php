@@ -34,9 +34,10 @@ class MechanicController extends Controller
         ]);
 
         $mechanic_image='';
-        if($image =$request->file('image')){
-        $mechanic_image= time().'-'.uniqid().'.'.$image->getClientOriginalExtension();
-        $image->move('images/mechanics',$mechanic_image);
+        if($image =$request->hasFile('image')){
+            $image=$request->file('image');
+        $mechanic_image= date('Ymdhsi').'.'. $image->getClientOriginalExtension();
+        $image->storeAs('/mechanics',$mechanic_image);
         }
     Mechanic::create([
         'image'=>$mechanic_image,

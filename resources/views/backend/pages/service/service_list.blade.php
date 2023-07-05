@@ -5,7 +5,7 @@
     <h2 style="font-size: 35px; margin-bottom:20px">Service List</h2>
     <div>
         <a href="{{route('service.add')}}">
-            <button type="submit" class="btn btn-success" style="margin-bottom: 20px">Add New Service</button>
+            <button type="submit" class="btn btn-success" style="margin-bottom: 20px">+ Service</button>
         </a>
     </div>
     <table class="table table-bordered" style="border: 2px solid black">
@@ -25,7 +25,7 @@
             <tr>
                 <th scope="row">{{$services->firstitem()+$key}}</th>
                 <td>
-                    <img style="width: 80px; height:80px;" src="{{asset('images/service/'.$item->image)}}">
+                    <img style="width: 80px; height:80px;" src="{{url('uploads/service/'.$item->image)}}">
                 </td>
                 <td>{{$item->name}}</td>
                 <td>{{$item->description}}</td>
@@ -42,7 +42,7 @@
                                 <a class="dropdown-item" href="{{route('service.delete',$item->id)}}" onclick="return confirm('Are you sure to Delete?')" ><i class="fa-solid fa-trash"></i>Delete</a>
                               </div>
                             </div>
-                          </div>
+                        </div>
                 </td>
             </tr>
             @endforeach
