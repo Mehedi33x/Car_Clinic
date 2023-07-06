@@ -7,9 +7,6 @@ use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
-    public function admin_panel(){
-        return view('backend.master');
-    }
     public function dashboard(){
         return view('backend.pages.dashboard.dashboard');
     }

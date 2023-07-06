@@ -3,11 +3,9 @@
 <div class="container mt-3">
     <h2 style="font-size: 35px; margin-bottom:20px">Customer List</h2>
 
-    <div>
-        <a href="{{route('user.add')}}">
-            <button type="submit" class="btn btn-success" style="margin-bottom: 20px">Add New Customer</button>
-        </a>
-    </div>
+    {{-- <div>
+        <a class="btn btn-success" style="margin-bottom: 20px"  href="{{route('user.add')}}">Add New Customer</a>
+    </div> --}}
     <table class="table table-bordered" style="border: 2px solid black">
         <thead class="table-dark">
             <tr>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\backend\AuthController;
 use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\backend\DashboardController;
 use App\Http\Controllers\backend\MechanicController;
@@ -13,14 +14,17 @@ use App\Http\Controllers\frontend\HomepageController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/',[HomepageController::class,'homepage'])->name('homepage');
-// Route::get('/admin',[DashboardController::class,'admin_panel'])->name('admin.panel');
-Route::get('/admin',[DashboardController::class,'dashboard'])->name('dashboard');
+// Route::get('/',[HomepageController::class,'homepage'])->name('homepage');
+
+Route::get('/admin/login',[AuthController::class,'admin_login'])->name('admin.login');
+Route::group(['prefix'=>'admin','middleware'=>'auth'], function(){
+
+    Route::get('/',[DashboardController::class,'dashboard'])->name('dashboard');
 
 // user
-Route::get('/admin/user_list',[UserController::class,'user_list'])->name('user.list');
-Route::get('/admin/add_user',[UserController::class,'user_add'])->name('user.add');
-Route::post('/admin/store',[UserController::class,'store'])->name('user.store');
+Route::get('/user_list',[UserController::class,'user_list'])->name('user.list');
+Route::get('/add_user',[UserController::class,'user_add'])->name('user.add');
+Route::post('/store',[UserController::class,'store'])->name('user.store');
 
 //service center
 Route::get('/servcie_center',[ServiceCenterController::class,'sercive_center_list'])->name('center.list');
@@ -30,14 +34,14 @@ Route::post('/store_center',[ServiceCenterController::class,'store_sercive_cente
 
 
 // service
-Route::get('/admin/service_list',[ServiceController::class,'service'])->name('service.list');
-Route::get('/admin/add_service',[ServiceController::class,'add_service'])->name('service.add');
+Route::get('/service_list',[ServiceController::class,'service'])->name('service.list');
+Route::get('/add_service',[ServiceController::class,'add_service'])->name('service.add');
 Route::post('/admin/store_service',[ServiceController::class,'store_service'])->name('service.store');
 Route::get('/delete_service/{id}',[ServiceController::class,'detele_service'])->name('service.delete');
 
 // mechanic
-Route::get('/admin/mechanic_list',[MechanicController::class,'mechanic_list'])->name('mechanic.list');
-Route::get('/admin/add_mechanic',[MechanicController::class,'add_mechanic'])->name('mechanic.add');
+Route::get('/mechanic_list',[MechanicController::class,'mechanic_list'])->name('mechanic.list');
+Route::get('/add_mechanic',[MechanicController::class,'add_mechanic'])->name('mechanic.add');
 Route::post('/store_mechanic',[MechanicController::class,'store_mechanic'])->name('mechanic.store');
 Route::get('/edit_mechanic/{id}',[MechanicController::class,'edit_mechanic'])->name('mechanic.edit');
 Route::post('/update_mechanic/{id}',[MechanicController::class,'update_mechanic'])->name('mechanic.update');
@@ -59,3 +63,6 @@ Route::get('/payment',[PaymentController::class,'payment'])->name('payment');
 
 //report
 Route::get('/report',[ReportController::class,'report'])->name('report');
+
+
+});
