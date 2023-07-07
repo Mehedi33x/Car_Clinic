@@ -17,9 +17,12 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/',[HomepageController::class,'homepage'])->name('homepage');
 
 Route::get('/admin/login',[AuthController::class,'admin_login'])->name('admin.login');
+Route::post('/admin/do_login',[AuthController::class,'admin_do_login'])->name('admin.do.login');
+route::get('/admin/logout',[AuthController::class,'admin_logout'])->name('admin.logout');
+
 Route::group(['prefix'=>'admin','middleware'=>'auth'], function(){
 
-    Route::get('/',[DashboardController::class,'dashboard'])->name('dashboard');
+Route::get('/',[DashboardController::class,'dashboard'])->name('dashboard');
 
 // user
 Route::get('/user_list',[UserController::class,'user_list'])->name('user.list');

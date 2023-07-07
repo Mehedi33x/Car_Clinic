@@ -17,7 +17,8 @@
     <!-- Style -->
     <link rel="stylesheet" href="{{url('backend/auth/css/style.css')}}">
 
-    <title>Car Clinic</title>
+    <title>Car Clinic
+    </title>
   </head>
   <body>
 
@@ -34,17 +35,17 @@
             <div class="col-md-8">
               <div class="mb-4">
               <h3>Sign In</h3>
-              {{-- <p class="mb-4">Lorem ipsum dolor sit amet elit. Sapiente sit aut eos consectetur adipisicing.</p> --}}
             </div>
-            <form action="#" method="post">
+            <form action="{{route('admin.do.login')}}" method="POST">
+                @csrf
               <div class="form-group first">
                 <label for="email">Email</label>
-                <input type="email" class="form-control" id="email">
+                <input type="email" class="form-control" name="email" id="email">
 
               </div>
               <div class="form-group last mb-4">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" id="password">
+                <input type="password" class="form-control" name="password" id="password">
 
               </div>
 
@@ -58,19 +59,6 @@
 
               <input type="submit" value="Log In" class="btn btn-block btn-primary">
 
-              <span class="d-block text-left my-4 text-muted">&mdash; or login with &mdash;</span>
-
-              <div class="social-login">
-                <a href="#" class="facebook">
-                  <span class="icon-facebook mr-3"></span>
-                </a>
-                <a href="#" class="twitter">
-                  <span class="icon-twitter mr-3"></span>
-                </a>
-                <a href="#" class="google">
-                  <span class="icon-google mr-3"></span>
-                </a>
-              </div>
             </form>
             </div>
           </div>

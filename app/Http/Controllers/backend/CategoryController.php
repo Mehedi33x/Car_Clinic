@@ -21,6 +21,7 @@ class CategoryController extends Controller
         //  dd($request->all());
         $request->validate([
             'name'=>'required',
+            'price'=>'required',
             'description'=>'required',
         ]);
 
