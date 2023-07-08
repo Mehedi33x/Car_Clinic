@@ -40,6 +40,11 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'mechanic' => [
+            'driver' => 'session',
+            'provider' => 'mechanics',
+        ],
+
     ],
 
     /*
@@ -65,6 +70,10 @@ return [
             'model' => App\Models\User::class,
         ],
 
+        'mechanics' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Mechanic::class,
+        ],
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
@@ -93,6 +102,12 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
+            'table' => 'password_reset_tokens',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'mechanics' => [
+            'provider' => 'mechanics',
             'table' => 'password_reset_tokens',
             'expire' => 60,
             'throttle' => 60,

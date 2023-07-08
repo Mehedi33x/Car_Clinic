@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\backend\AuthController;
 use App\Http\Controllers\backend\CategoryController;
+use App\Http\Controllers\backend\CustomerController;
 use App\Http\Controllers\backend\DashboardController;
 use App\Http\Controllers\backend\MechanicController;
 use App\Http\Controllers\backend\PaymentController;
@@ -18,10 +19,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/admin/login',[AuthController::class,'admin_login'])->name('admin.login');
 Route::post('/admin/do_login',[AuthController::class,'admin_do_login'])->name('admin.do.login');
-route::get('/admin/logout',[AuthController::class,'admin_logout'])->name('admin.logout');
 
-Route::group(['prefix'=>'admin','middleware'=>'auth'], function(){
 
+Route::group(['prefix'=>'admin','middleware'=>['auth','checkAdmin']], function(){
+
+Route::get('/admin/logout',[AuthController::class,'admin_logout'])->name('admin.logout');
 Route::get('/',[DashboardController::class,'dashboard'])->name('dashboard');
 
 // user
@@ -66,6 +68,9 @@ Route::get('/payment',[PaymentController::class,'payment'])->name('payment');
 
 //report
 Route::get('/report',[ReportController::class,'report'])->name('report');
+
+//customer
+Route::get('/customer_list',[CustomerController::class,'customer_list'])->name('customer.list');
 
 
 });

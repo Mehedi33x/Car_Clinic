@@ -13,7 +13,13 @@ class AuthController extends Controller
     }
 
     public function admin_do_login(Request $request){
+
         // dd($request->all());
+        $request->validate([
+            'email'=>'required|email',
+            'password'=>'required|numeric',
+
+        ]);
         // $credential=$request->only('email','password');
         $credential=$request->except('_token');
         if(Auth::attempt($credential)){

@@ -51,30 +51,36 @@
       </li>
 
       <li class="nav-item nav-category"><span class="nav-link">Maintance</span></li>
+      @if(auth()->user()->role == 'admin')
       <li class="nav-item">
-        <a class="nav-link" href="pages/charts/chartist.html">
+        <a class="nav-link" href="{{route('customer.list')}}">
           <span class="menu-title">Customer List</span>
           <i class="icon-chart menu-icon"></i>
         </a>
       </li>
+      @endif
+
       <li class="nav-item">
         <a class="nav-link" href="{{route('user.list')}}">
           <span class="menu-title">User List</span>
           <i class="icon-globe menu-icon"></i>
         </a>
       </li>
+
       <li class="nav-item">
         <a class="nav-link" href="{{route('service.list')}}">
           <span class="menu-title">Service List</span>
           <i class="icon-book-open menu-icon"></i>
         </a>
       </li>
+
       <li class="nav-item">
         <a class="nav-link" href="{{route('category')}}">
           <span class="menu-title">Car Type</span>
           <i class="icon-chart menu-icon"></i>
         </a>
       </li>
+
       <li class="nav-item">
         <a class="nav-link" href="{{route('payment')}}">
           <span class="menu-title">Payment</span>

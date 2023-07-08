@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('contact',20);
             $table->text('address');
+            $table->string('role',50)->default('mechanic');
             $table->string('status',20)->default('active');
             $table->timestamps();
         });

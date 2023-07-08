@@ -40,12 +40,12 @@
                 @csrf
               <div class="form-group first">
                 <label for="email">Email</label>
-                <input type="email" class="form-control" name="email" id="email">
+                <input type="email" class="form-control" name="email" id="email" required>
 
               </div>
               <div class="form-group last mb-4">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" name="password" id="password">
+                <input type="password" class="form-control" name="password" id="password" required>
 
               </div>
 

@@ -60,22 +60,23 @@ class MechanicController extends Controller
         $mechanic=Mechanic::findOrFail($id);
         $request->validate([
             'name'=>'required',
-            'email'=>'required',
+            'email'=>'required|email',
             'contact'=>'required',
-            'address'=>'required'
+            'address'=>'required',
+            'password'=>'required'
         ]);
 
         $mechanic_image=$mechanic->image;
         // dd(public_path('images/mechanics/'.$mechanic_image));
         if($image=$request->file('image')){
-            if(file_exists(public_path('images/mechanics/'.$mechanic_image))){
+            if(file_exists(public_path('uploads/mechanics/'.$mechanic_image))){
                 // Log::useFiles('path', 'level');
                 // File::delete($oldimage);
 
-                File::delete(public_path('images/mechanics/'.$mechanic_image));
+                File::delete(public_path('uploads/mechanics/'.$mechanic_image));
             }
             $mechanic_image= time().'-'.uniqid().'.'.$image->getClientOriginalExtension();
-            $image->move('images/mechanics/',$mechanic_image);
+            $image->move('uploads/mechanics/',$mechanic_image);
         }
 
         $mechanic->update([
@@ -94,7 +95,7 @@ class MechanicController extends Controller
    {
     $mechanic=Mechanic::findOrFail($id);
     //dd($mechanic);
-    $oldimage ='images/mechanics'.$mechanic->image;
+    $oldimage ='uploads/mechanics'.$mechanic->image;
     if(file_exists($oldimage))
     {
         // Log::useFiles('path', 'level');

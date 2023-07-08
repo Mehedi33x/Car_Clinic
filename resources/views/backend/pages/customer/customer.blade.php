@@ -1,7 +1,7 @@
 @extends('backend.master')
 @section('content')
 <div class="container mt-3">
-    <h2 style="font-size: 35px; margin-bottom:20px">User List</h2>
+    <h2 style="font-size: 35px; margin-bottom:20px">Customer List</h2>
 
     {{-- <div>
         <a class="btn btn-success" style="margin-bottom: 20px"  href="{{route('user.add')}}">Add New Customer</a>
@@ -19,14 +19,14 @@
         </thead>
         <tbody>
 
-            @foreach ( $users as $key=>$user)
+
 <tr>
-                <th scope="row">{{$key+1}}</th>
+                <th scope="row"></th>
                 {{-- var---> input --}}
-                <td>{{$user->name}}</td>
-                <td>{{$user->email}}</td>
-                <td>{{$user->contact}}</td>
-                <td>{{$user->address}}</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
                 <td>
                         {{-- <a href=""><i class="fa-solid fa-eye"></i></a>
 
@@ -47,12 +47,12 @@
                           </div>
                 </td>
             </tr>
-            @endforeach
+
 
 
         </tbody>
     </table> <br>
-    {{$users->links()}}
+
 </div>
 
 @endsection
