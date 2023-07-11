@@ -1,78 +1,48 @@
-
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="{{url('backend/auth/fonts/icomoon/style.css')}}">
-
-    <link rel="stylesheet" href="{{url('backend/auth/css/owl.carousel.min.css')}}">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{{url('backend/auth/css/bootstrap.min.css')}}">
-
-    <!-- Style -->
-    <link rel="stylesheet" href="{{url('backend/auth/css/style.css')}}">
-
-    <title>Car Clinic
-    </title>
-  </head>
-  <body>
-
-
-
-  <div class="content">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <img src="{{url('backend/auth/images/undraw_remotely_2j6y.svg')}}" alt="Image" class="img-fluid">
-        </div>
-        <div class="col-md-6 contents">
-          <div class="row justify-content-center">
-            <div class="col-md-8">
-              <div class="mb-4">
-              <h3>Sign In</h3>
-            </div>
-            <form action="{{route('admin.do.login')}}" method="POST">
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Admin Login</title>
+	<link rel="stylesheet" type="text/css" href="{{url('backend/login/css/style.css')}}">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<img class="wave" src="{{url('backend/login/img/wave.png')}}">
+	<div class="container">
+		<div class="img">
+			<img src="{{url('backend/login/img/bg.svg')}}">
+		</div>
+		<div class="login-content">
+			<form action="{{route('admin.do.login')}}" method="POST">
                 @csrf
-              <div class="form-group first">
-                <label for="email">Email</label>
-                <input type="email" class="form-control" name="email" id="email" required>
+				<img src="{{url('backend/login/img/avatar.svg')}}">
+				<h2 class="title">Sign In</h2>
+           		<div class="input-div one">
+           		   <div class="i">
+           		   		<i class="fas fa-user"></i>
+           		   </div>
+           		   <div class="div">
+           		   		<h5>Email</h5>
+           		   		<input type="email" class="input" name="email">
+           		   </div>
+           		</div>
+           		<div class="input-div pass">
+           		   <div class="i">
+           		    	<i class="fas fa-lock"></i>
+           		   </div>
+           		   <div class="div">
+           		    	<h5>Password</h5>
+           		    	<input type="password" class="input" name="password">
+            	   </div>
+            	</div>
 
-              </div>
-              <div class="form-group last mb-4">
-                <label for="password">Password</label>
-                <input type="password" class="form-control" name="password" id="password" required>
-
-              </div>
-
-              {{-- <div class="d-flex mb-5 align-items-center">
-                <label class="control control--checkbox mb-0"><span class="caption">Remember me</span>
-                  <input type="checkbox" checked="checked"/>
-                  <div class="control__indicator"></div>
-                </label>
-                <span class="ml-auto"><a href="#" class="forgot-pass">Forgot Password</a></span>
-              </div> --}}
-
-              <input type="submit" value="Log In" class="btn btn-block btn-primary">
-
+            	<div>
+                    <button type="submit" class="btn" value="Login">Login</button>
+                </div>
             </form>
-            </div>
-          </div>
-
         </div>
-
-      </div>
     </div>
-  </div>
-
-
-    <script src="{{url('backend/auth/js/jquery-3.3.1.min.js')}}"></script>
-    <script src="{{url('backend/auth/js/popper.min.js')}}"></script>
-    <script src="{{url('backend/auth/js/bootstrap.min.js')}}"></script>
-    <script src="{{url('backend/auth/js/main.js')}}"></script>
-  </body>
+    <script type="text/javascript" src="{{url('backend/login/js/main.js')}}"></script>
+</body>
 </html>

@@ -27,7 +27,7 @@
 
                 <td>{{$item->name}}</td>
                 <td>{{$item->description}}</td>
-                <td>{{$item->status}}</td>
+                <td class="text-capitalize">{{$item->status}}</td>
                 <td>
                         <div class="container">
                             <div class="dropdown">

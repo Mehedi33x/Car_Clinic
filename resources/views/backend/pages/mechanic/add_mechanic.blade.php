@@ -19,27 +19,40 @@
       @csrf
     <div class="form-group">
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
+        <input type="text" id="name" name="name" >
+        <div class="alert-danger">
+            {{$errors->first('name')}}
+        </div>
       </div>
       <div class="form-group">
         <label for="contact">Contact:</label>
-        <input type="tel" id="contact" name="contact" required>
+        <input type="tel" id="contact" name="contact" >
+        <div class="alert-danger">
+            {{$errors->first('contact')}}
+        </div>
       </div>
 
       <div class="form-group">
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
+        <input type="email" id="email" name="email" >
+        <div class="alert-danger">
+            {{$errors->first('email')}}
+        </div>
       </div>
       <div class="form-group">
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
+        <input type="password" id="password" name="password" >
+        <div class="alert-danger">
+            {{$errors->first('passowrd')}}
+        </div>
       </div>
-
-
 
       <div class="form-group">
         <label for="address">Address:</label>
-        <input type="text" id="address" name="address" required>
+        <input type="text" id="address" name="address" >
+        <div class="alert-danger">
+            {{$errors->first('address')}}
+        </div>
       </div>
 
       <div class="form-group">
@@ -48,10 +61,16 @@
           <option value="active">Active</option>
           <option value="inactive">Inactive</option>
         </select>
+        <div class="alert-danger">
+            {{$errors->first('section')}}
+        </div>
       </div>
         <div class="form-group">
              <label for="image">Image:</label>
-            <input type="file" id="image" name="image" required>
+            <input type="file" id="image" name="image" required >
+            <div class="alert-danger">
+                {{$errors->first('image')}}
+            </div>
         </div>
       <div class="form-group">
         <input type="submit" value="Submit">

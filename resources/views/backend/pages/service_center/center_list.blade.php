@@ -47,7 +47,7 @@
                               </button>
                               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item" href="#"><i class="fas fa-user"></i>Edit</a>
-                                <a class="dropdown-item" href="#"><i class="fa-solid fa-trash"></i>Delete</a>
+                                <a class="dropdown-item" href="{{route('center.delete',$item->id)}}"><i class="fa-solid fa-trash"></i>Delete</a>
                               </div>
                             </div>
                           </div>

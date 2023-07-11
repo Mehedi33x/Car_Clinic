@@ -14,6 +14,9 @@ use App\Http\Controllers\backend\UserController;
 use App\Http\Controllers\frontend\HomepageController;
 use Illuminate\Support\Facades\Route;
 
+//frontend
+Route::get('/',[HomepageController::class,'homepage'])->name('homepage');
+
 
 // Route::get('/',[HomepageController::class,'homepage'])->name('homepage');
 
@@ -35,6 +38,7 @@ Route::post('/store',[UserController::class,'store'])->name('user.store');
 Route::get('/servcie_center',[ServiceCenterController::class,'sercive_center_list'])->name('center.list');
 Route::get('/add_center',[ServiceCenterController::class,'add_sercive_center'])->name('center.add');
 Route::post('/store_center',[ServiceCenterController::class,'store_sercive_center'])->name('center.store');
+Route::get('/delete_center/{id}',[ServiceCenterController::class,'delete_sercive_center'])->name('center.delete');
 
 
 

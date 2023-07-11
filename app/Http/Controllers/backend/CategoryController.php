@@ -19,11 +19,15 @@ class CategoryController extends Controller
 
     public function store_category(Request $request){
         //  dd($request->all());
+
         $request->validate([
             'name'=>'required',
-            'price'=>'required',
             'description'=>'required',
+            'status'=>'required',
         ]);
+
+        //  dd($request->all());
+
 
         $category_image=null;
         if($request->hasFile('image')){
@@ -32,8 +36,6 @@ class CategoryController extends Controller
         $image->storeAs('/category',$category_image);
         }
 
-
-
         Category::create([
             'name'=>$request->name,
             'description'=>$request->description,
@@ -41,8 +43,6 @@ class CategoryController extends Controller
             'image'=>$category_image,
         ]);
         return to_route('category');
-
 }
-
 
 }

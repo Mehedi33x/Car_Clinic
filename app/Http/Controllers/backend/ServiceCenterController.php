@@ -34,4 +34,11 @@ class ServiceCenterController extends Controller
         ]);
         return to_route('center.list');
     }
+    public function delete_sercive_center($id){
+        $center=ServiceCenter::findOrFail($id);
+            $center->delete();
+        return to_route('center.list');
+
+    }
+
 }
