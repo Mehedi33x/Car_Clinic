@@ -8,6 +8,6 @@ use Illuminate\Http\Request;
 class HomepageController extends Controller
 {
     public function homepage(){
-        return view('frontend.master');
+        return view('frontend.pages.homepage.homepage');
     }
 }

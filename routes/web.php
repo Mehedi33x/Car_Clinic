@@ -11,22 +11,33 @@ use App\Http\Controllers\backend\ServiceCenterController;
 use App\Http\Controllers\backend\ServiceController;
 use App\Http\Controllers\backend\ServiceRequestController;
 use App\Http\Controllers\backend\UserController;
+use App\Http\Controllers\frontend\AboutController;
+use App\Http\Controllers\frontend\BookingController;
 use App\Http\Controllers\frontend\HomepageController;
+use App\Http\Controllers\frontend\ServicePageController;
 use Illuminate\Support\Facades\Route;
 
 //frontend
-Route::get('/',[HomepageController::class,'homepage'])->name('homepage');
+Route::get('/',[HomepageController::class,'homepage'])->name('homepage.webpage');
+Route::get('/booking',[BookingController::class,'booking'])->name('booking.webpage');
+Route::get('/service',[ServicePageController::class,'service_page'])->name('service.webpage');
+Route::get('/about',[AboutController::class,'about_page'])->name('about.webpage');
 
 
-// Route::get('/',[HomepageController::class,'homepage'])->name('homepage');
 
+//login
 Route::get('/admin/login',[AuthController::class,'admin_login'])->name('admin.login');
 Route::post('/admin/do_login',[AuthController::class,'admin_do_login'])->name('admin.do.login');
 
 
+
+//backend
 Route::group(['prefix'=>'admin','middleware'=>['auth','checkAdmin']], function(){
 
+//logout
 Route::get('/admin/logout',[AuthController::class,'admin_logout'])->name('admin.logout');
+
+//dashboard
 Route::get('/',[DashboardController::class,'dashboard'])->name('dashboard');
 
 // user
@@ -78,3 +89,5 @@ Route::get('/customer_list',[CustomerController::class,'customer_list'])->name('
 
 
 });
+
+
