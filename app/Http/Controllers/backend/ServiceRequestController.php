@@ -10,4 +10,5 @@ class ServiceRequestController extends Controller
     public function service_request(){
         return view('backend.pages.service_request.service_requst');
     }
+    
 }

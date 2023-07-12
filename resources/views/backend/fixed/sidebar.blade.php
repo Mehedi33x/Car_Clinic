@@ -7,8 +7,8 @@
             <div class="dot-indicator bg-success"></div>
           </div>
           <div class="text-wrapper">
-            <p class="profile-name">Allen Moreno</p>
-            <p class="designation">Administrator</p>
+            <p class="profile-name text-capitalize">{{auth()->user()->name}}</p>
+            <p class="designation text-capitalize">{{auth()->user()->role}}</p>
           </div>
           <div class="icon-container">
             <i class="icon-bubbles"></i>
@@ -77,6 +77,13 @@
       <li class="nav-item">
         <a class="nav-link" href="{{route('category')}}">
           <span class="menu-title">Car Type</span>
+          <i class="icon-chart menu-icon"></i>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="{{route('brand.list')}}">
+          <span class="menu-title">Car Brands</span>
           <i class="icon-chart menu-icon"></i>
         </a>
       </li>

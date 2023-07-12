@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\backend\AuthController;
+use App\Http\Controllers\backend\BrandController;
 use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\backend\CustomerController;
 use App\Http\Controllers\backend\DashboardController;
@@ -20,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 //frontend
 Route::get('/',[HomepageController::class,'homepage'])->name('homepage.webpage');
 Route::get('/booking',[BookingController::class,'booking'])->name('booking.webpage');
+Route::post('/booking_store',[BookingController::class,'booking_store'])->name('booking.webpage.store');
 Route::get('/service',[ServicePageController::class,'service_page'])->name('service.webpage');
 Route::get('/about',[AboutController::class,'about_page'])->name('about.webpage');
 
@@ -59,6 +61,7 @@ Route::get('/add_service',[ServiceController::class,'add_service'])->name('servi
 Route::post('/admin/store_service',[ServiceController::class,'store_service'])->name('service.store');
 Route::get('/delete_service/{id}',[ServiceController::class,'detele_service'])->name('service.delete');
 
+
 // mechanic
 Route::get('/mechanic_list',[MechanicController::class,'mechanic_list'])->name('mechanic.list');
 Route::get('/add_mechanic',[MechanicController::class,'add_mechanic'])->name('mechanic.add');
@@ -70,6 +73,11 @@ Route::get('/delete_mechanic/{id}',[MechanicController::class,'delete_mechanic']
 
 //Service Request
 Route::get('/service_request',[ServiceRequestController::class,'service_request'])->name('service.request');
+
+//Car Brand
+Route::get('/brand_list',[BrandController::class,'brand_list'])->name('brand.list');
+Route::get('/add_brand',[BrandController::class,'add_brand'])->name('add.brand');
+Route::post('/store_brand',[BrandController::class,'store_brand'])->name('store.brand');
 
 // Car Type
 Route::get('/car_type',[CategoryController::class,'category'])->name('category');
