@@ -19,12 +19,14 @@ class BookingController extends Controller
             'contact'=>'required',
             'email'=>'required|email',
             'address'=>'required',
-            'car_type'=>'required',
             'car_brand'=>'required',
+            'car_type'=>'required',
             'reg_num'=>'required',
             'service'=>'required',
-            'date'=>'required',
+            // 'date'=>'required',
         ]);
+                // dd($request->all());
+
 
         Booking::create([
             'name'=>$request->name,
@@ -35,9 +37,11 @@ class BookingController extends Controller
             'car_brand'=>$request->car_brand,
             'reg_num'=>$request->reg_num,
             'service'=>$request->service,
+            'special_request'=>$request->special_request,
             'date'=>$request->date,
 
         ]);
+        return to_route('booking.webpage');
 
     }
 }

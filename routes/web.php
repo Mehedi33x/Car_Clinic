@@ -13,12 +13,17 @@ use App\Http\Controllers\backend\ServiceController;
 use App\Http\Controllers\backend\ServiceRequestController;
 use App\Http\Controllers\backend\UserController;
 use App\Http\Controllers\frontend\AboutController;
+use App\Http\Controllers\frontend\AuthwebController;
 use App\Http\Controllers\frontend\BookingController;
 use App\Http\Controllers\frontend\HomepageController;
 use App\Http\Controllers\frontend\ServicePageController;
 use Illuminate\Support\Facades\Route;
 
 //frontend
+Route::get('/login',[AuthwebController::class,'login'])->name('login.webpage');
+Route::get('/signup',[AuthwebController::class,'signup'])->name('signup.webpage');
+Route::post('/signup_store',[AuthwebController::class,'signup_store'])->name('signup.store.webpage');
+
 Route::get('/',[HomepageController::class,'homepage'])->name('homepage.webpage');
 Route::get('/booking',[BookingController::class,'booking'])->name('booking.webpage');
 Route::post('/booking_store',[BookingController::class,'booking_store'])->name('booking.webpage.store');

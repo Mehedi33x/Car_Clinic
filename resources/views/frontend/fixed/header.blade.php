@@ -51,7 +51,7 @@
             </div>
             <a href="contact.html" class="nav-item nav-link">Contact</a>
         </div>
-        <a href="" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Login<i class="fa fa-user ms-3"></i></a>
+        <a href="{{route('login.webpage')}}" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Login<i class="fa fa-user ms-3"></i></a>
     </div>
 </nav>
 

@@ -95,14 +95,14 @@
                                 <div class="col-12 col-sm-6">
                                     <label for="date" class="text-white">Date:</label>
                                     <div class="date" id="date1" data-target-input="nearest">
-                                        <input type="text"
-                                            class="form-control border-0 datetimepicker-input" type="date" name="date"
+                                        <input type="datetime-local"
+                                            class="form-control border-0 datetimepicker-input" id="date" name="date"
                                             placeholder="Service Date" data-target="#date1" data-toggle="datetimepicker" style="height: 55px;">
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <label for="special_request" class="text-white">Special Request:</label>
-                                    <textarea class="form-control border-0" placeholder="Special Request"></textarea>
+                                    <textarea class="form-control border-0" placeholder="Special Request" name="special_request"></textarea>
                                 </div>
                                 <div class="col-12">
                                     <button class="btn btn-secondary w-100 py-3" type="submit">Book Now</button>
