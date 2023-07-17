@@ -10,7 +10,7 @@
                 <div class="col-lg-6">
                     <div class="bg-primary h-100 d-flex flex-column justify-content-center p-4 wow zoomIn" data-wow-delay="0.6s">
                         <h1 class="text-white mb-4 text-center">Login</h1>
-                        <form action="" method="POST">
+                        <form action="{{route('do.login.webpage')}}" method="POST">
                             @csrf
                             <div class="row g-3">
                                 {{-- user details --}}
@@ -18,12 +18,12 @@
 
                                 <div class="col-12 col-sm-12">
                                     <label for="email" class="text-white">Email:</label>
-                                    <input type="email" name="email" class="form-control border-0" placeholder="Your Email" style="height: 55px;">
+                                    <input type="email" name="email" class="form-control border-0" placeholder="Your Email" style="height: 55px;" required>
                                 </div>
 
                                 <div class="col-6 col-sm-12">
                                     <label for="password" class="text-white">Password:</label>
-                                    <input type="password" name="password" class="form-control border-0" placeholder="Password" style="height: 55px;">
+                                    <input type="password" name="password" class="form-control border-0" placeholder="Password" style="height: 55px;" required>
                                 </div>
 
                                 <div class="col-6 text-center" >

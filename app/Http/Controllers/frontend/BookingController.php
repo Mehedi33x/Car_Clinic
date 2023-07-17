@@ -23,7 +23,7 @@ class BookingController extends Controller
             'car_type'=>'required',
             'reg_num'=>'required',
             'service'=>'required',
-            // 'date'=>'required',
+            'date'=>'required',
         ]);
                 // dd($request->all());
 

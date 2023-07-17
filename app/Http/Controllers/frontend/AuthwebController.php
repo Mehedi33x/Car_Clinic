@@ -5,6 +5,7 @@ namespace App\Http\Controllers\frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AuthwebController extends Controller
 {
@@ -31,5 +32,21 @@ class AuthwebController extends Controller
         ]);
         return to_route('homepage.webpage');
     }
+
+    public function do_login(Request $request){
+        // dd($request->all());
+
+        $credentials=$request->except('_token');
+        // dd($credentials);
+
+        if( auth()->guard('customers')->attempt($credentials)){
+            return view('frontend.pages.homepage.homepage');
+        }
+        else{
+            return view('frontend.pages.auth.login');
+        }
+
+    }
+
 
 }

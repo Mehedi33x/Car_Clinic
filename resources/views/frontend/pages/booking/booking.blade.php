@@ -82,8 +82,8 @@
                                 </div>
 
                                 <div class="col-12 col-sm-6">
-                                    <label for="sevrce" class="text-white">Service:</label>
-                                    <select class="form-select border-0" name="service" style="height: 55px;">
+                                    <label for="sevrce" class="text-white ">Service:</label>
+                                    <select class="form-select border-0 selectpiker" multiple name="service" style="height: 55px;"  >
                                         <option value="">Select A Service</option>
                                         @foreach ($service as $item )
                                         <option value="{{$item->name}}">{{$item->name}}</option>
@@ -92,12 +92,12 @@
 
                                     </select>
                                 </div>
-                                <div class="col-12 col-sm-6">
+                                <div class="col-12 col-sm-8">
                                     <label for="date" class="text-white">Date:</label>
                                     <div class="date" id="date1" data-target-input="nearest">
                                         <input type="datetime-local"
                                             class="form-control border-0 datetimepicker-input" id="date" name="date"
-                                            placeholder="Service Date" data-target="#date1" data-toggle="datetimepicker" style="height: 55px;">
+                                            placeholder="Service Date" data-target="#date1"  style="height: 55px;">
                                     </div>
                                 </div>
                                 <div class="col-12">
@@ -115,6 +115,6 @@
         </div>
     </div>
 </div>
-
-
 @endsection
+
+

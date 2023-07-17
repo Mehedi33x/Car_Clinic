@@ -185,6 +185,5 @@ return [
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 
-    // 'date_format'=> 'd M Y'
-
+    
 ];

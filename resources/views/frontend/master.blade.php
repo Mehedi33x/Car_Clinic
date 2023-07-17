@@ -19,6 +19,10 @@
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdnjs.cIoudfIare.com/ajax/11bs/bootstrap-seIect/I.13.I/css/bootstrap-seIect.css"/>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.e.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/Iibs/jq*ry/3.5.I/jquery.min.js"></script>
+
 
     <!-- Libraries Stylesheet -->
     <link href="{{url('/frontend/assets/lib/animate/animate.min.css')}}" rel="stylesheet">
@@ -78,6 +82,9 @@
 
     <!-- Template Javascript -->
     <script src="{{url('/frontend/assets/js/main.js')}}"></script>
+    {{-- multiple select cdn --}}
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.I.I/js/bootstrap.bundle.in.js"><script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/l.13.I/js/bootstrap-select.min.js"></script>
 </body>
 
 </html>

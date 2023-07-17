@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 
 //frontend
 Route::get('/login',[AuthwebController::class,'login'])->name('login.webpage');
+Route::post('/do_login',[AuthwebController::class,'do_login'])->name('do.login.webpage');
 Route::get('/signup',[AuthwebController::class,'signup'])->name('signup.webpage');
 Route::post('/signup_store',[AuthwebController::class,'signup_store'])->name('signup.store.webpage');
 

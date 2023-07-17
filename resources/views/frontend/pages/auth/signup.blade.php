@@ -17,17 +17,17 @@
                                 <h6 class="text-white mb-1 text-center"></h6>
                                 <div class="col-6 col-sm-12">
                                     <label for="name" class="text-white">Name:</label>
-                                    <input type="text" name="name" class="form-control border-0" placeholder="Your Name" style="height: 55px;">
+                                    <input type="text" name="name" class="form-control border-0" placeholder="Your Name" style="height: 55px;" required>
                                 </div>
 
                                 <div class="col-12 col-sm-12">
                                     <label for="email" class="text-white">Email:</label>
-                                    <input type="email" name="email" class="form-control border-0" placeholder="Your Email" style="height: 55px;">
+                                    <input type="email" name="email" class="form-control border-0" placeholder="Your Email" style="height: 55px;" required>
                                 </div>
 
                                 <div class="col-6 col-sm-12">
                                     <label for="password" class="text-white">Password:</label>
-                                    <input type="password" name="password" class="form-control border-0" placeholder="Password" style="height: 55px;">
+                                    <input type="password" name="password" class="form-control border-0" placeholder="Password" style="height: 55px;" required>
                                 </div>
 
                                 <div class="col-6 text-center" >
