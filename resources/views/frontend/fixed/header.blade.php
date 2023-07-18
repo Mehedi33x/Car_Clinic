@@ -51,7 +51,16 @@
             </div>
             <a href="contact.html" class="nav-item nav-link">Contact</a>
         </div>
+        @if(Auth::guard('customers')->check())
+        <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle btn btn-primary py-4 px-lg-5 d-none d-lg-block" data-bs-toggle="dropdown">{{auth("customers")->user()->name}}</a>
+            <div class="dropdown-menu fade-up m-0">
+                <a href="{{route('logout.webpage')}}" class="dropdown-item">Logout</a>
+            </div>
+        </div>
+        @else
         <a href="{{route('login.webpage')}}" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Login<i class="fa fa-user ms-3"></i></a>
+        @endif
     </div>
 </nav>
 

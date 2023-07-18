@@ -12,21 +12,33 @@
         <thead class="table-dark">
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Service Name</th>
-                <th scope="col">Description</th>
-                <th scope="col">Service Cost</th>
-                <th scope="col">Status</th>
-                <th scope="col">Action</th>
+                <th scope="col">Customer Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Contact</th>
+                <th scope="col">Address</th>
+                <th scope="col">Car Brand</th>
+                <th scope="col">Car Type</th>
+                <th scope="col">Car Registration Number</th>
+                <th scope="col">Serives</th>
+                <th scope="col">Special Request</th>
+                <th scope="col">Date</th>
             </tr>
         </thead>
         <tbody>
+            @foreach ( $bookings as $key=>$item )
             <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>dxvd</td>
-                <td>dxvd</td>
-                <td>dxvd</td>
+                <th scope="row">{{$bookings->firstitem()+$key}}</th>
+                <td>{{$item->name}}</td>
+                <td>{{$item->email}}</td>
+                <td>{{$item->contact}}</td>
+                <td>{{$item->address}}</td>
+                <td>{{$item->car_brand}}</td>
+                <td>{{$item->car_type}}</td>
+                <td>{{$item->reg_num}}</td>
+                <td>{{$item->service}}</td>
+                <td>{{$item->special_request}}</td>
+                <td>{{$item->date}}</td>
+
                 <td>
                         <div class="container">
                             <div class="dropdown">
@@ -41,9 +53,12 @@
                           </div>
                 </td>
             </tr>
+            @endforeach
 
         </tbody>
     </table>
+{{$bookings->links()}}
+
 </div>
 
 

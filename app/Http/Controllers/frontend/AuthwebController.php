@@ -40,12 +40,18 @@ class AuthwebController extends Controller
         // dd($credentials);
 
         if( auth()->guard('customers')->attempt($credentials)){
-            return view('frontend.pages.homepage.homepage');
+            // dd(auth()->guard('customers')->user());
+            return to_route('homepage.webpage');
         }
         else{
-            return view('frontend.pages.auth.login');
+            return to_route('login.webpage');
         }
 
+    }
+
+    public function logout(){
+        Auth::guard('customers')->logout();
+        return to_route('homepage.webpage');
     }
 
 

@@ -83,7 +83,7 @@
 
                                 <div class="col-12 col-sm-6">
                                     <label for="sevrce" class="text-white ">Service:</label>
-                                    <select class="form-select border-0 selectpiker" multiple name="service" style="height: 55px;"  >
+                                    <select class="form-select border-0 selectpiker"name="service" style="height: 55px;">
                                         <option value="">Select A Service</option>
                                         @foreach ($service as $item )
                                         <option value="{{$item->name}}">{{$item->name}}</option>
@@ -92,14 +92,22 @@
 
                                     </select>
                                 </div>
-                                <div class="col-12 col-sm-8">
+                                {{-- <div class="col-12 col-sm-8">
                                     <label for="date" class="text-white">Date:</label>
                                     <div class="date" id="date1" data-target-input="nearest">
-                                        <input type="datetime-local"
+                                        <input type="date"
                                             class="form-control border-0 datetimepicker-input" id="date" name="date"
                                             placeholder="Service Date" data-target="#date1"  style="height: 55px;">
                                     </div>
+                                </div> --}}
+                                <div class="col-12 col-sm-8">
+                                    <label for="date" class="text-white">Date:</label>
+                                    <div class="date">
+                                        <input type="date" class="form-control border-0" name="date"
+                                        placeholder="Service Date" style="height: 55px;" >
+                                    </div>
                                 </div>
+
                                 <div class="col-12">
                                     <label for="special_request" class="text-white">Special Request:</label>
                                     <textarea class="form-control border-0" placeholder="Special Request" name="special_request"></textarea>

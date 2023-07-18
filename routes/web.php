@@ -24,6 +24,7 @@ Route::get('/login',[AuthwebController::class,'login'])->name('login.webpage');
 Route::post('/do_login',[AuthwebController::class,'do_login'])->name('do.login.webpage');
 Route::get('/signup',[AuthwebController::class,'signup'])->name('signup.webpage');
 Route::post('/signup_store',[AuthwebController::class,'signup_store'])->name('signup.store.webpage');
+Route::get('/logout',[AuthwebController::class,'logout'])->name('logout.webpage');
 
 Route::get('/',[HomepageController::class,'homepage'])->name('homepage.webpage');
 Route::get('/booking',[BookingController::class,'booking'])->name('booking.webpage');
@@ -78,7 +79,7 @@ Route::get('/delete_mechanic/{id}',[MechanicController::class,'delete_mechanic']
 
 
 //Service Request
-Route::get('/service_request',[ServiceRequestController::class,'service_request'])->name('service.request');
+Route::get('/service_request',[BookingController::class,'service_request'])->name('service.request');
 
 //Car Brand
 Route::get('/brand_list',[BrandController::class,'brand_list'])->name('brand.list');

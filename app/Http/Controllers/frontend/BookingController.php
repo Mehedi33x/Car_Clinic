@@ -9,6 +9,12 @@ use Illuminate\Http\Request;
 
 class BookingController extends Controller
 {
+    //Backend
+    public function service_request(){
+        $bookings=Booking::paginate(5);
+        return view('backend.pages.service_request.service_requst',compact('bookings'));
+    }
+    //frontend
     public function booking(){
         return view('frontend.pages.booking.booking');
     }
