@@ -1,7 +1,7 @@
 @extends('backend.master')
 @section('content')
 
-<div class="container mt-3">
+<div class="mt-3 ml-3 mr-3">
     <h2 style="font-size: 35px; margin-bottom:20px">Car Brand List</h2>
     <div>
         <a href="{{route('add.brand')}}" class="btn btn-success" style="margin-bottom: 20px">+ Car Brand</a>

@@ -1,7 +1,7 @@
 @extends('backend.master')
 @section('content')
 
-<div class="container mt-3">
+<div class="mt-3 ml-3 mr-3">
     <h2 style="font-size: 35px; margin-bottom:20px">Payment List</h2>
     <div>
         {{-- <a href="" class="btn btn-success" style="margin-bottom: 20px">+ Service Request</a> --}}

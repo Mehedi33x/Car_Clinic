@@ -19,9 +19,9 @@ return new class extends Migration
             $table->text('address');
             $table->string('car_brand',20);
             $table->string('car_type',20);
-            $table->bigInteger('reg_num');
+            $table->string('reg_num');
             $table->string('service',100);
-            $table->text('special_request',100);
+            $table->text('special_request',100)->nullable();
             $table->dateTime('date');
             $table->timestamps();
         });

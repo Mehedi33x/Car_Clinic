@@ -29,8 +29,6 @@ class MechanicController extends Controller
             'password'=>'required',
             'contact'=>'required',
             'address'=>'required',
-            'status'=>'required',
-
         ]);
 
         $mechanic_image='';
@@ -47,9 +45,8 @@ class MechanicController extends Controller
         'password'=>bcrypt($request->password),
         'contact'=>$request->contact,
         'address'=>$request->address,
-        'status'=>$request->status
     ]);
-    return to_route('mechanic.list');
+    return to_route('mechanic.list')->with('message','Mechanic added successfully!!');
     }
 
 
@@ -104,7 +101,7 @@ class MechanicController extends Controller
         File::delete($oldimage);
     }
      $mechanic->delete();
-     return to_route('mechanic.list');
+     return to_route('mechanic.list')->with('message','Mechanic deleted successfully');
 
    }
 

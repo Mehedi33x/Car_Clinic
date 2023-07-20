@@ -36,7 +36,7 @@
                                 <h6 class="text-white mb-1 text-center">User Details</h6>
                                 <div class="col-6 col-sm-10">
                                     <label for="name" class="text-white">Name:</label>
-                                    <input type="text" name="name" class="form-control border-0" placeholder="Your Name" style="height: 55px;">
+                                    <input type="text" name="name" class="form-control border-0" placeholder="Your Name" style="height: 55px;" value="{{auth("customers")->user()->name}}">
                                 </div>
                                 <div class="col-6 col-sm-10">
                                     <label for="contact" class="text-white">Contact:</label>
@@ -44,7 +44,7 @@
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     <label for="email" class="text-white">Email:</label>
-                                    <input type="email" name="email" class="form-control border-0" placeholder="Your Email" style="height: 55px;">
+                                    <input type="email" name="email" class="form-control border-0" placeholder="Your Email" style="height: 55px;" value="{{auth("customers")->user()->email}}">
                                 </div>
                                 <div class="col-6 col-sm-10">
                                     <label for="address" class="text-white">Address:</label>

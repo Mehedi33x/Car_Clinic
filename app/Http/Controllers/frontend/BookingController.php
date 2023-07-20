@@ -4,6 +4,7 @@ namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Booking;
+use App\Models\Mechanic;
 use App\Models\ServiceRequest;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,8 @@ class BookingController extends Controller
     //Backend
     public function service_request(){
         $bookings=Booking::paginate(5);
-        return view('backend.pages.service_request.service_requst',compact('bookings'));
+        $mechanic=Mechanic::all();
+        return view('backend.pages.service_request.service_requst',compact(['bookings','mechanic']));
     }
     //frontend
     public function booking(){

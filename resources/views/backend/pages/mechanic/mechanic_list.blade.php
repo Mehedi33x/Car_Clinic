@@ -1,7 +1,12 @@
 @extends('backend.master')
 @section('content')
 
-<div class="container mt-3">
+<div class="container">
+    @if(session()->has('message'))
+    <p class="alert alert-success" style="font-size: 25px">{{session()->get('message')}}</p>
+    @endif
+</div>
+<div class="mt-3 ml-3 mr-3">
     <h2 style="font-size: 35px; margin-bottom:20px;">Mechanic List</h2>
     <div>
         <a href="{{route('mechanic.add')}}">

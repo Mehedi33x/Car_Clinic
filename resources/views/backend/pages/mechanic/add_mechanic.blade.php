@@ -55,16 +55,7 @@
         </div>
       </div>
 
-      <div class="form-group">
-        <label for="status">Working Status:</label>
-        <select id="status" name="status" required>
-          <option value="active">Active</option>
-          <option value="inactive">Inactive</option>
-        </select>
-        <div class="alert-danger">
-            {{$errors->first('section')}}
-        </div>
-      </div>
+      
         <div class="form-group">
              <label for="image">Image:</label>
             <input type="file" id="image" name="image" required >

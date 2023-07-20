@@ -1,7 +1,7 @@
 @extends('backend.master')
 @section('content')
 
-<div class="container mt-3">
+<div class="mt-3 ml-3 mr-3">
     <h2 style="font-size: 35px; margin-bottom:20px">Service Request List</h2>
     <div>
         <a href="">
@@ -13,15 +13,13 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Customer Name</th>
-                <th scope="col">Email</th>
-                <th scope="col">Contact</th>
                 <th scope="col">Address</th>
-                <th scope="col">Car Brand</th>
                 <th scope="col">Car Type</th>
-                <th scope="col">Car Registration Number</th>
                 <th scope="col">Serives</th>
-                <th scope="col">Special Request</th>
                 <th scope="col">Date</th>
+                <th scope="col">Assign To</th>
+                <th scope="col">Action</th>
+
             </tr>
         </thead>
         <tbody>
@@ -29,15 +27,20 @@
             <tr>
                 <th scope="row">{{$bookings->firstitem()+$key}}</th>
                 <td>{{$item->name}}</td>
-                <td>{{$item->email}}</td>
-                <td>{{$item->contact}}</td>
                 <td>{{$item->address}}</td>
-                <td>{{$item->car_brand}}</td>
                 <td>{{$item->car_type}}</td>
-                <td>{{$item->reg_num}}</td>
                 <td>{{$item->service}}</td>
-                <td>{{$item->special_request}}</td>
                 <td>{{$item->date}}</td>
+                <td>
+                    <select id="mechanic" name="mechanic" required>
+                        <option value="">Select Mechanic</option>
+                        @foreach ($mechanic as $item )
+
+                        <option value="active">{{$item->name}}</option>
+                        @endforeach
+
+                      </select>
+                </td>
 
                 <td>
                         <div class="container">
@@ -46,6 +49,7 @@
                                 Action
                               </button>
                               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#"><i class="fas fa-eye"></i>View</a>
                                 <a class="dropdown-item" href="#"><i class="fas fa-edit"></i>Edit</a>
                                 <a class="dropdown-item" href="#" onclick="return confirm('Are you sure to Delete?')"><i class="fa-solid fa-trash"></i>Delete</a>
                               </div>
@@ -56,7 +60,7 @@
             @endforeach
 
         </tbody>
-    </table>
+    </table> <br>
 {{$bookings->links()}}
 
 </div>

@@ -1,6 +1,6 @@
 @extends('backend.master')
 @section('content')
-<div class="container mt-3">
+<div class="mt-3 ml-3 mr-3">
     <h2 style="font-size: 35px; margin-bottom:20px">Customer List</h2>
 
     {{-- <div>
@@ -28,12 +28,6 @@
                 <td></td>
                 <td></td>
                 <td>
-                        {{-- <a href=""><i class="fa-solid fa-eye"></i></a>
-
-                        <a href=""><i class="fa-solid fa-pen-to-square"></i></a>
-
-                        <a href="" onclick="return confirm('Are you sure to Delete?')"><i class="fa-solid fa-trash-can"></i></a> --}}
-
                         <div class="container">
                             <div class="dropdown">
                               <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
