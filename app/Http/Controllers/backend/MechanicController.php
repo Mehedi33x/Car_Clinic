@@ -46,7 +46,7 @@ class MechanicController extends Controller
         'contact'=>$request->contact,
         'address'=>$request->address,
     ]);
-    return to_route('mechanic.list')->with('message','Mechanic added successfully!!');
+    return to_route('mechanic.list');
     }
 
 
@@ -101,7 +101,9 @@ class MechanicController extends Controller
         File::delete($oldimage);
     }
      $mechanic->delete();
-     return to_route('mechanic.list')->with('message','Mechanic deleted successfully');
+     notify()->success('Laravel Notify is awesome!');
+     return to_route('mechanic.list');
+    //  return to_route('mechanic.list')->with('message','Mechanic deleted successfully');
 
    }
 

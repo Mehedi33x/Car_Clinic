@@ -58,7 +58,6 @@
 
     @yield('content')
 
-
     <!-- Footer Start -->
     @include('frontend.fixed.footer')
     <!-- Footer End -->

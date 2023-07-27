@@ -98,6 +98,7 @@ Route::get('/payment',[PaymentController::class,'payment'])->name('payment');
 
 //report
 Route::get('/report',[ReportController::class,'report'])->name('report');
+Route::get('/report_show',[ReportController::class,'report_show'])->name('report.show');
 
 //customer
 Route::get('/customer_list',[CustomerController::class,'customer_list'])->name('customer.list');

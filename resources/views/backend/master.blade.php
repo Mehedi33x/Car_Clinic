@@ -8,7 +8,7 @@
     <title>CarClinic</title>
     <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <!-- plugins:css -->
     <link rel="stylesheet" href="{{url('backend/assets/vendors/simple-line-icons/css/simple-line-icons.css')}}">
     <link rel="stylesheet" href="{{url('backend/assets/vendors/flag-icon-css/css/flag-icon.min.css')}}">
@@ -24,6 +24,10 @@
     <link rel="stylesheet" href="{{url('backend/assets/css/style.css')}}">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="{{url('backend/assets/images/favicon.png')}}" />
+    {{-- @notifyCss --}}
+    {{-- <style>
+        .notify{margin-top: 50px; z-index: 999999999;}
+    </style> --}}
   </head>
   <body>
 
@@ -45,6 +49,7 @@
 
         <div class="main-panel">
           @yield('content')
+          {{-- @include('notify::components.notify') --}}
           <!-- content-wrapper ends -->
 
 
@@ -77,5 +82,6 @@
     <!-- Custom js for this page -->
     <script src="{{url('backend/assets/js/dashboard.js')}}"></script>
     <!-- End custom js for this page -->
+    {{-- @notifyJs --}}
   </body>
 </html>

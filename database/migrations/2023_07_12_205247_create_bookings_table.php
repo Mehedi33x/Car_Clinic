@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('car_brand',20);
             $table->string('car_type',20);
             $table->string('reg_num');
-            $table->string('service',100);
             $table->text('special_request',100)->nullable();
+            $table->string('status',20)->default('active');
             $table->dateTime('date');
             $table->timestamps();
         });
