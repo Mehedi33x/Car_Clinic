@@ -32,12 +32,12 @@ class ServiceCenterController extends Controller
             'email'=>$request->email,
             'address'=>$request->address,
         ]);
-        return to_route('center.list');
+        return to_route('center.list')->with('message','Data added successfully!!!');
     }
     public function delete_sercive_center($id){
         $center=ServiceCenter::findOrFail($id);
             $center->delete();
-        return to_route('center.list');
+        return to_route('center.list')->with('message','Data deleted successfully!!!');
 
     }
 

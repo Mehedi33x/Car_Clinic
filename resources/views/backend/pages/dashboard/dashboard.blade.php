@@ -1,6 +1,10 @@
 @extends('backend.master')
 @section('content')
-
+<div>
+    @if(session()->has('message'))
+    <p class="alert alert-success" style="font-size: 25px;text-align:center">{{session()->get('message')}}</p>
+    @endif
+</div>
 <div class="row">
     <div class="col-md-12 grid-margin">
       <div class="card">

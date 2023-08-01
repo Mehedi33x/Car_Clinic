@@ -1,6 +1,10 @@
 @extends('backend.master')
 @section('content')
-
+<div>
+    @if(session()->has('message'))
+    <p class="alert alert-success" style="font-size: 25px;text-align:center">{{session()->get('message')}}</p>
+    @endif
+</div>
 <div class="mt-3 ml-3 mr-3">
     <h2 style="font-size: 35px; margin-bottom:20px">Car Brand List</h2>
     <div>
@@ -36,8 +40,8 @@
                                 Action
                               </button>
                               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#"><i class="fas fa-edit"></i>Edit</a>
-                                <a class="dropdown-item" href="#" onclick="return confirm('Are you sure to Delete?')"><i class="fa-solid fa-trash"></i>Delete</a>
+                                <a class="dropdown-item" href="{{route('edit.brand',$item->id)}}"><i class="fas fa-edit"></i>Edit</a>
+                                <a class="dropdown-item" href="{{route('brand.delete',$item->id)}}" onclick="return confirm('Are you sure to Delete?')"><i class="fa-solid fa-trash"></i>Delete</a>
                               </div>
                             </div>
                           </div>

@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Form Example</title>
+  <title></title>
   <link rel="stylesheet" href="/backend/assets/css/add_form.css">
 </head>
 <body>
@@ -41,7 +41,6 @@
         <select id="status" value="{{$mechanic->status}}" name="status" required>
           <option value="active">Active</option>
           <option value="inactive">Inactive</option>
-
         </select>
       </div>
         <div class="form-group">

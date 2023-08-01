@@ -33,7 +33,7 @@ class BookingController extends Controller
             'service'=>'required',
             'date'=>'required',
         ]);
-                // dd($request->all());
+                //  dd($request->all());
 
 
         Booking::create([

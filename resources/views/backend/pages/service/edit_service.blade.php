@@ -1,11 +1,14 @@
 @extends('backend.master')
 @section('content')
+
 <!DOCTYPE html>
 <html>
 <head>
-  <title></title>
+  <title>Form Example</title>
   {{-- <link rel="stylesheet" href="/backend/assets/css/add_form.css"> --}}
   <style>
+
+    /* CSS styles for the form */
     body {
       font-family: Arial, sans-serif;
       background-color: #f1f1f1;
@@ -39,9 +42,7 @@
 
 
     input[type="text"],
-    input[type="file"],
-    input[type="text"],
-
+    input[type="number"],
 
     select {
       width: 100%;
@@ -72,25 +73,35 @@
 
   <div class="container">
 
-    <h2>Enter Car Information</h2>
+    <h2>Enter Your Information</h2>
 
-    <form action="{{route('store.brand')}}" method="POST" enctype="multipart/form-data">
-      @csrf
-    <div class="form-group">
-        <label for="name">Brand Name:</label>
-        <input type="text" id="name" name="name" required>
+    <form action="{{route('service.update',$service->id)}}" method="POST" enctype="multipart/form-data">
+        @csrf
+      <div class="form-group">
+        <label for="name">Service Name:</label>
+        <input type="text" id="name" name="name" value="{{$service->name}}" required>
       </div>
 
       <div class="form-group">
         <label for="description">Description:</label>
-        {{-- <input type="text" id="description" name="description" required> --}}
-        <textarea name="description" id="description" cols="40" rows="10"></textarea>
+        <textarea type="text" name="description" id="" cols="40" rows="10" >{{$service->description}}</textarea>
       </div>
-
-        <div class="form-group">
-             <label for="image">Image:</label>
-            <input type="file" id="image" name="image" >
-        </div>
+      <div class="form-group">
+        <label for="cost">Service Cost:</label>
+        <input type="number" min="1" name="cost" value="{{$service->cost}}" required>
+      </div>
+      <div class="form-group">
+        <label for="status">Service Status:</label>
+        <select id="status" name="status" value="{{$service->status}}" required>
+          <option value="active">Active</option>
+          <option value="inactive">Inactive</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="image">Image:</label>
+        <img style="height:80px;width=80px;" class="mb-3" src="{{url('uploads/service/'.$service->image)}}" alt="">
+       <input type="file" id="image" name="image">
+    </div>
       <div class="form-group">
         <input type="submit" value="Submit">
       </div>
@@ -98,9 +109,6 @@
     </form>
 
   </div>
-
 </body>
 </html>
-
-
 @endsection

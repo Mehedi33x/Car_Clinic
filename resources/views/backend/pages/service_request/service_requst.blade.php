@@ -29,16 +29,19 @@
                 <td>{{$item->name}}</td>
                 <td>{{$item->address}}</td>
                 <td>{{$item->car_type}}</td>
-                <td>{{$item->service}}</td>
+                {{-- @dd($item) --}}
+                <td>
+                    @foreach($item->service as $data)
+                    <p>{{$data}}</p>
+                    @endforeach
+                </td>
                 <td>{{$item->date}}</td>
                 <td>
                     <select id="mechanic" name="mechanic" required>
                         <option value="">Select Mechanic</option>
                         @foreach ($mechanic as $item )
-
                         <option value="active">{{$item->name}}</option>
                         @endforeach
-
                       </select>
                 </td>
 

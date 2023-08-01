@@ -46,7 +46,7 @@ class MechanicController extends Controller
         'contact'=>$request->contact,
         'address'=>$request->address,
     ]);
-    return to_route('mechanic.list');
+    return to_route('mechanic.list')->with('message','Data added successfully!!!');
     }
 
 
@@ -102,8 +102,8 @@ class MechanicController extends Controller
     }
      $mechanic->delete();
      notify()->success('Laravel Notify is awesome!');
-     return to_route('mechanic.list');
-    //  return to_route('mechanic.list')->with('message','Mechanic deleted successfully');
+    //  return to_route('mechanic.list');
+     return to_route('mechanic.list')->with('message','Data deleted successfully');
 
    }
 

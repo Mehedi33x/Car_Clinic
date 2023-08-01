@@ -8,6 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+  
 	<img class="wave" src="{{url('backend/login/img/wave.png')}}">
 	<div class="container">
 		<div class="img">

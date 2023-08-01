@@ -1,7 +1,13 @@
 @extends('backend.master')
 @section('content')
 
+<div>
+    @if(session()->has('message'))
+    <p class="alert alert-success" style="font-size: 25px;text-align:center">{{session()->get('message')}}</p>
+    @endif
+</div>
 <div class="mt-3 ml-3 mr-3">
+
     <h2 style="font-size: 35px; margin-bottom:20px">Service Center List</h2>
 
     <div>

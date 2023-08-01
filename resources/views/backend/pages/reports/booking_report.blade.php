@@ -31,8 +31,8 @@
                 <tr>
                     <th scope="col">Id</th>
                     <th scope="col">Customer Name</th>
-                    <th scope="col">Booking Email</th>
-                    <th scope="col">Booking Phone</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone</th>
                     <th scope="col">Car Name</th>
                     <th scope="col">Car Registration No.</th>
                     <th scope="col">Service Name</th>
@@ -52,7 +52,11 @@
                     <td>{{$item->contact}}</td>
                     <td>{{$item->car_brand}}</td>
                     <td>{{$item->reg_num}}</td>
-                    <td>{{$item->service}}</td>
+                    <td>
+                        @foreach ( $item->service as $data )
+                        <p>{{$data}}</p>
+                        @endforeach
+                    </td>
                     <td>{{$item->address}}</td>
                     <td class="text-capitalize">{{$item->status}}</td>
                 </tr>

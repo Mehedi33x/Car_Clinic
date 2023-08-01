@@ -66,6 +66,8 @@ Route::get('/delete_center/{id}',[ServiceCenterController::class,'delete_sercive
 Route::get('/service_list',[ServiceController::class,'service'])->name('service.list');
 Route::get('/add_service',[ServiceController::class,'add_service'])->name('service.add');
 Route::post('/admin/store_service',[ServiceController::class,'store_service'])->name('service.store');
+Route::get('/edit_service/{id}',[ServiceController::class,'edit_service'])->name('service.edit');
+Route::post('/update_service/{id}',[ServiceController::class,'update_service'])->name('service.update');
 Route::get('/delete_service/{id}',[ServiceController::class,'detele_service'])->name('service.delete');
 
 
@@ -81,10 +83,16 @@ Route::get('/delete_mechanic/{id}',[MechanicController::class,'delete_mechanic']
 //Service Request
 Route::get('/service_request',[BookingController::class,'service_request'])->name('service.request');
 
+
 //Car Brand
 Route::get('/brand_list',[BrandController::class,'brand_list'])->name('brand.list');
 Route::get('/add_brand',[BrandController::class,'add_brand'])->name('add.brand');
 Route::post('/store_brand',[BrandController::class,'store_brand'])->name('store.brand');
+Route::get('/edit_brand/{id}',[BrandController::class,'edit_brand'])->name('edit.brand');
+Route::post('/update_brand/{id}',[BrandController::class,'update_brand'])->name('update.brand');
+Route::get('/brand_delete/{id}',[BrandController::class,'brand_delete'])->name('brand.delete');
+
+
 
 // Car Type
 Route::get('/car_type',[CategoryController::class,'category'])->name('category');

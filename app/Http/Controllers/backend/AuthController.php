@@ -23,12 +23,12 @@ class AuthController extends Controller
         // $credential=$request->only('email','password');
         $credential=$request->except('_token');
         if(Auth::attempt($credential)){
-            return to_route('dashboard');
+            return to_route('dashboard')->with('message','User login successfully!!!');
         }
-        return to_route('admin.login');
+        return to_route('admin.login')->with('message','Invalid User Information!!!');
     }
     public function admin_logout(){
         Auth::logout();
-        return to_route('admin.login');
+        return to_route('admin.login')->with('message','User logout successfully!!!');
     }
 }

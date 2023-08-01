@@ -1,6 +1,10 @@
 @extends('backend.master')
 @section('content')
-
+<div class="container">
+    @if(session()->has('message'))
+    <p class="alert alert-success" style="font-size: 25px;text-align:center">{{session()->get('message')}}</p>
+    @endif
+</div>
 <div class="mt-3 ml-3 mr-3">
     <h2 style="font-size: 35px; margin-bottom:20px">Service List</h2>
     <div>
@@ -38,7 +42,7 @@
                                 Action
                               </button>
                               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#"><i class="fas fa-user"></i>Edit</a>
+                                <a class="dropdown-item" href="{{route('service.edit',$item->id)}}"><i class="fas fa-user"></i>Edit</a>
                                 <a class="dropdown-item" href="{{route('service.delete',$item->id)}}" onclick="return confirm('Are you sure to Delete?')" ><i class="fa-solid fa-trash"></i>Delete</a>
                               </div>
                             </div>

@@ -3,7 +3,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title></title>
   {{-- <link rel="stylesheet" href="/backend/assets/css/add_form.css"> --}}
   <style>
     body {
@@ -73,22 +72,32 @@
   <div class="container">
 
     <h2>Enter Car Information</h2>
-
-    <form action="{{route('store.brand')}}" method="POST" enctype="multipart/form-data">
+    {{-- @dd($brand) --}}
+    <form action="{{route('update.brand',$brand->id)}}" method="POST" enctype="multipart/form-data">
       @csrf
     <div class="form-group">
         <label for="name">Brand Name:</label>
-        <input type="text" id="name" name="name" required>
+        <input type="text" value="{{$brand->name}}" id="name" name="name" required>
       </div>
 
       <div class="form-group">
         <label for="description">Description:</label>
         {{-- <input type="text" id="description" name="description" required> --}}
-        <textarea name="description" id="description" cols="40" rows="10"></textarea>
+        <textarea name="description" id="description" cols="40" rows="10">{{$brand->description}}</textarea>
+      </div>
+      <div class="form-group">
+        <label for="status">Brand Status:</label>
+        <select id="status" value="{{$brand->status}}" name="status" required>
+          <option value="active">Active</option>
+          <option value="inactive">Inactive</option>
+        </select>
       </div>
 
         <div class="form-group">
              <label for="image">Image:</label>
+             <td>
+                <img style="width: 100px;height:120px" src="{{url('/uploads/brand',$brand->image)}}" alt="" srcset="">
+             </td>
             <input type="file" id="image" name="image" >
         </div>
       <div class="form-group">
