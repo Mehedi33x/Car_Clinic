@@ -41,10 +41,10 @@ class AuthwebController extends Controller
 
         if( auth()->guard('customers')->attempt($credentials)){
             // dd(auth()->guard('customers')->user());
-            return to_route('homepage.webpage');
+            return to_route('homepage.webpage')->with('message','Login Succesfully');
         }
         else{
-            return to_route('login.webpage');
+            return to_route('login.webpage')->with('message','Invalid Information');
         }
 
     }

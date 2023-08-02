@@ -1,6 +1,12 @@
 @extends('backend.master')
 @section('content')
+
 <div class="mt-2 ml-4 mr-4">
+    {{-- <div>
+        @if(session()->has('message'))
+        <p class="alert alert-success" style="font-size: 25px;text-align:center">{{session()->get('message')}}</p>
+        @endif
+    </div> --}}
     <h1 style="font-size: 50px">Booking Report</h1>
     <br>
     <form action="{{route('report.show')}}" method="get">

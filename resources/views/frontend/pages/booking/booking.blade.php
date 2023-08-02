@@ -93,7 +93,7 @@
 
                                     <div class="col-12 col-sm-6">
                                         <label for="sevrce" class="text-white ">Service:</label>
-                                        <select class="form-select border-0 selectpiker"name="service[]" style="height: 55px;" multiple multiselect-search="true">
+                                        <select class="form-select border-0 selectpiker"name="service[]" style="height: 55px;" multiple multiselect-search="true" required>
                                             {{-- <option value="">Select A Service</option> --}}
                                             @foreach ($service as $item )
                                             <option value="{{$item->name}}">{{$item->name}}</option>

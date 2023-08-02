@@ -12,21 +12,18 @@
                 <th scope="col">#</th>
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
-                <th scope="col">Contact</th>
-                <th scope="col">Address</th>
                 <th scope="col">Action</th>
             </tr>
         </thead>
         <tbody>
 
+            @foreach ($customer as $key=>$item )
+            <tr>
+                <th scope="row">{{$customer->firstitem()+$key}}</th>
+                <td>{{$item->name}}</td>
+                <td>{{$item->email}}</td>
 
-<tr>
-                <th scope="row"></th>
-                {{-- var---> input --}}
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+
                 <td>
                         <div class="container">
                             <div class="dropdown">
@@ -42,11 +39,10 @@
                 </td>
             </tr>
 
-
-
+            @endforeach
         </tbody>
     </table> <br>
-
+    {{$customer->links()}}
 </div>
 
 @endsection

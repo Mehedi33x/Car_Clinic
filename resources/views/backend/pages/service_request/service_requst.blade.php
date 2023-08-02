@@ -24,12 +24,12 @@
         </thead>
         <tbody>
             @foreach ( $bookings as $key=>$item )
+            {{-- @dd($item) --}}
             <tr>
                 <th scope="row">{{$bookings->firstitem()+$key}}</th>
                 <td>{{$item->name}}</td>
                 <td>{{$item->address}}</td>
                 <td>{{$item->car_type}}</td>
-                {{-- @dd($item) --}}
                 <td>
                     @foreach($item->service as $data)
                     <p>{{$data}}</p>
