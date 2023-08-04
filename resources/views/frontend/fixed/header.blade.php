@@ -5,11 +5,11 @@
         <div class="col-lg-7 px-5 text-start">
             <div class="h-100 d-inline-flex align-items-center py-3 me-4">
                 <small class="fa fa-map-marker-alt text-primary me-2"></small>
-                <small>123 Street, New York, USA</small>
+                <small>Car Clinic, Sector-9, Uttara, Abdullahpur, Dhaka, Bangladesh</small>
             </div>
             <div class="h-100 d-inline-flex align-items-center py-3">
                 <small class="far fa-clock text-primary me-2"></small>
-                <small>Mon - Fri : 09.00 AM - 09.00 PM</small>
+                <small>Sunday - Thursday | 09:00 AM - 07:00 PM</small>
             </div>
         </div>
         <div class="col-lg-5 px-5 text-end">
@@ -49,7 +49,7 @@
                     <a href="404.html" class="dropdown-item">404 Page</a>
                 </div>
             </div> --}}
-            <a href="contact.html" class="nav-item nav-link">Contact</a>
+            <a href="{{route('contact.webpage')}}" class="nav-item nav-link">Contact</a>
         </div>
         @if(Auth::guard('customers')->check())
         <div class="nav-item dropdown">

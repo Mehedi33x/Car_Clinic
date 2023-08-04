@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('car_type',20);
             $table->string('reg_num');
             $table->json('service');
+            $table->integer('cost');
             $table->text('special_request',100)->nullable();
             $table->string('status',20)->default('active');
             $table->dateTime('date');

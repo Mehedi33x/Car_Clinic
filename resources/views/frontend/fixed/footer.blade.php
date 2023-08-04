@@ -3,7 +3,7 @@
         <div class="row g-5">
             <div class="col-lg-3 col-md-6">
                 <h4 class="text-light mb-4">Address</h4>
-                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
+                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Car Clinic, Sector-9, Uttara, Abdullahpur, Dhaka, Bangladesh</p>
                 <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
                 <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
                 <div class="d-flex pt-2">
@@ -15,10 +15,8 @@
             </div>
             <div class="col-lg-3 col-md-6">
                 <h4 class="text-light mb-4">Opening Hours</h4>
-                <h6 class="text-light">Monday - Friday:</h6>
-                <p class="mb-4">09.00 AM - 09.00 PM</p>
-                <h6 class="text-light">Saturday - Sunday:</h6>
-                <p class="mb-0">09.00 AM - 12.00 PM</p>
+                <h6 class="text-light">Sunday - Thursday:</h6>
+                <p class="mb-4">09.00 AM - 07.00 PM</p>
             </div>
             <div class="col-lg-3 col-md-6">
                 <h4 class="text-light mb-4">Services</h4>
@@ -39,7 +37,7 @@
         </div>
     </div>
     <div class="container">
-        <div class="copyright">
+        {{-- <div class="copyright">
             <div class="row">
                 <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
                     &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved.
@@ -56,6 +54,6 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 </div>

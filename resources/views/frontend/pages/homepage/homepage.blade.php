@@ -11,9 +11,9 @@
                     <div class="container">
                         <div class="row align-items-center justify-content-center justify-content-lg-start">
                             <div class="col-10 col-lg-7 text-center text-lg-start">
-                                <h6 class="text-white text-uppercase mb-3 animated slideInDown">// Car Servicing //</h6>
+                                <h6 class="text-white text-uppercase mb-3 animated slideInDown"> Car Servicing </h6>
                                 <h1 class="display-3 text-white mb-4 pb-3 animated slideInDown">Qualified Car Repair Service Center</h1>
-                                <a href="" class="btn btn-primary py-3 px-5 animated slideInDown">Learn More<i class="fa fa-arrow-right ms-3"></i></a>
+                                <a href="{{route('service.webpage')}}" class="btn btn-primary py-3 px-5 animated slideInDown">Learn More<i class="fa fa-arrow-right ms-3"></i></a>
                             </div>
                             <div class="col-lg-5 d-none d-lg-flex animated zoomIn">
                                 <img class="img-fluid" src="{{url('/frontend/assets/img/carousel-1.png')}}" alt="">
@@ -28,9 +28,9 @@
                     <div class="container">
                         <div class="row align-items-center justify-content-center justify-content-lg-start">
                             <div class="col-10 col-lg-7 text-center text-lg-start">
-                                <h6 class="text-white text-uppercase mb-3 animated slideInDown">// Car Servicing //</h6>
+                                <h6 class="text-white text-uppercase mb-3 animated slideInDown">Car Servicing</h6>
                                 <h1 class="display-3 text-white mb-4 pb-3 animated slideInDown">Qualified Car Wash Service Center</h1>
-                                <a href="" class="btn btn-primary py-3 px-5 animated slideInDown">Learn More<i class="fa fa-arrow-right ms-3"></i></a>
+                                <a href="{{route('service.webpage')}}" class="btn btn-primary py-3 px-5 animated slideInDown">Learn More<i class="fa fa-arrow-right ms-3"></i></a>
                             </div>
                             <div class="col-lg-5 d-none d-lg-flex animated zoomIn">
                                 <img class="img-fluid" src="{{url('/frontend/assets/img/carousel-2.png')}}" alt="">
@@ -64,8 +64,8 @@
                     <i class="fa fa-certificate fa-3x text-primary flex-shrink-0"></i>
                     <div class="ps-4">
                         <h5 class="mb-3">Quality Servicing</h5>
-                        <p>Diam dolor diam ipsum sit amet diam et eos erat ipsum</p>
-                        <a class="text-secondary border-bottom" href="">Read More</a>
+                        <p>Unveiling perfection on every drive.Our commitment to quality service in every turn.</p>
+                        {{-- <a class="text-secondary border-bottom" href="">Read More</a> --}}
                     </div>
                 </div>
             </div>
@@ -74,8 +74,8 @@
                     <i class="fa fa-users-cog fa-3x text-primary flex-shrink-0"></i>
                     <div class="ps-4">
                         <h5 class="mb-3">Expert Workers</h5>
-                        <p>Diam dolor diam ipsum sit amet diam et eos erat ipsum</p>
-                        <a class="text-secondary border-bottom" href="">Read More</a>
+                        <p>Mastering every turn, crafting automotive excellence. Our expert workers drive quality care.</p>
+                        {{-- <a class="text-secondary border-bottom" href="">Read More</a> --}}
                     </div>
                 </div>
             </div>
@@ -84,8 +84,8 @@
                     <i class="fa fa-tools fa-3x text-primary flex-shrink-0"></i>
                     <div class="ps-4">
                         <h5 class="mb-3">Modern Equipment</h5>
-                        <p>Diam dolor diam ipsum sit amet diam et eos erat ipsum</p>
-                        <a class="text-secondary border-bottom" href="">Read More</a>
+                        <p>Your ride is our canvas. Modern equipment crafting masterpieces of automotive performance.</p>
+                        {{-- <a class="text-secondary border-bottom" href="">Read More</a> --}}
                     </div>
                 </div>
             </div>
@@ -106,22 +106,22 @@
         <div class="row g-4">
             <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.1s">
                 <i class="fa fa-check fa-2x text-white mb-3"></i>
-                <h2 class="text-white mb-2" data-toggle="counter-up">1234</h2>
+                <h2 class="text-white mb-2" data-toggle="counter-up">7</h2>
                 <p class="text-white mb-0">Years Experience</p>
             </div>
             <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.3s">
                 <i class="fa fa-users-cog fa-2x text-white mb-3"></i>
-                <h2 class="text-white mb-2" data-toggle="counter-up">1234</h2>
+                <h2 class="text-white mb-2" data-toggle="counter-up">13</h2>
                 <p class="text-white mb-0">Expert Technicians</p>
             </div>
             <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.5s">
                 <i class="fa fa-users fa-2x text-white mb-3"></i>
-                <h2 class="text-white mb-2" data-toggle="counter-up">1234</h2>
+                <h2 class="text-white mb-2" data-toggle="counter-up">112</h2>
                 <p class="text-white mb-0">Satisfied Clients</p>
             </div>
             <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.7s">
                 <i class="fa fa-car fa-2x text-white mb-3"></i>
-                <h2 class="text-white mb-2" data-toggle="counter-up">1234</h2>
+                <h2 class="text-white mb-2" data-toggle="counter-up">127</h2>
                 <p class="text-white mb-0">Compleate Projects</p>
             </div>
         </div>
@@ -249,27 +249,29 @@
 <div class="container-xxl py-5">
     <div class="container">
         <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-            <h6 class="text-primary text-uppercase">// Our Technicians //</h6>
+            <h6 class="text-primary text-uppercase">Our Technicians</h6>
             <h1 class="mb-5">Our Expert Technicians</h1>
         </div>
+        {{-- @dd($mechanics) --}}
         <div class="row g-4">
+            @foreach ($mechanics as $item )
+
             <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="team-item">
                     <div class="position-relative overflow-hidden">
-                        <img class="img-fluid" src="{{url('/frontend/assets/img/team-1.jpg')}}" alt="">
-                        <div class="team-overlay position-absolute start-0 top-0 w-100 h-100">
-                            <a class="btn btn-square mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-square mx-1" href=""><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
-                        </div>
+                        <img class="img-fluid" style="height: 400px;width:400px" src="{{url('/uploads/mechanics',$item->image)}}" alt="">
                     </div>
                     <div class="bg-light text-center p-4">
-                        <h5 class="fw-bold mb-0">Full Name</h5>
-                        <small>Designation</small>
+                        <h5 class="fw-bold mb-0">{{$item->name}}</h5>
+                        <small class="text-capitalize">{{$item->role}}</small>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+            @endforeach
+
+            {{-- Extra mechanics --}}
+
+            {{-- <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                 <div class="team-item">
                     <div class="position-relative overflow-hidden">
                         <img class="img-fluid" src="{{url('/frontend/assets/img/team-2.jpg')}}" alt="">
@@ -285,6 +287,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                 <div class="team-item">
                     <div class="position-relative overflow-hidden">
@@ -301,6 +304,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
                 <div class="team-item">
                     <div class="position-relative overflow-hidden">
@@ -316,7 +320,8 @@
                         <small>Designation</small>
                     </div>
                 </div>
-            </div>
+            </div> --}}
+
         </div>
     </div>
 </div>
@@ -324,7 +329,8 @@
 
 
 <!-- Testimonial Start -->
-<div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+{{-- Clients feedback --}}
+{{-- <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
     <div class="container">
         <div class="text-center">
             <h6 class="text-primary text-uppercase">// Testimonial //</h6>
@@ -365,7 +371,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 <!-- Testimonial End -->
 
 @endsection

@@ -7,6 +7,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
@@ -84,6 +85,13 @@
     {{-- multiple select cdn --}}
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.I.I/js/bootstrap.bundle.in.js"><script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/l.13.I/js/bootstrap-select.min.js"></script>
+    <script>
+        $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });</script>
+    @stack("js")
 </body>
 
 </html>

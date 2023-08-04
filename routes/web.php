@@ -15,6 +15,7 @@ use App\Http\Controllers\backend\UserController;
 use App\Http\Controllers\frontend\AboutController;
 use App\Http\Controllers\frontend\AuthwebController;
 use App\Http\Controllers\frontend\BookingController;
+use App\Http\Controllers\frontend\ContactController;
 use App\Http\Controllers\frontend\HomepageController;
 use App\Http\Controllers\frontend\ServicePageController;
 use Illuminate\Support\Facades\Route;
@@ -29,8 +30,12 @@ Route::get('/logout',[AuthwebController::class,'logout'])->name('logout.webpage'
 Route::get('/',[HomepageController::class,'homepage'])->name('homepage.webpage');
 Route::get('/booking',[BookingController::class,'booking'])->name('booking.webpage');
 Route::post('/booking_store',[BookingController::class,'booking_store'])->name('booking.webpage.store');
+Route::post('/booking/serivces/charges',[BookingController::class,'booking_charge'])->name('booking.charge');
+
+
 Route::get('/service',[ServicePageController::class,'service_page'])->name('service.webpage');
 Route::get('/about',[AboutController::class,'about_page'])->name('about.webpage');
+Route::get('/contact',[ContactController::class,'contact'])->name('contact.webpage');
 
 
 
