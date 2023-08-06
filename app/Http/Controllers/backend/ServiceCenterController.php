@@ -34,6 +34,12 @@ class ServiceCenterController extends Controller
         ]);
         return to_route('center.list')->with('message','Data added successfully!!!');
     }
+
+    public function edit_sercive_center(){
+        return view('backend.pages.service_center.edit_center');
+    }
+
+
     public function delete_sercive_center($id){
         $center=ServiceCenter::findOrFail($id);
             $center->delete();

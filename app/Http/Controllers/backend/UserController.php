@@ -12,7 +12,7 @@ class UserController extends Controller
         $users=User::paginate(5);
         return view('backend.pages.user.user_list',compact('users'));
         return view('');
-        
+
     }
 
     public function user_add(){
@@ -38,4 +38,6 @@ class UserController extends Controller
         ]);
         return to_route('user.list');
     }
+
+    
 }

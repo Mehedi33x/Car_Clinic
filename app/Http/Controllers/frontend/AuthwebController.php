@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\frontend;
 
-use App\Http\Controllers\Controller;
 use App\Models\Customer;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use App\Notifications\VerifyEmailNotification;
 
 class AuthwebController extends Controller
 {
@@ -25,11 +28,14 @@ class AuthwebController extends Controller
 
         // dd($request->all());
 
-        Customer::create([
+        $customer = Customer::create([
             'name'=>$request->name,
             'email'=>$request->email,
             'password'=>bcrypt($request->password),
         ]);
+        $verificationCode = Str::random(120);
+
+        $customer->notify(new VerifyEmailNotification($customer,$verificationCode));
         return to_route('homepage.webpage');
     }
 

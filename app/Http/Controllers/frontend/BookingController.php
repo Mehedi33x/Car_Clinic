@@ -35,6 +35,7 @@ class BookingController extends Controller
             'car_type' => 'required',
             'reg_num' => 'required',
             'service' => 'required',
+            'service_charges' => 'required',
             'date' => 'required|date|after_or_equal:today',
         ]);
         //  dd($request->all());
