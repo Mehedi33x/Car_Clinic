@@ -7,6 +7,7 @@ use App\Models\Booking;
 use App\Models\Mechanic;
 use App\Models\Service;
 use App\Models\ServiceRequest;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 
 class BookingController extends Controller
@@ -50,11 +51,12 @@ class BookingController extends Controller
             'car_brand' => $request->car_brand,
             'reg_num' => $request->reg_num,
             'service' => $request->service,
-            'cost'=>$request->service_charges,
+            'cost' => $request->service_charges,
             'special_request' => $request->special_request,
             'date' => $request->date,
 
         ]);
+        Toastr::success('Service Booked Successfuly', 'Success', ['options']);
         return to_route('booking.webpage');
     }
     public function booking_charge(Request $request)

@@ -2,7 +2,10 @@
 @section('content')
 <div>
     @if(session()->has('message'))
-    <p class="alert alert-success" style="font-size: 25px;text-align:center">{{session()->get('message')}}</p>
+    <p class="alert alert-success" style="font-size: 25px;text-align:center">
+        <button>
+            </button>
+            {{session()->get('message')}}</p>
     @endif
 </div>
 <div class="mt-3 ml-3 mr-3">

@@ -126,6 +126,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'checkAdmin']], func
     Route::get('/car_type', [CategoryController::class, 'category'])->name('category');
     Route::get('/add_car_type', [CategoryController::class, 'add_category'])->name('add.category');
     Route::post('/store_car_type', [CategoryController::class, 'store_category'])->name('store.category');
+    Route::get('/edit_type/{id}',[CategoryController::class,'edit_category'])->name('edit.category');
+    Route::put('/update_type/{id}',[CategoryController::class,'update_category'])->name('update.category');
+    Route::get('/delete_type/{id}',[CategoryController::class,'delete_category'])->name('delete.category');
 
     // payment
     Route::get('/payment', [PaymentController::class, 'payment'])->name('payment');

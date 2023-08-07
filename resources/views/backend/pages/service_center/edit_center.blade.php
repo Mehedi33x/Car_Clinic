@@ -19,21 +19,21 @@
                 @csrf
                 <div class="form-group">
                     <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required>
+                    <input type="text" id="name" value="{{ $center->name }}" name="name" required>
                 </div>
                 <div class="form-group">
                     <label for="contact">Contact:</label>
-                    <input type="tel" id="contact" name="contact" required>
+                    <input type="tel" id="contact" value="{{ $center->contact }}" name="contact" required>
                 </div>
 
                 <div class="form-group">
                     <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
+                    <input type="email" id="email" value="{{ $center->email }}" name="email" required>
                 </div>
 
                 <div class="form-group">
                     <label for="address">Address:</label>
-                    <input type="text" id="address" name="address" required>
+                    <input type="text" id="address" value="{{ $center->address }}" name="address" required>
                 </div>
 
                 {{-- <div class="form-group">
@@ -46,8 +46,11 @@
 
                 <div class="form-group">
                     <label for="image">Image:</label>
+                    <img style="width: 80px; height:80px" src="{{ url('/images/center', $center->image) }}" alt="">
+                    <br>
                     <input type="file" id="image" name="image">
                 </div>
+                <br>
                 <div class="form-group">
                     <input type="submit" value="Submit">
                 </div>
