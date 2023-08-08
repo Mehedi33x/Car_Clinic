@@ -3,10 +3,26 @@
 
 <head>
     <title>Admin Login</title>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+
     <link rel="stylesheet" type="text/css" href="{{ url('backend/login/css/style.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        #toast-container>.toast-error {
+            background-color: #BD362F;
+        }
+        .toast-success {
+            background-color: green;
+        }
+        .toast-info {
+            background-color: blue;
+        }
+        .toast-warning {
+            background-color:yellow;
+        }
+    </style>
 </head>
 
 <body>
@@ -47,6 +63,9 @@
         </div>
     </div>
     <script type="text/javascript" src="{{ url('backend/login/js/main.js') }}"></script>
+    <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+    {!! Toastr::message() !!}
+
 </body>
 
 </html>

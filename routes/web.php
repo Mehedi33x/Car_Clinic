@@ -41,6 +41,7 @@ Route::post('/booking/serivces/charges', [BookingController::class, 'booking_cha
 
 
 Route::get('/service', [ServicePageController::class, 'service_page'])->name('service.webpage');
+Route::get('/service_details/{id}', [ServicePageController::class, 'service_details'])->name('service.details.webpage');
 Route::get('/about', [AboutController::class, 'about_page'])->name('about.webpage');
 Route::get('/contact', [ContactController::class, 'contact'])->name('contact.webpage');
 
