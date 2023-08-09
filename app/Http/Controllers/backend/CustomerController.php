@@ -42,5 +42,6 @@ class CustomerController extends Controller
 
     public function booking_list()
     {
+        return view('frontend.pages.profile.booking_data');
     }
 }

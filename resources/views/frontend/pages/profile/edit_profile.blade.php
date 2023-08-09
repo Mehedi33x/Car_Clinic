@@ -10,10 +10,10 @@
                         <ol class="breadcrumb justify-content-center text-uppercase">
 
                             <li>
-                                <a href="http://" class="mx-3 text-white active" aria-current="page">Profile</a>
+                                <a href="{{route('profile.customer')}}" class="mx-3 text-white active" aria-current="page">Profile</a>
                             </li>
                             <li>
-                                <a href="" class="mx-3 text-white active" aria-current="page">Booking Details</a>
+                                <a href="{{route('booking.list')}}" class="mx-3 text-white active" aria-current="page">Booking Details</a>
                             </li>
 
                         </ol>
