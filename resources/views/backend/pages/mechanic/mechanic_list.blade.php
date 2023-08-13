@@ -2,8 +2,11 @@
 @section('content')
 
 <div>
-    @if(session()->has('message'))
-    <p class="alert alert-success" style="font-size: 25px;text-align:center">{{session()->get('message')}}</p>
+    @if (session()->has('message'))
+        <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert">X</button>
+            {{ session()->get('message') }}
+        </div>
     @endif
 </div>
 <div class="mt-3 ml-3 mr-3">
@@ -46,6 +49,7 @@
                                 Action
                               </button>
                               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="{{route('mechanic.view',$mechanic->id)}}"><i class="fas fa-eye"></i>View</a>
                                 <a class="dropdown-item" href="{{route('mechanic.edit',$mechanic->id)}}"><i class="fas fa-user"></i>Edit</a>
                                 <a class="dropdown-item" href="{{route('mechanic.delete',$mechanic->id)}}" onclick="return confirm('Are you sure to Delete?')"><i class="fa-solid fa-trash"></i>Delete</a>
                               </div>

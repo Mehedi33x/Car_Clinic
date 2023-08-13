@@ -1,5 +1,13 @@
 @extends('backend.master')
 @section('content')
+<div>
+    @if (session()->has('message'))
+        <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert">X</button>
+            {{ session()->get('message') }}
+        </div>
+    @endif
+</div>
 <div class="mt-3 ml-3 mr-3">
     <h2 style="font-size: 35px; margin-bottom:20px">Customer List</h2>
 

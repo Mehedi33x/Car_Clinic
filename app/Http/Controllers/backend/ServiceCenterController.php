@@ -13,6 +13,11 @@ class ServiceCenterController extends Controller
          return view('backend.pages.service_center.center_list',compact('center'));
 
     }
+    public function view_sercive_center($id){
+        $center=ServiceCenter::findOrFail($id);
+        // dd($center);
+        return view('backend.pages.service_center.view_center',compact('center'));
+    }
     public function add_sercive_center(){
 
         return view('backend.pages.service_center.add_center');

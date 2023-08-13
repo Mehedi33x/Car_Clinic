@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Form Example</title>
+  <title></title>
   {{-- <link rel="stylesheet" href="/backend/assets/css/add_form.css"> --}}
   <style>
     body {

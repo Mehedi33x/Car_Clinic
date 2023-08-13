@@ -14,6 +14,11 @@ class ServiceController extends Controller
         $services=Service::paginate(5);
     return view('backend.pages.service.service_list',compact("services"));
     }
+    public function view_service($id)
+    {
+        $service=Service::findOrFail($id);
+        return view('backend.pages.service.view_serice',compact('service'));
+    }
     public function add_service(){
         return view('backend.pages.service.add_servive');
     }

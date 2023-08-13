@@ -50,6 +50,12 @@
                 <i class="icon-grid menu-icon"></i>
             </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('admin.support') }}">
+                <span class="menu-title">Support</span>
+                <i class="icon-grid menu-icon"></i>
+            </a>
+        </li>
 
         <li class="nav-item nav-category"><span class="nav-link">Maintance</span></li>
         @if (auth()->user()->role == 'admin')

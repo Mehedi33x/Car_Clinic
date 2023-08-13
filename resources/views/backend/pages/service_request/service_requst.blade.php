@@ -1,5 +1,13 @@
 @extends('backend.master')
 @section('content')
+    <div>
+        @if (session()->has('message'))
+            <div class="alert alert-success">
+                <button type="button" class="close" data-dismiss="alert">X</button>
+                {{ session()->get('message') }}
+            </div>
+        @endif
+    </div>
     <div class="mt-3 ml-3 mr-3">
         <h2 style="font-size: 35px; margin-bottom:20px">Service Request List</h2>
         <div>
@@ -35,7 +43,7 @@
                                 <p>{{ $data }}</p>
                             @endforeach
                         </td>
-                        <td>{{$item->cost}} BDT</td>
+                        <td>{{ $item->cost }} BDT</td>
 
                         @php
                             $currDate = \Carbon\Carbon::parse($item->date)->format('d-m-Y');
@@ -58,7 +66,8 @@
                                         Action
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#"><i class="fas fa-eye"></i>View</a>
+                                        <a class="dropdown-item" href="{{ route('view.request', $item->id) }}"><i
+                                                class="fas fa-eye"></i>View</a>
                                         <a class="dropdown-item" href="#"><i class="fas fa-edit"></i>Edit</a>
                                         <a class="dropdown-item" href="#"
                                             onclick="return confirm('Are you sure to Delete?')"><i

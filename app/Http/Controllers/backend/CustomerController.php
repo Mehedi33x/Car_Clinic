@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Booking;
 use App\Models\Customer;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
+use PhpParser\Node\Expr\Cast\Bool_;
 
 class CustomerController extends Controller
 {
@@ -42,6 +44,14 @@ class CustomerController extends Controller
 
     public function booking_list()
     {
-        return view('frontend.pages.profile.booking_data');
+        $bookings = Booking::where("email", auth("customers")->user()->email)->get();
+
+        // $customer = (auth('customers')->user()->email);
+        // dd($customer);
+        // $booking = Booking::where('email',$customer)->pluck('email','address','car_brand');
+        // dd(auth('customers')->user()->email);
+        // dd($bookings);
+
+        return view('frontend.pages.profile.booking_data',compact('bookings'));
     }
 }

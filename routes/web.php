@@ -18,6 +18,7 @@ use App\Http\Controllers\frontend\BookingController;
 use App\Http\Controllers\frontend\ContactController;
 use App\Http\Controllers\frontend\HomepageController;
 use App\Http\Controllers\frontend\ServicePageController;
+use App\Http\Controllers\frontend\SupportController;
 use App\Http\Controllers\frontend\UserWebController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +27,7 @@ use Illuminate\Support\Facades\Route;
 
 
 //frontend
+// Auth
 Route::get('/login', [AuthwebController::class, 'login'])->name('login.webpage');
 Route::post('/do_login', [AuthwebController::class, 'do_login'])->name('do.login.webpage');
 Route::get('/signup', [AuthwebController::class, 'signup'])->name('signup.webpage');
@@ -33,8 +35,10 @@ Route::post('/signup_store', [AuthwebController::class, 'signup_store'])->name('
 Route::get('/logout', [AuthwebController::class, 'logout'])->name('logout.webpage');
 
 
-
+// homepage
 Route::get('/', [HomepageController::class, 'homepage'])->name('homepage.webpage');
+
+// booking
 Route::get('/booking', [BookingController::class, 'booking'])->name('booking.webpage');
 Route::post('/booking_store', [BookingController::class, 'booking_store'])->name('booking.webpage.store');
 Route::post('/booking/serivces/charges', [BookingController::class, 'booking_charge'])->name('booking.charge');
@@ -45,13 +49,16 @@ Route::get('/service_details/{id}', [ServicePageController::class, 'service_deta
 Route::get('/about', [AboutController::class, 'about_page'])->name('about.webpage');
 Route::get('/contact', [ContactController::class, 'contact'])->name('contact.webpage');
 
+Route::get('/support', [SupportController::class, 'supoort'])->name('webpage.support');
+Route::post('/support_message', [SupportController::class, 'message'])->name('webpage.support.message');
+
 
 
 //User Profile
-Route::get('/users',[CustomerController::class,'customer_profile'])->name('profile.customer');
-Route::get('/users_edit',[CustomerController::class,'edit_profile'])->name('edit.customer.profile');
-Route::put('/users_update',[CustomerController::class,'update_profile'])->name('update.customer.profile');
-Route::get('/users_booking_list',[CustomerController::class,'booking_list'])->name('booking.list');
+Route::get('/users', [CustomerController::class, 'customer_profile'])->name('profile.customer');
+Route::get('/users_edit', [CustomerController::class, 'edit_profile'])->name('edit.customer.profile');
+Route::put('/users_update', [CustomerController::class, 'update_profile'])->name('update.customer.profile');
+Route::get('/users_booking_list', [CustomerController::class, 'booking_list'])->name('booking.list');
 
 
 
@@ -84,6 +91,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'checkAdmin']], func
 
     //service center
     Route::get('/servcie_center', [ServiceCenterController::class, 'sercive_center_list'])->name('center.list');
+    Route::get('/view_center/{id}', [ServiceCenterController::class, 'view_sercive_center'])->name('center.view');
     Route::get('/add_center', [ServiceCenterController::class, 'add_sercive_center'])->name('center.add');
     Route::post('/store_center', [ServiceCenterController::class, 'store_sercive_center'])->name('center.store');
     Route::get('/edit_center/{id}', [ServiceCenterController::class, 'edit_sercive_center'])->name('center.edit');
@@ -93,6 +101,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'checkAdmin']], func
 
     // service
     Route::get('/service_list', [ServiceController::class, 'service'])->name('service.list');
+    Route::get('/service_view/{id}', [ServiceController::class, 'view_service'])->name('service.view');
     Route::get('/add_service', [ServiceController::class, 'add_service'])->name('service.add');
     Route::post('/admin/store_service', [ServiceController::class, 'store_service'])->name('service.store');
     Route::get('/edit_service/{id}', [ServiceController::class, 'edit_service'])->name('service.edit');
@@ -103,6 +112,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'checkAdmin']], func
     // mechanic
     Route::get('/mechanic_list', [MechanicController::class, 'mechanic_list'])->name('mechanic.list');
     Route::get('/add_mechanic', [MechanicController::class, 'add_mechanic'])->name('mechanic.add');
+    Route::get('/view_mechanic/{id}', [MechanicController::class, 'view_mechanic'])->name('mechanic.view');
     Route::post('/store_mechanic', [MechanicController::class, 'store_mechanic'])->name('mechanic.store');
     Route::get('/edit_mechanic/{id}', [MechanicController::class, 'edit_mechanic'])->name('mechanic.edit');
     Route::post('/update_mechanic/{id}', [MechanicController::class, 'update_mechanic'])->name('mechanic.update');
@@ -111,10 +121,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'checkAdmin']], func
 
     //Service Request
     Route::get('/service_request', [BookingController::class, 'service_request'])->name('service.request');
+    Route::get('/view/service_request/{id}', [BookingController::class, 'view_request'])->name('view.request');
 
 
     //Car Brand
     Route::get('/brand_list', [BrandController::class, 'brand_list'])->name('brand.list');
+    Route::get('/view_brand/{id}', [BrandController::class, 'view_brand'])->name('brand.view');
     Route::get('/add_brand', [BrandController::class, 'add_brand'])->name('add.brand');
     Route::post('/store_brand', [BrandController::class, 'store_brand'])->name('store.brand');
     Route::get('/edit_brand/{id}', [BrandController::class, 'edit_brand'])->name('edit.brand');
@@ -125,11 +137,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'checkAdmin']], func
 
     // Car Type
     Route::get('/car_type', [CategoryController::class, 'category'])->name('category');
+    Route::get('/view_type/{id}', [CategoryController::class, 'view_type'])->name('view.type');
     Route::get('/add_car_type', [CategoryController::class, 'add_category'])->name('add.category');
     Route::post('/store_car_type', [CategoryController::class, 'store_category'])->name('store.category');
-    Route::get('/edit_type/{id}',[CategoryController::class,'edit_category'])->name('edit.category');
-    Route::put('/update_type/{id}',[CategoryController::class,'update_category'])->name('update.category');
-    Route::get('/delete_type/{id}',[CategoryController::class,'delete_category'])->name('delete.category');
+    Route::get('/edit_type/{id}', [CategoryController::class, 'edit_category'])->name('edit.category');
+    Route::put('/update_type/{id}', [CategoryController::class, 'update_category'])->name('update.category');
+    Route::get('/delete_type/{id}', [CategoryController::class, 'delete_category'])->name('delete.category');
 
     // payment
     Route::get('/payment', [PaymentController::class, 'payment'])->name('payment');
@@ -139,6 +152,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'checkAdmin']], func
     //report
     Route::get('/report', [ReportController::class, 'report'])->name('report');
     Route::get('/report_show', [ReportController::class, 'report_show'])->name('report.show');
+
+
+    //support
+    Route::get('/admin_support', [SupportController::class, 'admin_support'])->name('admin.support');
+    Route::get('/admin_reply/{id}', [SupportController::class, 'admin_reply'])->name('admin.reply');
+    Route::post('/send_reply', [SupportController::class, 'send_reply'])->name('send.reply');
+
+
 
     //customer
     Route::get('/customer_list', [CustomerController::class, 'customer_list'])->name('customer.list');

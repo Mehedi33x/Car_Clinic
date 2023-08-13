@@ -15,6 +15,13 @@ class MechanicController extends Controller
         return view('backend.pages.mechanic.mechanic_list', compact('mechanics'));
     }
 
+    public function view_mechanic($id)
+    {
+        $mechanic = Mechanic::findOrFail($id);
+        // dd($mechanic);
+        return view('backend.pages.mechanic.view_mechanic', compact('mechanic'));
+    }
+
 
     public function add_mechanic()
     {

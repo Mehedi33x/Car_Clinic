@@ -27,7 +27,7 @@
 
     <div class="mt-3 ml-3 mr-3">
         <h2 style="font-size: 35px; margin-bottom:20px; text-align:center">Service Booking List</h2>
-
+        {{-- @dd($bookings) --}}
         <div class="mx-5">
             <table class="table table-bordered" style="border: 2px solid black">
                 <thead class="table-dark">
@@ -45,19 +45,28 @@
                 </thead>
                 <tbody>
 
-                    {{-- @dd($item) --}}
-                    <tr>
-                        <th scope="row"></th>
-                        <td></td>
-                        <td></td>
-                        @php
-                            $currDate = \Carbon\Carbon::parse()->format('d-m-Y');
-                        @endphp
-                        <td>{{ $currDate }}</td>
-                        <td></td>
-                        <td> BDT</td>
-                        <td></td>
-                    </tr>
+                    @foreach ($bookings as $key => $item)
+                        <tr>
+                            {{-- @dd($item) --}}
+
+                            <th scope="row">{{$key+1}}</th>
+                            <td>{{ $item->car_brand }}</td>
+                            <td>{{ $item->reg_num }}</td>
+                            @php
+                                $currDate = \Carbon\Carbon::parse()->format('d-m-Y');
+                            @endphp
+                            <td>{{ $currDate }}</td>
+                            <td>
+                                @foreach ($item->service as $data)
+                                    {{-- @dd($data) --}}
+                                    <p>{{ $data }}</p>
+                                @endforeach
+                            </td>
+                            <td>{{ $item->cost }}BDT</td>
+                            <td class="text-capitalize">{{ $item->status }}</td>
+                        </tr>
+                    @endforeach
+
                 </tbody>
             </table> <br>
         </div>

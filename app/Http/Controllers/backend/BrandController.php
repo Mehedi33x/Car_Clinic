@@ -13,6 +13,10 @@ class BrandController extends Controller
         $brand=Brand::paginate(5);
         return view('backend.pages.brand.brand',compact('brand'));
     }
+    public function view_brand($id){
+        $brand=Brand::findOrFail($id);
+        return view('backend.pages.brand.brand_view',compact('brand'));
+    }
     public function add_brand(){
         return view('backend.pages.brand.brand_add');
     }

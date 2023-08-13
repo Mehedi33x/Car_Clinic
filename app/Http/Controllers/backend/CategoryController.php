@@ -13,6 +13,12 @@ class CategoryController extends Controller
         $category = Category::paginate(5);
         return view('backend.pages.car_category.car_category', compact('category'));
     }
+
+    public function view_type($id){
+        $category=Category::findOrFail($id);
+        return view('backend.pages.car_category.view_category',compact('category'));
+    }
+
     public function add_category()
     {
         return view('backend.pages.car_category.add_category');

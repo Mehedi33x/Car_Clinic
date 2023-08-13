@@ -19,6 +19,13 @@ class BookingController extends Controller
         $mechanic = Mechanic::all();
         return view('backend.pages.service_request.service_requst', compact(['bookings', 'mechanic']));
     }
+
+    public function view_request($id)
+    {
+        $booking = Booking::find($id);
+        return view('backend.pages.service_request.view_request', compact('booking'));
+    }
+
     //frontend
     public function booking()
     {
