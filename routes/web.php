@@ -122,6 +122,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'checkAdmin']], func
     //Service Request
     Route::get('/service_request', [BookingController::class, 'service_request'])->name('service.request');
     Route::get('/view/service_request/{id}', [BookingController::class, 'view_request'])->name('view.request');
+    Route::get('/edit/service_request/{id}', [BookingController::class, 'edit_request'])->name('edit.request');
 
 
     //Car Brand

@@ -6,10 +6,12 @@ use Attribute as GlobalAttribute;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 
 class Booking extends Model
 {
     use HasFactory;
+    use Notifiable;
     protected $guarded=[];
 
     // public function mechanic(){

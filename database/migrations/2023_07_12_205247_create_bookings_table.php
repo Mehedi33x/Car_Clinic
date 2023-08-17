@@ -13,17 +13,18 @@ return new class extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->string('name',50);
-            $table->string('contact',20);
-            $table->string('email',50);
+            $table->string('name', 50);
+            $table->string('contact', 20);
+            $table->string('email', 50);
             $table->text('address');
-            $table->string('car_brand',20);
-            $table->string('car_type',20);
+            $table->string('car_brand', 20);
+            $table->string('car_type', 20);
             $table->string('reg_num');
             $table->json('service');
             $table->integer('cost');
-            $table->text('special_request',100)->nullable();
-            $table->string('status',20)->default('active');
+            $table->text('special_request', 100)->nullable();
+            $table->string('assign')->default('none');
+            $table->string('status')->default('pending');
             $table->dateTime('date');
             $table->timestamps();
         });

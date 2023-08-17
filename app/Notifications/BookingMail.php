@@ -2,26 +2,21 @@
 
 namespace App\Notifications;
 
-use App\Models\Customer;
 use Illuminate\Bus\Queueable;
-use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
+use Illuminate\Notifications\Notification;
 
-class VerifyEmailNotification extends Notification
+class BookingMail extends Notification
 {
     use Queueable;
-    
-    public $customer;
-    public $verificationCode;
-
+    public $booking;
     /**
      * Create a new notification instance.
      */
-    public function __construct(Customer $customer,$verificationCode)
+    public function __construct($booking)
     {
-        $this->customer = $customer;
-        $this->verificationCode = $verificationCode;
+        $this->booking=$booking;
     }
 
     /**
@@ -41,9 +36,8 @@ class VerifyEmailNotification extends Notification
     {
         return (new MailMessage)
                     ->line('The introduction to the notification.')
-                    ->line('Your Code Is: '.$this->verificationCode)
-                    ->line('Your mail Is: '.$this->customer->email)
-                    ->action('Verify by clicking', url('/'))
+                    ->line('Your mail Is: '.$this->booking->email)
+                    ->action('Notification Action', url('/'))
                     ->line('Thank you for using our application!');
     }
 

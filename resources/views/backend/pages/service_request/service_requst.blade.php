@@ -26,6 +26,7 @@
                     <th scope="col">Serive Charge</th>
                     <th scope="col">Date</th>
                     <th scope="col">Assign To</th>
+                    <th scope="col">Status</th>
                     <th scope="col">Action</th>
 
                 </tr>
@@ -49,14 +50,8 @@
                             $currDate = \Carbon\Carbon::parse($item->date)->format('d-m-Y');
                         @endphp
                         <td>{{ $currDate }}</td>
-                        <td>
-                            <select id="mechanic" name="mechanic" required>
-                                <option value="">Select Mechanic</option>
-                                @foreach ($mechanic as $item)
-                                    <option value="active">{{ $item->name }}</option>
-                                @endforeach
-                            </select>
-                        </td>
+                        <td>{{ $item->assign }}</td>
+                        <td>{{ $item->status }}</td>
 
                         <td>
                             <div class="container">
@@ -68,7 +63,7 @@
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <a class="dropdown-item" href="{{ route('view.request', $item->id) }}"><i
                                                 class="fas fa-eye"></i>View</a>
-                                        <a class="dropdown-item" href="#"><i class="fas fa-edit"></i>Edit</a>
+                                        <a class="dropdown-item" href="{{route('edit.request',$item->id)}}"><i class="fas fa-edit"></i>Edit</a>
                                         <a class="dropdown-item" href="#"
                                             onclick="return confirm('Are you sure to Delete?')"><i
                                                 class="fa-solid fa-trash"></i>Delete</a>
