@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Mechanic;
+use App\Models\User;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 
@@ -11,13 +11,13 @@ class MechanicController extends Controller
 {
     public function mechanic_list()
     {
-        $mechanics = Mechanic::paginate(5);
+        $mechanics = User::where('role', 'mechanic')->paginate(5);
         return view('backend.pages.mechanic.mechanic_list', compact('mechanics'));
     }
 
     public function view_mechanic($id)
     {
-        $mechanic = Mechanic::findOrFail($id);
+        $mechanic = User::findOrFail($id);
         // dd($mechanic);
         return view('backend.pages.mechanic.view_mechanic', compact('mechanic'));
     }
@@ -47,7 +47,7 @@ class MechanicController extends Controller
             $mechanic_image = date('Ymdhsi') . '.' . $image->getClientOriginalExtension();
             $image->storeAs('/mechanics', $mechanic_image);
         }
-        Mechanic::create([
+        User::create([
             'image' => $mechanic_image,
             'name' => $request->name,
             'email' => $request->email,
@@ -61,18 +61,18 @@ class MechanicController extends Controller
 
     public function edit_mechanic($id)
     {
-        $mechanic = Mechanic::findOrFail($id);
+        $mechanic = User::findOrFail($id);
         return view('backend.pages.mechanic.edit_mechanic', compact('mechanic'));
     }
     public function update_mechanic(Request $request, $id)
     {
-        $mechanic = Mechanic::findOrFail($id);
+        $mechanic = User::findOrFail($id);
+        // dd($request->all());
         $request->validate([
             'name' => 'required',
             'email' => 'required|email',
             'contact' => 'required',
             'address' => 'required',
-            'password' => 'required'
         ]);
 
         $mechanic_image = $mechanic->image;
@@ -94,6 +94,7 @@ class MechanicController extends Controller
             'contact' => $request->contact,
             'address' => $request->address,
             'status' => $request->status,
+            'password' => $request->password,
             "image" => $mechanic_image
         ]);
         return to_route('mechanic.list');
@@ -102,7 +103,7 @@ class MechanicController extends Controller
 
     public function delete_mechanic($id)
     {
-        $mechanic = Mechanic::findOrFail($id);
+        $mechanic = User::findOrFail($id);
         //dd($mechanic);
         $oldimage = 'uploads/mechanics' . $mechanic->image;
         if (file_exists($oldimage)) {

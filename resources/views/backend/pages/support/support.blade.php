@@ -24,10 +24,10 @@
                         <th scope="row">{{ $key + 1 }}</th>
                         @if ($data->from_message == 'admin')
                             <td>{{ $data->from_message }}</td>
-                            <td>{{ $data->userFrom->name }}</td>
+                            <td>{{ $data->userFrom?->name }}</td>
                         @else
-                            <td>{{ $data->userFrom->name }}</td>
-                            <td class="text-capitalize">{{ $data->userTo->name }}</td>
+                            <td>{{ $data->userFrom?->name }}</td>
+                            <td class="text-capitalize">{{ $data->userTo?->name }}</td>
                         @endif
                         <td>{{ $data->message }}</td>
                         <td>{{ $data->is_seen }}</td>

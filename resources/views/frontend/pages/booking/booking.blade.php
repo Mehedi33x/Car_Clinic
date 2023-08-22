@@ -59,8 +59,10 @@
                                         </div>
                                         <div class="col-6 col-sm-10">
                                             <label for="contact" class="text-white">Contact:</label>
-                                            <input type="tel" name="contact" class="form-control border-0"
-                                                placeholder="Your Contact" style="height: 55px;">
+                                            <input type="tel" name="contact"
+                                                value="{{ auth('customers')?->user()?->contact }}"
+                                                class="form-control border-0" placeholder="Your Contact"
+                                                style="height: 55px;">
                                         </div>
                                         <div class="col-12 col-sm-6">
                                             <label for="email" class="text-white">Email:</label>
@@ -70,8 +72,10 @@
                                         </div>
                                         <div class="col-6 col-sm-10">
                                             <label for="address" class="text-white">Address:</label>
-                                            <input type="text" name="address" class="form-control border-0"
-                                                placeholder="Your Address" style="height: 55px;">
+                                            <input type="text" name="address"
+                                                value="{{ auth('customers')?->user()?->address }}"
+                                                class="form-control border-0" placeholder="Your Address"
+                                                style="height: 55px;">
                                         </div>
 
                                         {{-- car details --}}
@@ -115,7 +119,7 @@
                                                 @endforeach
                                             </select>
                                         </div>
-                                        <div class="col-6 col-sm-10" >
+                                        <div class="col-6 col-sm-10">
                                             <label for="cost" class="text-white">Total Cost:</label>
                                             <p class="service_charge" style="color: white"></p>
                                         </div>
@@ -136,7 +140,7 @@
                                                     placeholder="Service Date" style="height: 55px;">
                                             </div>
                                             <div style="color: white">
-                                                {{$errors->first('date')}}
+                                                {{ $errors->first('date') }}
                                             </div>
                                         </div>
 

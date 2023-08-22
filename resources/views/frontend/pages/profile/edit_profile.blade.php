@@ -10,10 +10,12 @@
                         <ol class="breadcrumb justify-content-center text-uppercase">
 
                             <li>
-                                <a href="{{route('profile.customer')}}" class="mx-3 text-white active" aria-current="page">Profile</a>
+                                <a href="{{ route('profile.customer') }}" class="mx-3 text-white active"
+                                    aria-current="page">Profile</a>
                             </li>
                             <li>
-                                <a href="{{route('booking.list')}}" class="mx-3 text-white active" aria-current="page">Booking Details</a>
+                                <a href="{{ route('booking.list') }}" class="mx-3 text-white active"
+                                    aria-current="page">Booking Details</a>
                             </li>
 
                         </ol>
@@ -29,7 +31,7 @@
                 <h1 class="text-white mb-4 text-center">User Information</h1>
 
                 <form action="{{ route('update.customer.profile') }}" method="post">
-                    @method('put')
+                    @method('patch')
                     @csrf
                     <div class="col-6 col-sm-10">
                         <label for="name" class="text-white">Name:</label>
@@ -41,6 +43,17 @@
                         <label for="email" class="text-white">Email:</label>
                         <input type="email" name="email" class="form-control border-0" placeholder="Your Email"
                             style="height: 55px;" value="{{ auth('customers')?->user()?->email }}">
+                    </div><br>
+
+                    <div class="col-12 col-sm-10">
+                        <label for="contact" class="text-white">Contact:</label>
+                        <input type="tel" name="contact" class="form-control border-0" placeholder="Your contact"
+                            style="height: 55px;" value="">
+                    </div><br>
+                    <div class="col-12 col-sm-10">
+                        <label for="address" class="text-white">Address:</label>
+                        <input type="text" name="address" class="form-control border-0" placeholder="Your address"
+                            style="height: 55px;" value="">
                     </div><br>
                     <div class="col-12 col-sm-10">
                         <label for="password" class="text-white">Password:</label>

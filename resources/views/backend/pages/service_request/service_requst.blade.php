@@ -52,7 +52,7 @@
                         <td>{{ $currDate }}</td>
                         <td>{{ $item->assign }}</td>
                         <td>{{ $item->status }}</td>
-
+                        @if (auth()->user()->role == 'admin')
                         <td>
                             <div class="container">
                                 <div class="dropdown">
@@ -71,6 +71,7 @@
                                 </div>
                             </div>
                         </td>
+                        @endif
                     </tr>
                 @endforeach
 

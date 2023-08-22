@@ -1,89 +1,55 @@
 @extends('backend.master')
 @section('content')
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #f0f0f0;
-  }
-
-  .form-container {
-    display: flex;
-    width: 80%;
-    background-color: #fff;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  }
-
-  .form-left, .form-right {
-    flex: 1;
-    padding: 20px;
-  }
-
-  .form-left {
-    background-color: #f5f5f5;
-  }
-
-  .form-right {
-    background-color: #fafafa;
-  }
-
-  .form-title {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-
-  .form-input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-
-  .form-button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-</style>
-<title>Two-Sided Form</title>
-</head>
-<body>
-<div class="form-container">
-  <div class="form-left">
-    <h2 class="form-title">Left Side</h2>
-    <form>
-      <input type="text" class="form-input" placeholder="Name">
-      <input type="email" class="form-input" placeholder="Email">
-      <button class="form-button">Submit</button>
-    </form>
-  </div>
-  <div class="form-right">
-    <h2 class="form-title">Right Side</h2>
-    <form>
-      <input type="text" class="form-input" placeholder="Username">
-      <input type="password" class="form-input" placeholder="Password">
-      <button class="form-button">Submit</button>
-    </form>
-  </div>
+<div class="">
+    <div class="card shadow-lg border-0 rounded-lg mt-2">
+        <div class="card-header">
+            <h3 class="text-center font-weight-light my-4">Create Account</h3>
+        </div>
+        <div class="card-body">
+            <form>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <div class="form-floating mb-3 mb-md-0">
+                            <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" />
+                            <label for="inputFirstName">First name</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" />
+                            <label for="inputLastName">Last name</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-floating mb-3">
+                    <input class="form-control" id="inputEmail" type="email" placeholder="name@example.com" />
+                    <label for="inputEmail">Email address</label>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <div class="form-floating mb-3 mb-md-0">
+                            <input class="form-control" id="inputPassword" type="password" placeholder="Create a password" />
+                            <label for="inputPassword">Password</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-floating mb-3 mb-md-0">
+                            <input class="form-control" id="inputPasswordConfirm" type="password" placeholder="Confirm password" />
+                            <label for="inputPasswordConfirm">Confirm Password</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4 mb-0">
+                    <div class="d-grid"><a class="btn btn-primary btn-block" href="login.html">Create Account</a></div>
+                </div>
+            </form>
+        </div>
+        <div class="card-footer text-center py-3">
+            <div class="small"><a href="login.html">Have an account? Go to login</a></div>
+        </div>
+    </div>
 </div>
-</body>
-</html>
-
+</div>
 
 @endsection

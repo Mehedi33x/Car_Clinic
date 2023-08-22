@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers\frontend;
 
-use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Models\Booking;
-use App\Models\Mechanic;
 use App\Models\Service;
-use App\Models\ServiceRequest;
-use App\Notifications\VerifyEmailNotification;
-use Brian2694\Toastr\Facades\Toastr;
+use App\Models\Mechanic;
 use Illuminate\Http\Request;
+use App\Models\ServiceRequest;
+use App\Http\Controllers\Controller;
+use App\Notifications\BookingMail;
+use Brian2694\Toastr\Facades\Toastr;
+use App\Notifications\VerifyEmailNotification;
+use Illuminate\Support\Str;
 
 class BookingController extends Controller
 {
@@ -29,9 +32,35 @@ class BookingController extends Controller
     }
     public function edit_request($id)
     {
-        $booking=Booking::find($id);
+        $booking = Booking::find($id);
+        $mechanic = User::where('role', 'mechanic')->get();
+        // dd($mechanic);
+        // return view('backend.pages.service_request.edit_request');
+        return view('backend.pages.service_request.edit_service_request', compact('booking', 'mechanic'));
+    }
+    public function update_request(Request $request, $id)
+    {
+        // dd($request->all());
+        $booking = Booking::findOrFail($id);
         // dd($booking);
-        return view('backend.pages.service_request.edit_service_request',compact('booking'));
+
+        $booking->update([
+            'assign' => $request->assign_to,
+            'status' => $request->status,
+            'name' => $request->name,
+            'contact' => $request->contact,
+            'email' => $request->email,
+            'address' => $request->address,
+            'car_type' => $request->car_type,
+            'car_brand' => $request->car_brand,
+            'reg_num' => $request->reg_num,
+            // 'service' => $request->service,
+            'cost' => $request->cost,
+            'special_request' => $request->special_request,
+            // 'date' => $request->date,
+        ]);
+
+        return to_route('service.request')->with('message','Data updated successfully!!!');
     }
 
 
@@ -62,6 +91,7 @@ class BookingController extends Controller
 
         $booking = Booking::create([
             'name' => $request->name,
+            'booking_code'=>Str::random(10),
             'contact' => $request->contact,
             'email' => $request->email,
             'address' => $request->address,
@@ -75,7 +105,7 @@ class BookingController extends Controller
 
         ]);
         // for sending mail
-        // $booking->notify(new VerifyEmailNotification($booking));
+        $booking->notify(new BookingMail($booking));
         Toastr::success('Service Booked Successfuly', 'Success', ['options']);
         return to_route('booking.webpage');
     }

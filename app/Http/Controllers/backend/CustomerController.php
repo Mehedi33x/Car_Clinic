@@ -16,12 +16,28 @@ class CustomerController extends Controller
         $customer = Customer::paginate(5);
         return view('backend.pages.customer.customer', compact('customer'));
     }
+    public function customer_view($id)
+    {
+        $customer = Customer::findOrFail($id);
+        return view('backend.pages.customer.customer_view', compact('customer'));
+    }
 
+    public function customer_delete($id)
+    {
+        $customer = Customer::findOrFail($id);
+        // dd($customer);
+        $customer->delete();
+        return redirect()->back()->with('message', 'Data deleted successfully!!!');
+    }
+
+
+
+
+    // frontend customer profile edit
     public function customer_profile()
     {
         return view('frontend.pages.profile.customer_profile');
     }
-    // frontend customer profile edit
     public function edit_profile()
     {
         return view('frontend.pages.profile.edit_profile');
@@ -31,10 +47,16 @@ class CustomerController extends Controller
     {
         // dd($request->all());
         $user = Customer::find(auth('customers')->user()->id);
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+        ]);
         // dd($user);
         $user->update([
             'name' => $request->name,
             'email' => $request->email,
+            'contact' => $request->contact,
+            'address' => $request->address,
             'password' => bcrypt($request->password),
         ]);
         Toastr::success('Information Update Successfully', 'Success', ['options']);
@@ -52,6 +74,6 @@ class CustomerController extends Controller
         // dd(auth('customers')->user()->email);
         // dd($bookings);
 
-        return view('frontend.pages.profile.booking_data',compact('bookings'));
+        return view('frontend.pages.profile.booking_data', compact('bookings'));
     }
 }

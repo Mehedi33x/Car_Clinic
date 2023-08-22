@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
+            $table->uuid('booking_code');
             $table->string('name', 50);
             $table->string('contact', 20);
             $table->string('email', 50);

@@ -8,36 +8,41 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function user_list (){
-        $users=User::paginate(5);
-        return view('backend.pages.user.user_list',compact('users'));
+    public function user_list()
+    {
+        $users = User::where('role', 'admin')->paginate(5);
+        return view('backend.pages.user.user_list', compact('users'));
         return view('');
-
     }
 
-    public function user_add(){
+    public function user_add()
+    {
         return view('backend.pages.user.user_add');
     }
-    public function store (Request $request){
+    public function store(Request $request)
+    {
         // dd($request->all());
         $request->validate([
-            'name'=>'required',
-            'email'=>'required',
-            'password'=>'required',
-            'contact'=>'required',
-            'address'=>'required',
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'contact' => 'required',
+            'address' => 'required',
 
         ]);
         User::create([
             // clm name ---------- input field name
-            'name'=>$request->name,
-            'email'=>$request->email,
-            'password'=>bcrypt($request->password),
-            'contact'=>$request->contact,
-            'address'=>$request->address,
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+            'contact' => $request->contact,
+            'address' => $request->address,
         ]);
         return to_route('user.list');
     }
 
-    
+    public function user_profile()
+    {
+        return view('backend.pages.user.user_profile');
+    }
 }

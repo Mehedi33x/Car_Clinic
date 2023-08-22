@@ -16,7 +16,7 @@
             }
 
             .container {
-                max-width: 600px;
+                max-width: 900px;
                 margin: 20px auto;
                 background-color: #ffffff;
                 padding: 20px;
@@ -41,73 +41,86 @@
     <body>
         {{-- @dd($booking) --}}
         <div class="container">
-            <h2 class="mb-3" style="text-align: center">Booking Information</h2>
-            <hr>
-            <div class="data-item">
-                <span class="data-label">Name:</span>
-                <span class="data-value">{{ $booking->name }}</span>
+            <div id="serviceRequest">
+                <h2 class="mb-3" style="text-align: center">Booking Information</h2>
+                <hr>
+                <div class="data-item">
+                    <span class="data-label">Name:</span>
+                    <span class="data-value">{{ $booking->name }}</span>
+                </div>
+                <div class="data-item">
+                    <span class="data-label">Contact:</span>
+                    <span class="data-value">{{ $booking->contact }}</span>
+                </div>
+                <div class="data-item">
+                    <span class="data-label">Email:</span>
+                    <span class="data-value">{{ $booking->email }}</span>
+                </div>
+                <div class="data-item">
+                    <span class="data-label">Address:</span>
+                    <span class="data-value">{{ $booking->address }}</span>
+                </div>
+                <div class="data-item">
+                    <span class="data-label">Car Brand Name:</span>
+                    <span class="data-value">{{ $booking->car_brand }}</span>
+                </div>
+                <div class="data-item">
+                    <span class="data-label">Car Type:</span>
+                    <span class="data-value">{{ $booking->car_type }}</span>
+                </div>
+                <div class="data-item">
+                    <span class="data-label">Address:</span>
+                    <span class="data-value">{{ $booking->address }}</span>
+                </div>
+                <div class="data-item">
+                    <span class="data-label">Car Registration No:</span>
+                    <span class="data-value">{{ $booking->reg_num }}</span>
+                </div>
+                <div class="data-item">
+                    <span class="data-label">Services:</span>
+                    <span class="data-value">
+                        @foreach ($booking->service as $data)
+                            <p>{{ $data }}</p>
+                        @endforeach
+                    </span>
+                </div>
+                <div class="data-item">
+                    <span class="data-label">Service Charge:</span>
+                    <span class="data-value">{{ $booking->cost }} BDT</span>
+                </div>
+                <div class="data-item">
+                    <span class="data-label">Special Request:</span>
+                    <span class="data-value">{{ $booking->special_request }}</span>
+                </div>
+                <div class="data-item">
+                    <span class="data-label">Booking Assign To:</span>
+                    <span class="data-value text-capitalize"{{ $booking->assign }}</span>
+                </div>
+                <div class="data-item">
+                    <span class="data-label">Booking Status:</span>
+                    <span class="data-value text-capitalize">{{ $booking->status }}</span>
+                </div>
+                <div class="data-item">
+                    <span class="data-label">Booking Date:</span>
+                    @php
+                        $currDate = \Carbon\Carbon::parse($booking->date)->format('d-m-Y');
+                    @endphp
+                    <span class="data-value">{{ $currDate }}</span>
+                </div>
             </div>
-            <div class="data-item">
-                <span class="data-label">Contact:</span>
-                <span class="data-value">{{ $booking->contact }}</span>
+            <div>
+                <button onclick="printDiv('serviceRequest')" class="btn btn-success ">Print</button>
+
             </div>
-            <div class="data-item">
-                <span class="data-label">Email:</span>
-                <span class="data-value">{{ $booking->email }}</span>
-            </div>
-            <div class="data-item">
-                <span class="data-label">Address:</span>
-                <span class="data-value">{{ $booking->address }}</span>
-            </div>
-            <div class="data-item">
-                <span class="data-label">Car Brand Name:</span>
-                <span class="data-value">{{ $booking->car_brand }}</span>
-            </div>
-            <div class="data-item">
-                <span class="data-label">Car Type:</span>
-                <span class="data-value">{{ $booking->car_type }}</span>
-            </div>
-            <div class="data-item">
-                <span class="data-label">Address:</span>
-                <span class="data-value">{{ $booking->address }}</span>
-            </div>
-            <div class="data-item">
-                <span class="data-label">Car Registration No:</span>
-                <span class="data-value">{{ $booking->reg_num }}</span>
-            </div>
-            <div class="data-item">
-                <span class="data-label">Services:</span>
-                <span class="data-value">
-                    @foreach ($booking->service as $data)
-                        <p>{{ $data }}</p>
-                    @endforeach
-                </span>
-            </div>
-            <div class="data-item">
-                <span class="data-label">Service Charge:</span>
-                <span class="data-value">{{ $booking->cost }} BDT</span>
-            </div>
-            <div class="data-item">
-                <span class="data-label">Special Request:</span>
-                <span class="data-value">{{ $booking->special_request }}</span>
-            </div>
-            <div class="data-item">
-                <span class="data-label">Booking Assign To:</span>
-                <span class="data-value">{{ $booking->assign }}</span>
-            </div>
-            <div class="data-item">
-                <span class="data-label">Booking Status:</span>
-                <span class="data-value">{{ $booking->status }}</span>
-            </div>
-            <div class="data-item">
-                <span class="data-label">Booking Date:</span>
-                @php
-                    $currDate = \Carbon\Carbon::parse($booking->date)->format('d-m-Y');
-                @endphp
-                <span class="data-value">{{ $currDate }}</span>
-            </div>
-            <!-- Add more data items as needed -->
-        </div>
+            <script>
+                function printDiv(divId) {
+                    var printContents = document.getElementById(divId).innerHTML;
+                    var originalContents = document.body.innerHTML;
+                    document.body.innerHTML = printContents;
+                    window.print();
+                    document.body.innerHTML = originalContents;
+                }
+            </script>
     </body>
 
     </html>

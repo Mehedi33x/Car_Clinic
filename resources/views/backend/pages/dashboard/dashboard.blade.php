@@ -68,4 +68,75 @@
             </div>
         </div>
     </div>
+    <hr>
+    {{-- Recent Bookings --}}
+    <div class="mx-4">
+        <h4 class="mb-3">Recent Bookings</h4>
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">Serial</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Contact</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Car Brand</th>
+                    <th scope="col">Car Type</th>
+                    <th scope="col">Service</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($recent_bookings as $key => $item)
+                    <tr>
+                        <th scope="row">{{ $key + 1 }}</th>
+                        <td>{{ $item->name }}</td>
+                        <td>{{ $item->contact }}</td>
+                        <td>{{ $item->email }}</td>
+                        <td>{{ $item->car_brand }}</td>
+                        <td>{{ $item->car_type }}</td>
+                        <td>
+                            @foreach ($item->service as $data)
+                                <p>{{ $data }}</p>
+                            @endforeach
+                        </td>
+                    </tr>
+                @endforeach
+
+            </tbody>
+        </table>
+    </div>
+
+    <div class="mx-4">
+        <h4 class="mb-3">Completed Services</h4>
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">Serial</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Contact</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Car Brand</th>
+                    <th scope="col">Car Type</th>
+                    <th scope="col">Service</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($done_bookings as $key => $item)
+                    <tr>
+                        <th scope="row">{{ $key + 1 }}</th>
+                        <td>{{ $item->name }}</td>
+                        <td>{{ $item->contact }}</td>
+                        <td>{{ $item->email }}</td>
+                        <td>{{ $item->car_brand }}</td>
+                        <td>{{ $item->car_type }}</td>
+                        <td>
+                            @foreach ($item->service as $data)
+                                <p>{{ $data }}</p>
+                            @endforeach
+                        </td>
+                    </tr>
+                @endforeach
+
+            </tbody>
+        </table>
+    </div>
 @endsection

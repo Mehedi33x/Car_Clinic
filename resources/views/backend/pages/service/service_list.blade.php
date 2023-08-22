@@ -34,7 +34,7 @@
                 <td>
                     <img style="width: 80px; height:80px;" src="{{url('uploads/service/'.$item->image)}}">
                 </td>
-                <td>{{$item->name}}</td>
+                <td class="text-capitalize">{{$item->name}}</td>
                 <td>{{$item->description}}</td>
                 <td>{{$item->cost}} Tk</td>
                 <td class="text-capitalize">{{$item->status}}</td>

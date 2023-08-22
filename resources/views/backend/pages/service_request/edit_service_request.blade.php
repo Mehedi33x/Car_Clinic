@@ -75,9 +75,34 @@
         <div class="container">
 
             <h2>Enter Service Request Information</h2>
-
-            <form action="" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('update.request', $booking->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
+                @method('patch')
+                <hr>
+                <h5 style="text-align: center;">Assign Section</h5>
+                <div class="form-group">
+                    <label for="assign_to">Assign To:</label>
+                    <select id="assign_to" name="assign_to" required>
+                        @foreach ($mechanic as $data)
+                            <option value="{{ $data->name }}">{{ $data->name }}</option>
+                        @endforeach
+
+
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="status">Status:</label>
+                    <select id="status" name="status" value="{{ $booking->status }}" required>
+                        <option value="pending">Pending</option>
+                        <option value="in progress">In Progress</option>
+                        <option value="done">Done</option>
+
+                    </select>
+                </div>
+
+                <hr>
+                {{-- @dd($booking) --}}
+                <h5 style="text-align:center;">Customer Information</h5>
                 <div class="form-group">
                     <label for="name">Customer Name:</label>
                     <input type="text" id="name" name="name" value="{{ $booking->name }}" required>
@@ -106,10 +131,10 @@
                     <label for="name">Car Registration No:</label>
                     <input type="text" id="name" name="reg_num" value="{{ $booking->reg_num }}" required>
                 </div>
-                <div class="form-group">
+                {{-- <div class="form-group">
                     <label for="name">Selected Service:</label>
                     <input type="text" id="name" name="service" value="" required>
-                </div>
+                </div> --}}
                 <div class="form-group">
                     <label for="name">Cost:</label>
                     <input type="num" min="0" id="name" name="cost" value="{{ $booking->cost }}"
@@ -117,19 +142,20 @@
                 </div>
                 <div class="form-group">
                     <label for="name">Special Request:</label>
-                    <input type="text" id="name" name="special_request" value="{{ $booking->name }}" required>
+                    <input type="text" id="name" name="special_request" value="{{ $booking->special_request }}"
+                        required>
                 </div>
-                {{-- <div class="form-group">
-                    <label for="name">Cost:</label>
-                    <input type="text" id="name" name="cost" required>
-                </div>
+
                 <div class="form-group">
-                    <label for="name">Cost:</label>
-                    <input type="text" id="name" name="cost" required>
-                </div> --}}
-                <div class="form-group">
-                    <label for="name">Date:</label>
-                    <input type="text" id="name" name="cost" required>
+                    <label for="name">Booking Date:</label>
+                    <div>
+                        @php
+                            $cur_date = \Carbon\Carbon::parse($booking->date)->format('d-m-Y');
+                        @endphp
+                        <p>{{ $cur_date }}</p>
+
+                        {{-- <input type="date" name="date" id="date" value="{{$cur_date}}"> --}}
+                    </div>
                 </div>
 
                 <div class="form-group">

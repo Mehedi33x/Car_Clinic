@@ -10,10 +10,12 @@
                         <ol class="breadcrumb justify-content-center text-uppercase">
 
                             <li>
-                                <a href="{{route('profile.customer')}}" class="mx-3 text-white active" aria-current="page">Profile</a>
+                                <a href="{{ route('profile.customer') }}" class="mx-3 text-white active"
+                                    aria-current="page">Profile</a>
                             </li>
                             <li>
-                                <a href="{{route('booking.list')}}" class="mx-3 text-white active" aria-current="page">Booking Details</a>
+                                <a href="{{ route('booking.list') }}" class="mx-3 text-white active"
+                                    aria-current="page">Booking Details</a>
                             </li>
 
                         </ol>
@@ -22,8 +24,8 @@
             </div>
         </div>
     </div>
-    <div>
-        <div class="col-lg-6">
+    <div class="row">
+        <div class="col-lg-6 mx-auto">
             <div class="bg-primary h-100 d-flex flex-column justify-content-center p-5 wow zoomIn">
                 <h1 class="text-white mb-4 text-center">User Information</h1>
 

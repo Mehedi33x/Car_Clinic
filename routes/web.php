@@ -10,7 +10,6 @@ use App\Http\Controllers\backend\PaymentController;
 use App\Http\Controllers\backend\ReportController;
 use App\Http\Controllers\backend\ServiceCenterController;
 use App\Http\Controllers\backend\ServiceController;
-use App\Http\Controllers\backend\ServiceRequestController;
 use App\Http\Controllers\backend\UserController;
 use App\Http\Controllers\frontend\AboutController;
 use App\Http\Controllers\frontend\AuthwebController;
@@ -57,7 +56,7 @@ Route::post('/support_message', [SupportController::class, 'message'])->name('we
 //User Profile
 Route::get('/users', [CustomerController::class, 'customer_profile'])->name('profile.customer');
 Route::get('/users_edit', [CustomerController::class, 'edit_profile'])->name('edit.customer.profile');
-Route::put('/users_update', [CustomerController::class, 'update_profile'])->name('update.customer.profile');
+Route::patch('/users_update', [CustomerController::class, 'update_profile'])->name('update.customer.profile');
 Route::get('/users_booking_list', [CustomerController::class, 'booking_list'])->name('booking.list');
 
 
@@ -90,12 +89,13 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'checkAdmin']], func
     Route::post('/store', [UserController::class, 'store'])->name('user.store');
 
     //service center
-    Route::get('/servcie_center', [ServiceCenterController::class, 'sercive_center_list'])->name('center.list');
-    Route::get('/view_center/{id}', [ServiceCenterController::class, 'view_sercive_center'])->name('center.view');
-    Route::get('/add_center', [ServiceCenterController::class, 'add_sercive_center'])->name('center.add');
-    Route::post('/store_center', [ServiceCenterController::class, 'store_sercive_center'])->name('center.store');
-    Route::get('/edit_center/{id}', [ServiceCenterController::class, 'edit_sercive_center'])->name('center.edit');
-    Route::get('/delete_center/{id}', [ServiceCenterController::class, 'delete_sercive_center'])->name('center.delete');
+
+    // Route::get('/servcie_center', [ServiceCenterController::class, 'sercive_center_list'])->name('center.list');
+    // Route::get('/view_center/{id}', [ServiceCenterController::class, 'view_sercive_center'])->name('center.view');
+    // Route::get('/add_center', [ServiceCenterController::class, 'add_sercive_center'])->name('center.add');
+    // Route::post('/store_center', [ServiceCenterController::class, 'store_sercive_center'])->name('center.store');
+    // Route::get('/edit_center/{id}', [ServiceCenterController::class, 'edit_sercive_center'])->name('center.edit');
+    // Route::get('/delete_center/{id}', [ServiceCenterController::class, 'delete_sercive_center'])->name('center.delete');
 
 
 
@@ -115,7 +115,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'checkAdmin']], func
     Route::get('/view_mechanic/{id}', [MechanicController::class, 'view_mechanic'])->name('mechanic.view');
     Route::post('/store_mechanic', [MechanicController::class, 'store_mechanic'])->name('mechanic.store');
     Route::get('/edit_mechanic/{id}', [MechanicController::class, 'edit_mechanic'])->name('mechanic.edit');
-    Route::post('/update_mechanic/{id}', [MechanicController::class, 'update_mechanic'])->name('mechanic.update');
+    Route::patch('/update_mechanic/{id}', [MechanicController::class, 'update_mechanic'])->name('mechanic.update');
     Route::get('/delete_mechanic/{id}', [MechanicController::class, 'delete_mechanic'])->name('mechanic.delete');
 
 
@@ -123,6 +123,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'checkAdmin']], func
     Route::get('/service_request', [BookingController::class, 'service_request'])->name('service.request');
     Route::get('/view/service_request/{id}', [BookingController::class, 'view_request'])->name('view.request');
     Route::get('/edit/service_request/{id}', [BookingController::class, 'edit_request'])->name('edit.request');
+    Route::patch('/update/service_request/{id}', [BookingController::class, 'update_request'])->name('update.request');
 
 
     //Car Brand
@@ -164,4 +165,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'checkAdmin']], func
 
     //customer
     Route::get('/customer_list', [CustomerController::class, 'customer_list'])->name('customer.list');
+    Route::get('/customer_view/{id}', [CustomerController::class, 'customer_view'])->name('customer.view');
+    Route::get('/customer_delete/{id}', [CustomerController::class, 'customer_delete'])->name('customer.delete');
+
+    // user profile
+    Route::get('/user_profile', [UserController::class, 'user_profile'])->name('user.profile');
 });
