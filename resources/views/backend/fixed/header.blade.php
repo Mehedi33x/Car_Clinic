@@ -51,7 +51,7 @@
 
         <li class="nav-item dropdown d-none d-xl-inline-flex user-dropdown">
           <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-            <img class="img-xs rounded-circle ml-2" src="{{url('backend/assets/images/faces/face8.jpg')}}" alt="Profile image"> <span class="font-weight-normal"> {{auth()->user()->name}} </span></a>
+            <img class="img-xs rounded-circle ml-2" src="{{url('/uploads/mechanics/'.auth()->user()->image)}}" alt="Profile image"> <span class="font-weight-normal"> {{auth()->user()->name}} </span></a>
           <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
             <div class="dropdown-header text-center">
               <img class="img-md rounded-circle" src="{{url('backend/assets/images/faces/face8.jpg')}}" alt="Profile image">

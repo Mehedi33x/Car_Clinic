@@ -63,6 +63,18 @@ class BookingController extends Controller
         return to_route('service.request')->with('message','Data updated successfully!!!');
     }
 
+    public function delete_request($id){
+        $booking=Booking::findOrFail($id);
+        $booking->delete();
+
+        return to_route('service.request')->with('message','Data deleted successfully!!!');
+
+    }
+
+
+
+
+
 
 
 
@@ -104,6 +116,7 @@ class BookingController extends Controller
             'date' => $request->date,
 
         ]);
+        // dd($$booking);
         // for sending mail
         $booking->notify(new BookingMail($booking));
         Toastr::success('Service Booked Successfuly', 'Success', ['options']);
@@ -118,4 +131,13 @@ class BookingController extends Controller
         }
         return $totalCost;
     }
+
+
+    //not working...should be delete by booking id
+
+    // public function delete_booking(){
+    //     $booking=Booking::findOrFail(auth('customers')->user()->id);
+    //     $booking->delete();
+    // }
+
 }

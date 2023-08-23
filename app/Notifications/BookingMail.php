@@ -16,7 +16,7 @@ class BookingMail extends Notification
      */
     public function __construct($booking)
     {
-        $this->booking=$booking;
+        $this->booking = $booking;
     }
 
     /**
@@ -35,10 +35,17 @@ class BookingMail extends Notification
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->line('Your mail Is: '.$this->booking->email)
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+            ->line('Welcome to Car Clinic')
+            ->line('Here is your booking details.')
+            ->line('Your mail: ' . $this->booking->email)
+            ->line('Name: ' . $this->booking->name)
+            ->line('Address: ' . $this->booking->address)
+            ->line('Car Registration No: ' . $this->booking->reg_num)
+            // ->line('Service: ' . $this->booking->servcie)
+            ->line('Total Charge: ' . $this->booking->cost)
+            ->line('Booked On: ' . $this->booking->date)
+            // ->action('Notification Action', url('/'))
+            ->line('Thank you for using our services!');
     }
 
     /**

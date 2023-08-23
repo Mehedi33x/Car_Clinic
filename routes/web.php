@@ -41,6 +41,7 @@ Route::get('/', [HomepageController::class, 'homepage'])->name('homepage.webpage
 Route::get('/booking', [BookingController::class, 'booking'])->name('booking.webpage');
 Route::post('/booking_store', [BookingController::class, 'booking_store'])->name('booking.webpage.store');
 Route::post('/booking/serivces/charges', [BookingController::class, 'booking_charge'])->name('booking.charge');
+Route::get('/delete_booking', [BookingController::class, 'delete_booking'])->name('delete.booking.webpage');
 
 
 Route::get('/service', [ServicePageController::class, 'service_page'])->name('service.webpage');
@@ -50,7 +51,6 @@ Route::get('/contact', [ContactController::class, 'contact'])->name('contact.web
 
 Route::get('/support', [SupportController::class, 'supoort'])->name('webpage.support');
 Route::post('/support_message', [SupportController::class, 'message'])->name('webpage.support.message');
-
 
 
 //User Profile
@@ -124,6 +124,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'checkAdmin']], func
     Route::get('/view/service_request/{id}', [BookingController::class, 'view_request'])->name('view.request');
     Route::get('/edit/service_request/{id}', [BookingController::class, 'edit_request'])->name('edit.request');
     Route::patch('/update/service_request/{id}', [BookingController::class, 'update_request'])->name('update.request');
+    Route::get('/get/service_request/{id}', [BookingController::class, 'delete_request'])->name('delete.request');
 
 
     //Car Brand
@@ -170,4 +171,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'checkAdmin']], func
 
     // user profile
     Route::get('/user_profile', [UserController::class, 'user_profile'])->name('user.profile');
+    Route::get('/edit_profile', [UserController::class, 'edit_profile'])->name('edit.profile');
+    Route::patch('/update_profile',[UserController::class,'update_profile'])->name('update.profile');
+
 });

@@ -84,7 +84,7 @@ class MechanicController extends Controller
 
                 File::delete(public_path('uploads/mechanics/' . $mechanic_image));
             }
-            $mechanic_image = time() . '-' . uniqid() . '.' . $image->getClientOriginalExtension();
+            $mechanic_image = time() . '-' . '.' . $image->getClientOriginalExtension();
             $image->move('uploads/mechanics/', $mechanic_image);
         }
 

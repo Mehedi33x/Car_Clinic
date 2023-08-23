@@ -33,12 +33,15 @@
                 <thead class="table-dark">
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Brand Name</th>
-                        <th scope="col">Car Registration No.</th>
+                        <th scope="col">Car Name</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Registration No.</th>
                         <th scope="col">Booked On</th>
                         <th scope="col">Serives</th>
                         <th scope="col">Serive Charge</th>
                         <th scope="col">Status</th>
+                        <th scope="col">Action</th>
+
 
 
                     </tr>
@@ -49,8 +52,9 @@
                         <tr>
                             {{-- @dd($item) --}}
 
-                            <th scope="row">{{$key+1}}</th>
+                            <th scope="row">{{ $key + 1 }}</th>
                             <td>{{ $item->car_brand }}</td>
+                            <td>{{ $item->car_type }}</td>
                             <td>{{ $item->reg_num }}</td>
                             @php
                                 $currDate = \Carbon\Carbon::parse()->format('d-m-Y');
@@ -64,6 +68,11 @@
                             </td>
                             <td>{{ $item->cost }}BDT</td>
                             <td class="text-capitalize">{{ $item->status }}</td>
+                            <td>
+                                <a href="http://" class="fa fa-edit" style="color:black">Edit</a> <br><br>
+                                <a href="{{ route('delete.booking.webpage', auth('customers')->user()->id) }}" class="fa fa-trash"
+                                    onclick="return confirm('Are you sure to Delete?')">Delete</a>
+                            </td>
                         </tr>
                     @endforeach
 

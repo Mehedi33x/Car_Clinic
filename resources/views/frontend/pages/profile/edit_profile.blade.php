@@ -24,8 +24,8 @@
             </div>
         </div>
     </div>
-    <div>
-        <div class="col-lg-6">
+    <div class="row">
+        <div class="col-lg-6 mx-auto">
 
             <div class="bg-primary h-100 d-flex flex-column justify-content-center p-5 wow zoomIn">
                 <h1 class="text-white mb-4 text-center">User Information</h1>

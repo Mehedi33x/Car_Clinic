@@ -62,7 +62,7 @@
         <!-- main-panel ends -->
       </div>
       <!-- page-body-wrapper ends -->
-    </div>
+    </div>  
     <!-- container-scroller -->
 <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js">
@@ -82,6 +82,7 @@
     <!-- Custom js for this page -->
     <script src="{{url('backend/assets/js/dashboard.js')}}"></script>
     <!-- End custom js for this page -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     {{-- @notifyJs --}}
   </body>
 </html>

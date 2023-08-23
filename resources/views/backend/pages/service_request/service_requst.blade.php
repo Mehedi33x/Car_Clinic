@@ -64,7 +64,7 @@
                                         <a class="dropdown-item" href="{{ route('view.request', $item->id) }}"><i
                                                 class="fas fa-eye"></i>View</a>
                                         <a class="dropdown-item" href="{{route('edit.request',$item->id)}}"><i class="fas fa-edit"></i>Edit</a>
-                                        <a class="dropdown-item" href="#"
+                                        <a class="dropdown-item" href="{{route('delete.request',$item->id)}}"
                                             onclick="return confirm('Are you sure to Delete?')"><i
                                                 class="fa-solid fa-trash"></i>Delete</a>
                                     </div>

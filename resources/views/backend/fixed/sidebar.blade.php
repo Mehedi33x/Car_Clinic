@@ -3,7 +3,7 @@
         <li class="nav-item nav-profile">
             <a href="{{route('user.profile')}}" class="nav-link">
                 <div class="profile-image">
-                    <img class="img-xs rounded-circle" src="{{ url('/uploads/mechanics'), auth()->user()->image }}">
+                    <img class="img-xs rounded-circle" src="{{url('/uploads/mechanics/'.auth()->user()->image)}}">
                     <div class="dot-indicator bg-success"></div>
                 </div>
                 <div class="text-wrapper">
