@@ -9,7 +9,7 @@
     @endif
 </div>
 <div class="mt-3 ml-3 mr-3">
-    <h2 style="font-size: 35px; margin-bottom:20px">Service List</h2>
+    <h2 style="font-size: 35px; margin-bottom:20px">Service List</h2><hr>
     <div>
         <a href="{{route('service.add')}}">
             <button type="submit" class="btn btn-success" style="margin-bottom: 20px">+ Service</button>

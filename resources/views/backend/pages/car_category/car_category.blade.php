@@ -10,7 +10,7 @@
 </div>
 <div class="mt-3 ml-3 mr-3">
     <h2 style="font-size: 35px; margin-bottom:20px">Car Category List</h2>
-    <div>
+    <div><hr>
         <a href="{{route('add.category')}}" class="btn btn-success" style="margin-bottom: 20px">+ Category</a>
     </div>
     <table class="table table-bordered" style="border: 2px solid black">

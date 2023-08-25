@@ -7,7 +7,7 @@
         <p class="alert alert-success" style="font-size: 25px;text-align:center">{{session()->get('message')}}</p>
         @endif
     </div> --}}
-    <h1 style="font-size: 50px">Booking Report</h1>
+    <h1 style="font-size: 35px">Booking Report</h1><hr>
     <br>
     <form action="{{route('report.show')}}" method="get">
 

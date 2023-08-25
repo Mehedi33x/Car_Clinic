@@ -38,9 +38,17 @@
     </head>
 
     <body>
+        <div>
+            @if (session()->has('message'))
+                <div class="alert alert-success">
+                    <button type="button" class="close" data-dismiss="alert">X</button>
+                    {{ session()->get('message') }}
+                </div>
+            @endif
+        </div>
         <div class="container">
             <h2 class="mb-3" style="text-align: center">User Profile</h2>
-            <a href="{{route('edit.profile')}}" class="btn btn-success">Edit</a>
+            <a href="{{route('edit.profile')}}" class="btn btn-success ">Edit</a>
             <hr>
             <div class="row">
                 <div class="data-item mx-auto">

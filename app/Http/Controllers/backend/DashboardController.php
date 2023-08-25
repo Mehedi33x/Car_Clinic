@@ -7,6 +7,7 @@ use App\Models\Booking;
 use App\Models\Customer;
 use App\Models\Mechanic;
 use App\Models\Service;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -16,7 +17,8 @@ class DashboardController extends Controller
         $bookings=Booking::count();
         $customers=Customer::count();
         $services=Service::count();
-        $mechanics=Mechanic::count();
+        // $mechanics=Mechanic::count();
+        $mechanics=User::where('role','mechanic')->count();
         $recent_bookings=Booking::latest()->take(5)->get();
         $done_bookings=Booking::where('status','done')->take(5)->get();
         // dd($recent_bookings);

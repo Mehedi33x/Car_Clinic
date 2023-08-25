@@ -5,6 +5,7 @@ namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class CategoryController extends Controller
 {
@@ -14,14 +15,15 @@ class CategoryController extends Controller
         return view('backend.pages.car_category.car_category', compact('category'));
     }
 
-    public function view_type($id){
-        $category=Category::findOrFail($id);
-        return view('backend.pages.car_category.view_category',compact('category'));
+    public function view_type($id)
+    {
+        $category = Category::findOrFail($id);
+        return view('backend.pages.car_category.view_category', compact('category'));
     }
 
     public function add_category()
     {
-        return view('backend.pages.car_category.add_category');
+        return view('backend.pages.car_category.add_category')->with('message','Data added successfully !!!');
     }
 
     public function store_category(Request $request)
@@ -72,12 +74,25 @@ class CategoryController extends Controller
             'status' => 'required',
         ]);
 
+        $car_image = $category->image;
+        // dd(public_path('images/mechanics/'.$mechanic_image));
+        if ($image = $request->file('image')) {
+            if (file_exists(public_path('uploads/mechanics/' . $car_image))) {
+                // Log::useFiles('path', 'level');
+                // File::delete($oldimage);
+
+                File::delete(public_path('uploads/mechanics/' . $car_image));
+            }
+            $car_image = date('Ymdhsi') . '.' . $image->getClientOriginalExtension();
+            $image->move('uploads/category/', $car_image);
+        }
         $category->update([
             'name' => $request->name,
             'description' => $request->description,
+            'image'=>$car_image,
         ]);
 
-        return to_route('category');
+        return to_route('category')->with('message','Data updated successfully !!!');
     }
 
     public function delete_category($id)
@@ -87,6 +102,6 @@ class CategoryController extends Controller
 
         $category->delete();
 
-        return to_route('category');
+        return to_route('category')->with('message','Data deleted successfully !!!');
     }
 }

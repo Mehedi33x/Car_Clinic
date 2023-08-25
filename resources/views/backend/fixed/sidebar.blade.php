@@ -1,9 +1,9 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <ul class="nav">
         <li class="nav-item nav-profile">
-            <a href="{{route('user.profile')}}" class="nav-link">
+            <a href="{{ route('user.profile') }}" class="nav-link">
                 <div class="profile-image">
-                    <img class="img-xs rounded-circle" src="{{url('/uploads/mechanics/'.auth()->user()->image)}}">
+                    <img class="img-xs rounded-circle" src="{{ url('/uploads/mechanics/' . auth()->user()->image) }}">
                     <div class="dot-indicator bg-success"></div>
                 </div>
                 <div class="text-wrapper">
@@ -37,30 +37,11 @@
             </li> --}}
         @endif
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('service.request') }}">
-                <span class="menu-title">Booking Request</span>
-                <i class="icon-chart menu-icon"></i>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('report') }}">
-                <span class="menu-title">Reports</span>
-                <i class="icon-grid menu-icon"></i>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('admin.support') }}">
-                <span class="menu-title">Support</span>
-                <i class="icon-grid menu-icon"></i>
-            </a>
-        </li>
-        <li class="nav-item">
             <a class="nav-link" href="{{ route('customer.list') }}">
                 <span class="menu-title">Customer List</span>
                 <i class="icon-chart menu-icon"></i>
             </a>
         </li>
-
         @if (auth()->user()->role == 'admin')
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('user.list') }}">
@@ -90,6 +71,25 @@
                 </a>
             </li>
         @endif
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('service.request') }}">
+                <span class="menu-title">Booking Request</span>
+                <i class="icon-chart menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('report') }}">
+                <span class="menu-title">Reports</span>
+                <i class="icon-grid menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('admin.support') }}">
+                <span class="menu-title">Support</span>
+                <i class="icon-grid menu-icon"></i>
+            </a>
+        </li>
+
         <li class="nav-item">
             <a class="nav-link" href="{{ route('payment') }}">
                 <span class="menu-title">Payment</span>

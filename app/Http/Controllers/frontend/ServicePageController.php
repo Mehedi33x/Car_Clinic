@@ -10,7 +10,7 @@ use PhpParser\Node\Expr\FuncCall;
 class ServicePageController extends Controller
 {
     public function service_page(){
-        $services=Service::latest()->take(100)->get();
+        $services=Service::where('status','active')->latest()->take(100)->get();
         return view('frontend.pages.service.service',compact('services'));
 
     }

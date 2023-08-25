@@ -172,6 +172,5 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'checkAdmin']], func
     // user profile
     Route::get('/user_profile', [UserController::class, 'user_profile'])->name('user.profile');
     Route::get('/edit_profile', [UserController::class, 'edit_profile'])->name('edit.profile');
-    Route::patch('/update_profile',[UserController::class,'update_profile'])->name('update.profile');
-
+    Route::put('/update_profile', [UserController::class, 'update_profile'])->name('update.profile');
 });

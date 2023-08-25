@@ -79,7 +79,7 @@ class UserController extends Controller
             'contact' => $request->contact,
             'email' => $request->email,
             'address' => $request->address,
-            'password' => bcrypt($request->name),
+            'password' => bcrypt($request->password),
             'image' => $user_image,
         ]);
 

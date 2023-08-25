@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="mt-3 ml-3 mr-3">
-    <h2 style="font-size: 35px; margin-bottom:20px">Payment List</h2>
+    <h2 style="font-size: 35px; margin-bottom:20px">Payment List</h2><hr>
     <div>
         {{-- <a href="" class="btn btn-success" style="margin-bottom: 20px">+ Service Request</a> --}}
     </div>

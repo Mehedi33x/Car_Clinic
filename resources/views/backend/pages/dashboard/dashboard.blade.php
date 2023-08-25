@@ -72,6 +72,7 @@
     {{-- Recent Bookings --}}
     <div class="mx-4">
         <h4 class="mb-3">Recent Bookings</h4>
+        <hr>
         <table class="table">
             <thead class="thead-light">
                 <tr>
@@ -104,9 +105,10 @@
             </tbody>
         </table>
     </div>
-
+    <hr>
     <div class="mx-4">
         <h4 class="mb-3">Completed Services</h4>
+        <hr>
         <table class="table">
             <thead class="thead-light">
                 <tr>

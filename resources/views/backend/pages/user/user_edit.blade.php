@@ -18,7 +18,7 @@
             {{-- @dd(auth()->user()->id) --}}
             <form action="{{ route('update.profile', auth()->user()->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                @method('patch')
+                @method('put')
                 <div class="form-group">
                     <label for="name">Name:</label>
                     <input type="text" id="name" name="name" value="{{ auth()->user()->name }}">
@@ -62,7 +62,7 @@
                     <label for="image">Image:</label>
                     <img style="height: 120px;width:90px" src="{{ url('uploads/mechanics/' . auth()->user()->image) }}"
                         alt=""><br><br>
-                    <input type="file" id="image" name="image" >
+                    <input type="file" id="image" name="image">
                     <div class="alert-danger">
                         {{ $errors->first('image') }}
                     </div>
