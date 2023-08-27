@@ -9,7 +9,8 @@
         @endif
     </div>
     <div class="mt-3 ml-3 mr-3">
-        <h2 style="font-size: 35px; margin-bottom:20px">Service Request List</h2><hr>
+        <h2 style="font-size: 35px; margin-bottom:20px">Service Request List</h2>
+        <hr>
         {{-- <div>
             <a href="">
                 <button type="submit" class="btn btn-success" style="margin-bottom: 20px">+ Service Request</button>
@@ -51,26 +52,28 @@
                         @endphp
                         <td>{{ $currDate }}</td>
                         <td>{{ $item->assign }}</td>
-                        <td>{{ $item->status }}</td>
+                        <td class="text-capitalize">{{ $item->status }}</td>
                         @if (auth()->user()->role == 'admin')
-                        <td>
-                            <div class="container">
-                                <div class="dropdown">
-                                    <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Action
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="{{ route('view.request', $item->id) }}"><i
-                                                class="fas fa-eye"></i>View</a>
-                                        <a class="dropdown-item" href="{{route('edit.request',$item->id)}}"><i class="fas fa-edit"></i>Edit</a>
-                                        <a class="dropdown-item" href="{{route('delete.request',$item->id)}}"
-                                            onclick="return confirm('Are you sure to Delete?')"><i
-                                                class="fa-solid fa-trash"></i>Delete</a>
+                            <td>
+                                <div class="container">
+                                    <div class="dropdown">
+                                        <button class="btn btn-success dropdown-toggle" type="button"
+                                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                            Action
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="{{ route('view.request', $item->id) }}"><i
+                                                    class="fas fa-eye"></i>View</a>
+                                            <a class="dropdown-item" href="{{ route('edit.request', $item->id) }}"><i
+                                                    class="fas fa-edit"></i>Edit</a>
+                                            <a class="dropdown-item" href="{{ route('delete.request', $item->id) }}"
+                                                onclick="return confirm('Are you sure to Delete?')"><i
+                                                    class="fa-solid fa-trash"></i>Delete</a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </td>
+                            </td>
                         @endif
                     </tr>
                 @endforeach

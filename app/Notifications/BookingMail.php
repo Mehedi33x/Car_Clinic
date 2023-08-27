@@ -34,14 +34,16 @@ class BookingMail extends Notification
      */
     public function toMail(object $notifiable): MailMessage
     {
-        return (new MailMessage)
+        $services = $this->booking->service;
+        $servicesString = implode(', ', $services);
+        return (new MailMessage())
             ->line('Welcome to Car Clinic')
             ->line('Here is your booking details.')
             ->line('Your mail: ' . $this->booking->email)
             ->line('Name: ' . $this->booking->name)
             ->line('Address: ' . $this->booking->address)
             ->line('Car Registration No: ' . $this->booking->reg_num)
-            // ->line('Service: ' . $this->booking->servcie)
+            ->line('Services: ' . $servicesString)
             ->line('Total Charge: ' . $this->booking->cost)
             ->line('Booked On: ' . $this->booking->date)
             // ->action('Notification Action', url('/'))
@@ -56,7 +58,7 @@ class BookingMail extends Notification
     public function toArray(object $notifiable): array
     {
         return [
-            //
-        ];
+                //
+            ];
     }
 }

@@ -32,7 +32,6 @@ class MechanicController extends Controller
 
     public function store_mechanic(Request $request)
     {
-        //dd($request->all());
         $request->validate([
             'name' => 'required',
             'email' => 'required',
@@ -41,6 +40,7 @@ class MechanicController extends Controller
             'address' => 'required',
         ]);
 
+        // dd($request->all());
         $mechanic_image = '';
         if ($image = $request->hasFile('image')) {
             $image = $request->file('image');
@@ -51,7 +51,9 @@ class MechanicController extends Controller
             'image' => $mechanic_image,
             'name' => $request->name,
             'email' => $request->email,
-            'password' => bcrypt($request->password),
+            // 'password' => bcrypt($request->password),
+            'password' => $request->password,
+            'role' => 'mechanic',
             'contact' => $request->contact,
             'address' => $request->address,
         ]);
@@ -94,7 +96,7 @@ class MechanicController extends Controller
             'contact' => $request->contact,
             'address' => $request->address,
             'status' => $request->status,
-            'password' => $request->password,
+            'password' => $request->password ?? bcrypt($request->password),
             "image" => $mechanic_image
         ]);
         return to_route('mechanic.list');

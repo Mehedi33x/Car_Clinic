@@ -45,6 +45,10 @@
                 <h2 class="mb-3" style="text-align: center">Booking Information</h2>
                 <hr>
                 <div class="data-item">
+                    <span class="data-label">Booking Id:</span>
+                    <span class="data-value">{{ $booking->booking_code }}</span>
+                </div>
+                <div class="data-item">
                     <span class="data-label">Name:</span>
                     <span class="data-value">{{ $booking->name }}</span>
                 </div>
@@ -89,12 +93,21 @@
                     <span class="data-value">{{ $booking->cost }} BDT</span>
                 </div>
                 <div class="data-item">
+                    <span class="data-label">Total Payment:</span>
+                    <span class="data-value">{{ $booking->total_payment }} BDT</span>
+                </div>
+                <div class="data-item">
+                    <span class="data-label">Due:</span>
+                    <span class="data-value">{{ $booking->cost - $booking->total_payment }} BDT</span>
+                </div>
+                <div class="data-item">
                     <span class="data-label">Special Request:</span>
                     <span class="data-value">{{ $booking->special_request }}</span>
                 </div>
+                <hr>
                 <div class="data-item">
                     <span class="data-label">Booking Assign To:</span>
-                    <span class="data-value text-capitalize"{{ $booking->assign }}</span>
+                    <span class="data-value text-capitalize">{{ $booking->assign }}</span>
                 </div>
                 <div class="data-item">
                     <span class="data-label">Booking Status:</span>

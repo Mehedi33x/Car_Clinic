@@ -80,15 +80,24 @@
       <div class="form-group">
         <label for="name">Service Name:</label>
         <input type="text" id="name" name="name" required>
+        <div class="alert-danger">
+            {{ $errors->first('name') }}
+        </div>
       </div>
 
       <div class="form-group">
         <label for="description">Description:</label>
         <textarea type="text" name="description" id="" cols="40" rows="10" ></textarea>
+        <div class="alert-danger">
+            {{ $errors->first('description') }}
+        </div>
       </div>
       <div class="form-group">
         <label for="cost">Service Cost:</label>
         <input type="number" min="1" name="cost" required>
+        <div class="alert-danger">
+            {{ $errors->first('cost') }}
+        </div>
       </div>
       <div class="form-group">
         <label for="status">Service Status:</label>
@@ -96,6 +105,9 @@
           <option value="active">Active</option>
           <option value="inactive">Inactive</option>
         </select>
+        <div class="alert-danger">
+            {{ $errors->first('status') }}
+        </div>
       </div>
       <div class="form-group">
         <label for="image">Image:</label>

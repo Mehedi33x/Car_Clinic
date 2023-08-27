@@ -32,7 +32,7 @@
             <tr>
                 <th scope="row">{{$services->firstitem()+$key}}</th>
                 <td>
-                    <img style="width: 80px; height:80px;" src="{{url('uploads/service/'.$item->image)}}">
+                    <img style="width:100px;height:100px" src="{{url('uploads/service/'.$item->image)}}">
                 </td>
                 <td class="text-capitalize">{{$item->name}}</td>
                 <td>{{$item->description}}</td>

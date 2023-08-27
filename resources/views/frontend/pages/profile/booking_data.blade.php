@@ -38,8 +38,10 @@
                         <th scope="col">Registration No.</th>
                         <th scope="col">Booked On</th>
                         <th scope="col">Serives</th>
-                        <th scope="col">Serive Charge</th>
                         <th scope="col">Status</th>
+                        <th scope="col">Serive Charge</th>
+                        <th scope="col">Total Payment</th>
+                        <th scope="col">Payment Status</th>
                         <th scope="col">Action</th>
 
 
@@ -50,7 +52,7 @@
 
                     @foreach ($bookings as $key => $item)
                         <tr>
-                            {{-- @dd($item) --}}
+                            {{-- @dd($bookings) --}}
 
                             <th scope="row">{{ $key + 1 }}</th>
                             <td>{{ $item->car_brand }}</td>
@@ -66,12 +68,13 @@
                                     <p>{{ $data }}</p>
                                 @endforeach
                             </td>
-                            <td>{{ $item->cost }}BDT</td>
                             <td class="text-capitalize">{{ $item->status }}</td>
+                            <td>{{ $item->cost }}BDT</td>
+                            <td class="text-capitalize">{{ $item->total_payment }}</td>
+                            <td class="text-capitalize">{{ $item->payment_status }}</td>
                             <td>
-                                <a href="http://" class="fa fa-edit" style="color:black">Edit</a> <br><br>
-                                <a href="{{ route('delete.booking.webpage', auth('customers')->user()->id) }}" class="fa fa-trash"
-                                    onclick="return confirm('Are you sure to Delete?')">Delete</a>
+                                <a href="{{ route('delete.booking.webpage', $item->id) }}" class="fa fa-trash"
+                                    onclick="return confirm('Are you sure to Delete?')">Cancel</a>
                             </td>
                         </tr>
                     @endforeach

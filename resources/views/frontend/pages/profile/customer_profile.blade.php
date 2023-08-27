@@ -40,7 +40,17 @@
                     <label for="email" class="text-white">Email:</label>
                     <input type="email" name="email" class="form-control border-0" placeholder="Your Email"
                         style="height: 55px;" value="{{ auth('customers')?->user()?->email }}" readonly>
-                </div>
+                </div><br>
+                <div class="col-12 col-sm-10">
+                    <label for="contact" class="text-white">Contact:</label>
+                    <input type="tel" name="contact" class="form-control border-0" placeholder="" style="height: 55px;"
+                        value="{{ auth('customers')?->user()?->contact }}" readonly>
+                </div><br>
+                <div class="col-12 col-sm-10">
+                    <label for="address" class="text-white">Address:</label>
+                    <input type="text" name="address" class="form-control border-0" placeholder="" style="height: 55px;"
+                        value="{{ auth('customers')?->user()?->address }}" readonly>
+                </div><br>
             </div>
         </div>
     @endsection

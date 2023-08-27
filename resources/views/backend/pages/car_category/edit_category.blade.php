@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Form Example</title>
+
   {{-- <link rel="stylesheet" href="/backend/assets/css/add_form.css"> --}}
   <style>
     body {
@@ -83,12 +83,18 @@
         <label for="name">Name:</label>
                                           {{-- $var->column name --}}
         <input type="text" id="name" value="{{$category->name}}" name="name" required>
+        <div class="alert-danger">
+            {{ $errors->first('name') }}
+        </div>
       </div>
 
       <div class="form-group">
         <label for="description">Description:</label>
         {{-- <input type="text" id="description" name="description" required> --}}
         <textarea name="description" id="description" cols="40" rows="10">{{$category->description}}</textarea>
+        <div class="alert-danger">
+            {{ $errors->first('description') }}
+        </div>
       </div>
 
       <div class="form-group">

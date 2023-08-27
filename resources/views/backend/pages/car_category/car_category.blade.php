@@ -29,7 +29,7 @@
             <tr>
                 <th scope="row">{{$category->firstitem()+$key}}</th>
                 <td>
-                    <img style="width: 50px;" src="{{url('/uploads/category/'.$item->image)}}" alt="">
+                    <img style="width:100px;height:100px" src="{{url('/uploads/category/'.$item->image)}}" alt="">
                   </td>
 
                 <td>{{$item->name}}</td>

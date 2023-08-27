@@ -13,7 +13,7 @@ class UserController extends Controller
     {
         $users = User::where('role', 'admin')->paginate(5);
         return view('backend.pages.user.user_list', compact('users'));
-        return view('');
+        // return view('');
     }
 
     public function user_add()
@@ -31,26 +31,62 @@ class UserController extends Controller
             'address' => 'required',
 
         ]);
+        $user_image = '';
+        if ($image = $request->hasFile('image')) {
+            $image = $request->file('image');
+            $user_image = date('Ymdhsi') . '.' . $image->getClientOriginalExtension();
+            $image->storeAs('/mechanics', $user_image);
+        }
+        // dd($user_image);
         User::create([
             // clm name ---------- input field name
             'name' => $request->name,
             'email' => $request->email,
-            'password' => bcrypt($request->password),
+            // 'password' => bcrypt($request->password),
+            'password' => $request->password,
             'contact' => $request->contact,
             'address' => $request->address,
+            'image' => $user_image,
         ]);
-        return to_route('user.list');
+        return to_route('user.list')->with('message', 'User added successfully !!!');
+    }
+    // user view
+    public function user_view($id)
+    {
+        $user = User::where('role', 'admin')->find($id);
+        // dd($user);
+        return view('backend.pages.user.user_view', compact('user'));
+    }
+    public function user_delete($id)
+    {
+        $user = User::find($id);
+        $user->delete();
+        return to_route('user.list')->with('message', 'Data deleted successfully !!!');
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+    //profile edit
     public function user_profile()
     {
         return view('backend.pages.user.user_profile');
     }
-
+    //profile edit
     public function edit_profile()
     {
-        return view('backend.pages.user.user_edit');
+        return view('backend.pages.user.profile_edit');
     }
+    //profile edits
     public function update_profile(Request $request)
     {
 
@@ -79,7 +115,7 @@ class UserController extends Controller
             'contact' => $request->contact,
             'email' => $request->email,
             'address' => $request->address,
-            'password' => bcrypt($request->password),
+            'password' => $request->password ?? bcrypt($request->password),
             'image' => $user_image,
         ]);
 

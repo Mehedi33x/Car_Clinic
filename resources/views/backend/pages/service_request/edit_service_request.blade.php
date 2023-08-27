@@ -42,7 +42,7 @@
             input[type="text"],
             input[type="email"],
             input[type="tel"],
-            input[type="num"],
+            input[type="number"],
 
 
             select {
@@ -99,6 +99,10 @@
 
                     </select>
                 </div>
+                <div class="form-group">
+                    <label for="name">Payment:</label>
+                    <input type="number" min="0" id="payment" name="payment" value="" required>
+                </div>
 
                 <hr>
                 {{-- @dd($booking) --}}
@@ -131,13 +135,13 @@
                     <label for="name">Car Registration No:</label>
                     <input type="text" id="name" name="reg_num" value="{{ $booking->reg_num }}" required>
                 </div>
-                <div class="form-group">
+                {{-- <div class="form-group">
                     <label for="name">Selected Service:</label>
                     <input type="text" id="name" name="service" value="" required>
-                </div>
+                </div> --}}
                 <div class="form-group">
                     <label for="name">Cost:</label>
-                    <input type="num" min="0" id="name" name="cost" value="{{ $booking->cost }}"
+                    <input type="number" min="0" id="name" name="cost" value="{{ $booking->cost }}"
                         required>
                 </div>
                 <div class="form-group">

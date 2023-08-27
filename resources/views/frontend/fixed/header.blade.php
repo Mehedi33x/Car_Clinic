@@ -36,7 +36,7 @@
                 <a href="{{ route('homepage.webpage') }}" class="nav-item nav-link active">Home</a>
                 <a href="{{ route('service.webpage') }}" class="nav-item nav-link">Services</a>
                 <a href="{{ route('booking.webpage') }}" class="nav-item nav-link">Booking</a>
-                <a href="{{ route('about.webpage') }}" class="nav-item nav-link">About</a>
+                <a href="{{ route('about.webpage') }}" class="nav-item nav-link">About Us</a>
                 {{-- <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                 <div class="dropdown-menu fade-up m-0">
@@ -47,6 +47,7 @@
                 </div>
             </div> --}}
                 <a href="{{ route('contact.webpage') }}" class="nav-item nav-link">Contact</a>
+                <a href="{{ route('feedback.webpage') }}" class="nav-item nav-link">Feedback</a>
             </div>
             @if (Auth::guard('customers')->check())
                 <div class="nav-item dropdown">

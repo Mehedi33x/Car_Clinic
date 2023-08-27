@@ -1,25 +1,26 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\backend\AuthController;
+use App\Http\Controllers\backend\UserController;
 use App\Http\Controllers\backend\BrandController;
+use App\Http\Controllers\backend\ReportController;
+use App\Http\Controllers\frontend\AboutController;
+use App\Http\Controllers\backend\PaymentController;
+use App\Http\Controllers\backend\ServiceController;
 use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\backend\CustomerController;
-use App\Http\Controllers\backend\DashboardController;
 use App\Http\Controllers\backend\MechanicController;
-use App\Http\Controllers\backend\PaymentController;
-use App\Http\Controllers\backend\ReportController;
-use App\Http\Controllers\backend\ServiceCenterController;
-use App\Http\Controllers\backend\ServiceController;
-use App\Http\Controllers\backend\UserController;
-use App\Http\Controllers\frontend\AboutController;
 use App\Http\Controllers\frontend\AuthwebController;
 use App\Http\Controllers\frontend\BookingController;
 use App\Http\Controllers\frontend\ContactController;
-use App\Http\Controllers\frontend\HomepageController;
-use App\Http\Controllers\frontend\ServicePageController;
 use App\Http\Controllers\frontend\SupportController;
 use App\Http\Controllers\frontend\UserWebController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\backend\DashboardController;
+use App\Http\Controllers\frontend\HomepageController;
+use App\Http\Controllers\SslCommerzPaymentController;
+use App\Http\Controllers\frontend\ServicePageController;
+use App\Http\Controllers\backend\ServiceCenterController;
 
 
 
@@ -37,27 +38,47 @@ Route::get('/logout', [AuthwebController::class, 'logout'])->name('logout.webpag
 // homepage
 Route::get('/', [HomepageController::class, 'homepage'])->name('homepage.webpage');
 
+// SSLCOMMERZ Start
+Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);
+Route::get('/example2', [SslCommerzPaymentController::class, 'exampleHostedCheckout']);
+
+Route::post('/pay', [SslCommerzPaymentController::class, 'index']);
+Route::post('/pay-via-ajax', [SslCommerzPaymentController::class, 'payViaAjax']);
+
+Route::post('/success', [SslCommerzPaymentController::class, 'success']);
+Route::post('/fail', [SslCommerzPaymentController::class, 'fail']);
+Route::post('/cancel', [SslCommerzPaymentController::class, 'cancel']);
+
+Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn']);
+//SSLCOMMERZ END
+
+
 // booking
 Route::get('/booking', [BookingController::class, 'booking'])->name('booking.webpage');
 Route::post('/booking_store', [BookingController::class, 'booking_store'])->name('booking.webpage.store');
 Route::post('/booking/serivces/charges', [BookingController::class, 'booking_charge'])->name('booking.charge');
-Route::get('/delete_booking', [BookingController::class, 'delete_booking'])->name('delete.booking.webpage');
 
 
+//service
 Route::get('/service', [ServicePageController::class, 'service_page'])->name('service.webpage');
 Route::get('/service_details/{id}', [ServicePageController::class, 'service_details'])->name('service.details.webpage');
+
 Route::get('/about', [AboutController::class, 'about_page'])->name('about.webpage');
 Route::get('/contact', [ContactController::class, 'contact'])->name('contact.webpage');
+Route::get('/feedback', [ContactController::class, 'feedback'])->name('feedback.webpage');
+Route::post('/feedback_store', [ContactController::class, 'feedback_store'])->name('feedback.store.webpage');
 
+//support
 Route::get('/support', [SupportController::class, 'supoort'])->name('webpage.support');
 Route::post('/support_message', [SupportController::class, 'message'])->name('webpage.support.message');
 
 
 //User Profile
-Route::get('/users', [CustomerController::class, 'customer_profile'])->name('profile.customer');
+Route::get('/user_profile', [CustomerController::class, 'customer_profile'])->name('profile.customer');
 Route::get('/users_edit', [CustomerController::class, 'edit_profile'])->name('edit.customer.profile');
 Route::patch('/users_update', [CustomerController::class, 'update_profile'])->name('update.customer.profile');
 Route::get('/users_booking_list', [CustomerController::class, 'booking_list'])->name('booking.list');
+Route::get('/delete_booking/{id}', [BookingController::class, 'delete_booking'])->name('delete.booking.webpage');
 
 
 
@@ -87,6 +108,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'checkAdmin']], func
     Route::get('/user_list', [UserController::class, 'user_list'])->name('user.list');
     Route::get('/add_user', [UserController::class, 'user_add'])->name('user.add');
     Route::post('/store', [UserController::class, 'store'])->name('user.store');
+    Route::get('/user_view/{id}', [UserController::class, 'user_view'])->name('user.view');
+    Route::get('/user_delete/{id}', [UserController::class, 'user_delete'])->name('user.delete');
 
     //service center
 

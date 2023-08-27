@@ -54,7 +54,7 @@
             <img class="img-xs rounded-circle ml-2" src="{{url('/uploads/mechanics/'.auth()->user()->image)}}" alt="Profile image"> <span class="font-weight-normal"> {{auth()->user()->name}} </span></a>
           <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
             <div class="dropdown-header text-center">
-              <img class="img-md rounded-circle" src="{{url('backend/assets/images/faces/face8.jpg')}}" alt="Profile image">
+              <img class="img-md rounded-circle" style="width: 80px;height:80px" src="{{url('uploads/mechanics/',auth()->user()->image)}}" alt="Profile image">
               <p class="mb-1 mt-3">{{auth()->user()->name}}</p>
               <p class="font-weight-light text-muted mb-0">{{auth()->user()->email}}</p>
             </div>

@@ -26,6 +26,9 @@ return new class extends Migration
             $table->text('special_request', 100)->nullable();
             $table->string('assign')->default('none');
             $table->string('status')->default('pending');
+            $table->integer('total_payment');
+            
+            $table->string('payment_status');
             $table->dateTime('date');
             $table->timestamps();
         });

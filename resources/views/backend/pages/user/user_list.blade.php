@@ -1,5 +1,13 @@
 @extends('backend.master')
 @section('content')
+    <div>
+        @if (session()->has('message'))
+            <div class="alert alert-success">
+                <button type="button" class="close" data-dismiss="alert">X</button>
+                {{ session()->get('message') }}
+            </div>
+        @endif
+    </div>
     <div class="mt-3 ml-3 mr-3">
         <h2 style="font-size: 35px; margin-bottom:20px">User List</h2>
         <div>
@@ -10,6 +18,7 @@
             <thead class="table-dark">
                 <tr>
                     <th scope="col">#</th>
+                    <th scope="col">Image</th>
                     <th scope="col">Name</th>
                     <th scope="col">Email</th>
                     <th scope="col">Contact</th>
@@ -21,8 +30,11 @@
 
                 @foreach ($users as $key => $user)
                     <tr>
-                        <th scope="row">{{ $key + 1 }}</th>
+                        <th scope="row">{{ $users->firstitem() + $key }}</th>
                         {{-- var---> input --}}
+                        <td>
+                            <img style="width:100px;height:100px" src="{{ url('/uploads/mechanics/' . $user->image) }}">
+                        </td>
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->contact }}</td>
@@ -41,8 +53,11 @@
                                         Action
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#"><i class="fas fa-user"></i>Edit</a>
-                                        <a class="dropdown-item" href="#"><i class="fa-solid fa-trash"></i>Delete</a>
+
+                                        <a class="dropdown-item" href="{{ route('user.view', $user->id) }}"><i
+                                                class="fas fa-eye"></i>View</a>
+                                        <a class="dropdown-item" href="{{ route('user.delete', $user->id) }}"><i
+                                                class="fa-solid fa-trash"></i>Delete</a>
                                     </div>
                                 </div>
                             </div>

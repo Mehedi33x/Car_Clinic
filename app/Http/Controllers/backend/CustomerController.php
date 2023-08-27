@@ -57,7 +57,7 @@ class CustomerController extends Controller
             'email' => $request->email,
             'contact' => $request->contact,
             'address' => $request->address,
-            'password' => bcrypt($request->password),
+            'password' => $request->password ?? bcrypt($request->password),
         ]);
         Toastr::success('Information Update Successfully', 'Success', ['options']);
         return to_route('profile.customer');
