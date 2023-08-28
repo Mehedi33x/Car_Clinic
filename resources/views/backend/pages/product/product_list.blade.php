@@ -10,7 +10,7 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Image</th>
-                    <th scope="col">Product Code</th>
+                    {{-- <th scope="col">Product Code</th> --}}
                     <th scope="col">Product Name</th>
                     <th scope="col">Category</th>
                     <th scope="col">Price</th>
@@ -26,16 +26,14 @@
                     <tr>
                         <th scope="row">{{ $key + 1 }}</th>
                         <td>
-                            <img src="{{ url('/uploads/product', $item->image) }}" alt="">
+                            <img style="height: 100px;width:100px;" src="{{ url('/uploads/product', $item->image) }}" alt="">
                         </td>
                         <td>{{ $item->name }}</td>
-                        @foreach ($category as $cat)
-                            <td>{{ $cat->name }}</td>
-                        @endforeach
+                        <td>{{ $item->catData->name }}</td>
                         <td>{{ $item->price }} BDT</td>
                         <td>{{ $item->stock }}</td>
                         <td>{{ $item->description }}</td>
-                        <td>{{ $item->status }}</td>
+                        <td>{{ $item->status}}</td>
 
                         <td>
                             <div class="container">
@@ -60,5 +58,7 @@
 
             </tbody>
         </table>
+        <br>
+        {{ $products->links() }}
     </div>
 @endsection

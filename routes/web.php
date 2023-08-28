@@ -37,6 +37,9 @@ Route::get('/logout', [AuthwebController::class, 'logout'])->name('logout.webpag
 // homepage
 Route::get('/', [HomepageController::class, 'homepage'])->name('homepage.webpage');
 
+//search
+Route::get('/product_search',[ProductContoller::class,'search'])->name('product.search');
+
 // SSLCOMMERZ Start
 Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);
 Route::get('/example2', [SslCommerzPaymentController::class, 'exampleHostedCheckout']);

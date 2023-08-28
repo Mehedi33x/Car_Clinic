@@ -18,21 +18,18 @@
                 <h6 class="text-light">Sunday - Thursday:</h6>
                 <p class="mb-4">09.00 AM - 07.00 PM</p>
             </div>
-            <div class="col-lg-3 col-md-6">
+            {{-- <div class="col-lg-3 col-md-6">
                 <h4 class="text-light mb-4">Services</h4>
-                <a class="btn btn-link" href="">Diagnostic Test</a>
-                <a class="btn btn-link" href="">Engine Servicing</a>
-                <a class="btn btn-link" href="">Tires Replacement</a>
-                <a class="btn btn-link" href="">Oil Changing</a>
-                <a class="btn btn-link" href="">Vacuam Cleaning</a>
-            </div>
+                <a class="btn btn-link" href="">{{}}</a>
+
+            </div> --}}
             <div class="col-lg-3 col-md-6">
                 <h4 class="text-light mb-4">Newsletter</h4>
                 <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
-                <div class="position-relative mx-auto" style="max-width: 400px;">
+                {{-- <div class="position-relative mx-auto" style="max-width: 400px;">
                     <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
                     <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

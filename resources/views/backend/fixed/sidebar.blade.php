@@ -97,12 +97,12 @@
                 <i class="icon-grid menu-icon"></i>
             </a>
         </li>
-        <li class="nav-item">
+        {{-- <li class="nav-item">
             <a class="nav-link" href="{{ route('admin.support') }}">
                 <span class="menu-title">Support</span>
                 <i class="icon-grid menu-icon"></i>
             </a>
-        </li>
+        </li> --}}
 
         <li class="nav-item">
             <a class="nav-link" href="{{ route('view.feedback') }}">

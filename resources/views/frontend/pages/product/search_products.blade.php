@@ -20,8 +20,8 @@
         <div class="container-xxl service py-5">
             <div class="container">
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                    <h6 class="text-primary text-uppercase">Products</h6>
-                    <h1 class="mb-5">Products</h1>
+                    <h6 class="text-primary text-uppercase">Our Products</h6>
+                    <h1 class="mb-5">Our Products</h1>
                 </div>
                 <div class="row g-4">
                     {{-- @dd($products) --}}
@@ -34,16 +34,15 @@
                                 </div>
                                 <div class="bg-light text-center p-4">
                                     <h5 class="fw-bold mb-0">{{ $item->name }}</h5>
-                                    <span class="fw-bold mb-0">Category: {{ $item->catData->name }} </span>
+                                    <span class="fw-bold mb-0">Category: {{ $item->catData->name }}</span>
                                     <h6 class="fw-bold mb-0">{{ $item->price }} BDT</h6>
-                                    <a href="{{ route('details.products.webpage', $item->id) }}">
+                                    <a href="{{route('details.products.webpage',$item->id)}}">
                                         <small class="text-capitalize btn btn-success mt-2">Details</small>
                                     </a>
                                 </div>
                             </div>
                         </div>
                     @endforeach
-
 
                 </div>
             </div>

@@ -50,6 +50,14 @@
 
                 <a href="{{ route('contact.webpage') }}" class="nav-item nav-link">Contact</a>
                 <a href="{{ route('feedback.webpage') }}" class="nav-item nav-link">Feedback</a>
+                <nav class="navbar navbar-light bg-light">
+                    <form class="form-inline" action="{{ route('product.search') }}">
+                        <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search"
+                            aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="align-content: left">Search</button>
+                    </form>
+                </nav>
+                
             </div>
             @if (Auth::guard('customers')->check())
                 <div class="nav-item dropdown">

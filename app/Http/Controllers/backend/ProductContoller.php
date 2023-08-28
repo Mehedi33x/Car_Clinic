@@ -12,9 +12,9 @@ class ProductContoller extends Controller
 {
     public function product_list()
     {
-        $products = Product::get();
-        $category = ProductCategory::with('productCategory')->get();
-        return view('backend.pages.product.product_list', compact('products', 'category'));
+        $products = Product::paginate(5);
+        // dd($products->all());
+        return view('backend.pages.product.product_list', compact('products'));
     }
     public function product_add()
     {
@@ -55,9 +55,20 @@ class ProductContoller extends Controller
     }
 
 
+    //search
+    public function search(Request $request)
+    {
+        // dd($request->all());
+        $searchKey = $request->search;
+        $products = Product::where('name', 'LIKE', '%' . $searchKey . '%')->get();;
+
+        // dd($products);
+        return view('frontend.pages.product.search_products', compact('products'));
+    }
 
 
     // frontend
+
     public function all_product()
     {
         $products = Product::with('catData')->get();
