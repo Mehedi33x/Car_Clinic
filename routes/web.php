@@ -130,6 +130,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'checkAdmin']], func
     Route::get('/edit_service/{id}', [ServiceController::class, 'edit_service'])->name('service.edit');
     Route::post('/update_service/{id}', [ServiceController::class, 'update_service'])->name('service.update');
     Route::get('/delete_service/{id}', [ServiceController::class, 'detele_service'])->name('service.delete');
+    Route::get('/service_search',[ServiceController::class,'service_search'])->name('service.search');
 
 
     // mechanic
