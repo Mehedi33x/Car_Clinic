@@ -17,9 +17,9 @@
                     <small class="fa fa-phone-alt text-primary me-2"></small>
                     <small>+012 345 6789</small>
                 </div>
-                <div class="h-100 d-inline-flex align-items-center">
+                {{-- <div class="h-100 d-inline-flex align-items-center">
                     <li><a href="{{route('webpage.support')}}" class="">Support<i class="bi bi-chat"></i></a></li>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
@@ -34,18 +34,20 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="{{ route('homepage.webpage') }}" class="nav-item nav-link active">Home</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Categories</a>
+                    <div class="dropdown-menu fade-up m-0">
+                        @foreach ($category as $item)
+                            <a href="{{ route('category.wise', $item->id) }}"
+                                class="dropdown-item">{{ $item->name }}</a>
+                        @endforeach
+                    </div>
+                </div>
+                <a href="{{ route('all.products.webpage') }}" class="nav-item nav-link">Products</a>
                 <a href="{{ route('service.webpage') }}" class="nav-item nav-link">Services</a>
                 <a href="{{ route('booking.webpage') }}" class="nav-item nav-link">Booking</a>
                 <a href="{{ route('about.webpage') }}" class="nav-item nav-link">About Us</a>
-                {{-- <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                <div class="dropdown-menu fade-up m-0">
-                    <a href="booking.html" class="dropdown-item">Booking</a>
-                    <a href="team.html" class="dropdown-item">Technicians</a>
-                    <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                    <a href="404.html" class="dropdown-item">404 Page</a>
-                </div>
-            </div> --}}
+
                 <a href="{{ route('contact.webpage') }}" class="nav-item nav-link">Contact</a>
                 <a href="{{ route('feedback.webpage') }}" class="nav-item nav-link">Feedback</a>
             </div>
@@ -55,7 +57,7 @@
                         data-bs-toggle="dropdown">{{ auth('customers')->user()->name }}</a>
 
                     <div class="dropdown-menu fade-up m-0">
-                        <a href="{{route('profile.customer')}}" class="dropdown-item">Profile</a>
+                        <a href="{{ route('profile.customer') }}" class="dropdown-item">Profile</a>
                         <a href="{{ route('logout.webpage') }}" class="dropdown-item">Logout</a>
                     </div>
 

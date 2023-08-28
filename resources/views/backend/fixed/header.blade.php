@@ -6,14 +6,14 @@
 
     </div>
     <div class="navbar-menu-wrapper d-flex align-items-center flex-grow-1">
-      {{-- <h5 class="mb-0 font-weight-medium d-none d-lg-flex">Welcome dashboard!</h5> --}}
-      <ul class="navbar-nav navbar-nav-right ml-auto">
-        <form class="search-form d-none d-md-block" action="#">
+        {{-- <h5 class="mb-0 font-weight-medium d-none d-lg-flex">Welcome dashboard!</h5> --}}
+        <ul class="navbar-nav navbar-nav-right ml-auto">
+            {{-- <form class="search-form d-none d-md-block" action="#">
           <i class="icon-magnifier"></i>
           <input type="search" class="form-control" placeholder="Search Here" title="Search here">
-        </form>
+        </form> --}}
 
-          {{-- <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="messageDropdown">
+            {{-- <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="messageDropdown">
             <a class="dropdown-item py-3">
               <p class="mb-0 font-weight-medium float-left">You have 7 unread mails </p>
               <span class="badge badge-pill badge-primary float-right">View all</span>
@@ -49,22 +49,27 @@
           </div>
         </li> --}}
 
-        <li class="nav-item dropdown d-none d-xl-inline-flex user-dropdown">
-          <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-            <img class="img-xs rounded-circle ml-2" src="{{url('/uploads/mechanics/'.auth()->user()->image)}}" alt="Profile image"> <span class="font-weight-normal"> {{auth()->user()->name}} </span></a>
-          <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
-            <div class="dropdown-header text-center">
-              <img class="img-md rounded-circle" style="width: 80px;height:80px" src="{{url('uploads/mechanics/',auth()->user()->image)}}" alt="Profile image">
-              <p class="mb-1 mt-3">{{auth()->user()->name}}</p>
-              <p class="font-weight-light text-muted mb-0">{{auth()->user()->email}}</p>
-            </div>
+            <li class="nav-item dropdown d-none d-xl-inline-flex user-dropdown">
+                <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown"
+                    aria-expanded="false">
+                    <img class="img-xs rounded-circle ml-2" src="{{ url('/uploads/mechanics/' . auth()->user()->image) }}"
+                        alt="Profile image"> <span class="font-weight-normal"> {{ auth()->user()->name }} </span></a>
+                <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+                    <div class="dropdown-header text-center">
+                        <img class="img-md rounded-circle" style="width: 80px;height:80px"
+                            src="{{ url('uploads/mechanics/', auth()->user()->image) }}" alt="Profile image">
+                        <p class="mb-1 mt-3">{{ auth()->user()->name }}</p>
+                        <p class="font-weight-light text-muted mb-0">{{ auth()->user()->email }}</p>
+                    </div>
 
-            <a class="dropdown-item" href="{{route('admin.logout')}}"><i class="dropdown-item-icon icon-power text-primary"></i>Sign Out</a>
-          </div>
-        </li>
-      </ul>
-      <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
-        <span class="icon-menu"></span>
-      </button>
+                    <a class="dropdown-item" href="{{ route('admin.logout') }}"><i
+                            class="dropdown-item-icon icon-power text-primary"></i>Sign Out</a>
+                </div>
+            </li>
+        </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+            data-toggle="offcanvas">
+            <span class="icon-menu"></span>
+        </button>
     </div>
-  </nav>
+</nav>

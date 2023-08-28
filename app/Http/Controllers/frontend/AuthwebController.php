@@ -39,7 +39,7 @@ class AuthwebController extends Controller
         ]);
         $verificationCode = Str::random(120);
 
-        $customer->notify(new VerifyEmailNotification($customer, $verificationCode));
+        // $customer->notify(new VerifyEmailNotification($customer, $verificationCode));
         Toastr::success('Registration Successful', 'Success', ['options']);
         return to_route('homepage.webpage');
     }

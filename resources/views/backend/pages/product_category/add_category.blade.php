@@ -66,9 +66,9 @@
 <body>
     <div class="container">
 
-        <h2>Enter Your Information</h2>
+        <h2>Enter Category Information</h2>
 
-        <form action="" method="POST" enctype="multipart/form-data">
+        <form action="{{route('product.category.store')}}" method="POST" enctype="multipart/form-data">
           @csrf
         <div class="form-group">
             <label for="name">Name:</label>
@@ -87,13 +87,13 @@
             </div>
           </div>
 
-          <div class="form-group">
+          {{-- <div class="form-group">
             <label for="status">Availablity Status:</label>
             <select id="status" name="status" required>
               <option value="active">Active</option>
               <option value="inactive">Inactive</option>
             </select>
-          </div>
+          </div> --}}
 
             <div class="form-group">
                  <label for="image">Image:</label>

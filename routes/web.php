@@ -17,14 +17,13 @@ use App\Http\Controllers\frontend\ContactController;
 use App\Http\Controllers\frontend\SupportController;
 use App\Http\Controllers\frontend\UserWebController;
 use App\Http\Controllers\backend\DashboardController;
+use App\Http\Controllers\backend\ProductCategoryController;
+use App\Http\Controllers\backend\ProductContoller;
 use App\Http\Controllers\frontend\HomepageController;
 use App\Http\Controllers\SslCommerzPaymentController;
 use App\Http\Controllers\frontend\ServicePageController;
 use App\Http\Controllers\backend\ServiceCenterController;
-
-
-
-
+use App\Models\Product;
 
 //frontend
 // Auth
@@ -67,6 +66,12 @@ Route::get('/about', [AboutController::class, 'about_page'])->name('about.webpag
 Route::get('/contact', [ContactController::class, 'contact'])->name('contact.webpage');
 Route::get('/feedback', [ContactController::class, 'feedback'])->name('feedback.webpage');
 Route::post('/feedback_store', [ContactController::class, 'feedback_store'])->name('feedback.store.webpage');
+
+Route::get('/products',[ProductContoller::class,'all_product'])->name('all.products.webpage');
+Route::get('/product_details/{id}',[ProductContoller::class,'product_details'])->name('details.products.webpage');
+//categorywisedata
+Route::get('/category_wise_products/{id}',[ProductCategoryController::class,'category_wise'])->name('category.wise');
+
 
 //support
 Route::get('/support', [SupportController::class, 'supoort'])->name('webpage.support');
@@ -130,7 +135,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'checkAdmin']], func
     Route::get('/edit_service/{id}', [ServiceController::class, 'edit_service'])->name('service.edit');
     Route::post('/update_service/{id}', [ServiceController::class, 'update_service'])->name('service.update');
     Route::get('/delete_service/{id}', [ServiceController::class, 'detele_service'])->name('service.delete');
-    Route::get('/service_search',[ServiceController::class,'service_search'])->name('service.search');
+    Route::get('/service_search', [ServiceController::class, 'service_search'])->name('service.search');
 
 
     // mechanic
@@ -141,6 +146,19 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'checkAdmin']], func
     Route::get('/edit_mechanic/{id}', [MechanicController::class, 'edit_mechanic'])->name('mechanic.edit');
     Route::patch('/update_mechanic/{id}', [MechanicController::class, 'update_mechanic'])->name('mechanic.update');
     Route::get('/delete_mechanic/{id}', [MechanicController::class, 'delete_mechanic'])->name('mechanic.delete');
+
+    //product category
+    Route::get('/product-category', [ProductCategoryController::class, 'view_category'])->name('category.product.view');
+    Route::get('/add_product-category', [ProductCategoryController::class, 'add_category'])->name('category.product.add');
+    Route::post('/store_product-category', [ProductCategoryController::class, 'store_category'])->name('product.category.store');
+    //view/edit/delete/
+
+
+    //product
+    Route::get('/product_list', [ProductContoller::class, 'product_list'])->name('product.list');
+    Route::get('/product_add', [ProductContoller::class, 'product_add'])->name('product.add');
+    Route::post('/product_store', [ProductContoller::class, 'product_store'])->name('product.store');
+    Route::get('/product_view', [ProductContoller::class, 'product_view'])->name('product.view');
 
 
     //Service Request
@@ -175,8 +193,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'checkAdmin']], func
     Route::get('/payment', [PaymentController::class, 'payment'])->name('payment');
 
     //feedback
-    Route::get('/user_feedback',[ContactController::class,'view_feedback'])->name('view.feedback');
-    Route::get('/delete_feedback/{id}',[ContactController::class,'delete_feedback'])->name('feedback.delete');
+    Route::get('/user_feedback', [ContactController::class, 'view_feedback'])->name('view.feedback');
+    Route::get('/delete_feedback/{id}', [ContactController::class, 'delete_feedback'])->name('feedback.delete');
 
 
 

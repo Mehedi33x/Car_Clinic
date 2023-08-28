@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Brand;
 use App\Models\Category;
+use App\Models\ProductCategory;
 use App\Models\Service;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\View;
@@ -33,6 +34,9 @@ class AppServiceProvider extends ServiceProvider
 
         $brand_all=Brand::all();
         View::share('brand',$brand_all);
+
+        $category_all=ProductCategory::all();
+        View::share('category',$category_all);
 
         Paginator::useBootstrap();
 

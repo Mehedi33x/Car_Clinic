@@ -42,6 +42,19 @@
                 <i class="icon-chart menu-icon"></i>
             </a>
         </li>
+        {{-- products --}}
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('category.product.view') }}">
+                <span class="menu-title">Product Category</span>
+                <i class="icon-globe menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('product.list') }}">
+                <span class="menu-title">Products</span>
+                <i class="icon-globe menu-icon"></i>
+            </a>
+        </li>
         @if (auth()->user()->role == 'admin')
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('user.list') }}">
@@ -49,6 +62,7 @@
                     <i class="icon-globe menu-icon"></i>
                 </a>
             </li>
+
 
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('service.list') }}">
