@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\backend;
 
-use App\Http\Controllers\Controller;
 use App\Models\Product;
-use App\Models\ProductCategory;
-use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use App\Models\ProductCategory;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 
 class ProductContoller extends Controller
 {
@@ -49,10 +50,56 @@ class ProductContoller extends Controller
         return to_route('product.list')->with('message', 'Data added successfully !!!');
     }
 
-    public function product_view()
+    public function product_view($id)
     {
-        return view('backend.pages.product.view_product');
+        $products = Product::find($id);
+        return view('backend.pages.product.view_product', compact('products'));
     }
+    public function product_delete($id)
+    {
+        $product = Product::find($id);
+        $product->delete();
+        return to_route('product.list')->with('message', 'Data added successfully !!!');
+    }
+    public function edit_product($id)
+    {
+        $product = Product::find($id);
+        return view('backend.pages.product.edit_product', compact('product'));
+    }
+    public function store_update(Request $request, $id)
+    {
+        // dd($request->all());
+        $product = Product::find($id);
+        $product_image = $product->image;
+        // dd(public_path('images/mechanics/'.$mechanic_image));
+        if ($image = $request->file('image')) {
+            if (file_exists(public_path('uploads/product/' . $product_image))) {
+                // Log::useFiles('path', 'level');
+                // File::delete($oldimage);
+
+                File::delete(public_path('uploads/product/' . $product_image));
+            }
+            $product_image = time() . '-' . '.' . $image->getClientOriginalExtension();
+            $image->move('uploads/product/', $product_image);
+        }
+
+        $product->update([
+            'product_code' => Str::random(10),
+            'name' => $request->name,
+            'category_id' => $request->category_id,
+            'price' => $request->price,
+            'stock' => $request->stock,
+            'description' => $request->description,
+            'status' => $request->status,
+            'image' => $product_image,
+        ]);
+        return to_route('product.list');
+    }
+
+
+
+
+
 
 
     //search

@@ -32,23 +32,35 @@
 
     <body>
         <div class="container">
-            <h2 class="mb-3" style="text-align: center">Mechanic Information</h2>
+            <h2 class="mb-3" style="text-align: center">Product Information</h2>
             <hr>
             <div class="data-item">
+                <span class="data-label">Image:</span>
+                <img style="height: 150px; width:130px" src="{{url('/uploads/product', $products->image)}}"  alt="">
+            </div>
+            <div class="data-item">
                 <span class="data-label">Name:</span>
-                <span class="data-value">John Doe</span>
+                <span class="data-value">{{$products->name}}</span>
             </div>
             <div class="data-item">
-                <span class="data-label">Age:</span>
-                <span class="data-value">30</span>
+                <span class="data-label">Category:</span>
+                <span class="data-value">{{$products->catData->name}}</span>
             </div>
             <div class="data-item">
-                <span class="data-label">Email:</span>
-                <span class="data-value">johndoe@example.com</span>
+                <span class="data-label">Price:</span>
+                <span class="data-value">{{$products->price}}</span>
             </div>
             <div class="data-item">
-                <span class="data-label">Location:</span>
-                <span class="data-value">City, Country</span>
+                <span class="data-label">Stock:</span>
+                <span class="data-value">{{$products->stock}}</span>
+            </div>
+            <div class="data-item">
+                <span class="data-label">Description:</span>
+                <span class="data-value">{{$products->description}}</span>
+            </div>
+            <div class="data-item">
+                <span class="data-label">Status:</span>
+                <span class="data-value">{{$products->status}}</span>
             </div>
             <!-- Add more data items as needed -->
         </div>

@@ -26,14 +26,15 @@
                     <tr>
                         <th scope="row">{{ $key + 1 }}</th>
                         <td>
-                            <img style="height: 100px;width:100px;" src="{{ url('/uploads/product', $item->image) }}" alt="">
+                            <img style="height: 100px;width:100px;" src="{{ url('/uploads/product', $item->image) }}"
+                                alt="">
                         </td>
                         <td>{{ $item->name }}</td>
                         <td>{{ $item->catData->name }}</td>
                         <td>{{ $item->price }} BDT</td>
                         <td>{{ $item->stock }}</td>
                         <td>{{ $item->description }}</td>
-                        <td>{{ $item->status}}</td>
+                        <td>{{ $item->status }}</td>
 
                         <td>
                             <div class="container">
@@ -45,8 +46,9 @@
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <a class="dropdown-item" href="{{ route('product.view', $item->id) }}"><i
                                                 class="fas fa-eye"></i>View</a>
-                                        <a class="dropdown-item" href="#"><i class="fas fa-edit"></i>Edit</a>
-                                        <a class="dropdown-item" href="#"
+                                        <a class="dropdown-item" href="{{ route('product.edit', $item->id) }}"><i
+                                                class="fas fa-edit"></i>Edit</a>
+                                        <a class="dropdown-item" href="{{ route('product.delete', $item->id) }}"
                                             onclick="return confirm('Are you sure to Delete?')"><i
                                                 class="fa-solid fa-trash"></i>Delete</a>
                                     </div>

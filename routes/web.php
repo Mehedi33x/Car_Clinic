@@ -24,6 +24,7 @@ use App\Http\Controllers\SslCommerzPaymentController;
 use App\Http\Controllers\frontend\ServicePageController;
 use App\Http\Controllers\backend\ServiceCenterController;
 use App\Models\Product;
+use App\Models\ProductCategory;
 
 //frontend
 // Auth
@@ -38,7 +39,7 @@ Route::get('/logout', [AuthwebController::class, 'logout'])->name('logout.webpag
 Route::get('/', [HomepageController::class, 'homepage'])->name('homepage.webpage');
 
 //search
-Route::get('/product_search',[ProductContoller::class,'search'])->name('product.search');
+Route::get('/product_search', [ProductContoller::class, 'search'])->name('product.search');
 
 // SSLCOMMERZ Start
 Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);
@@ -71,12 +72,12 @@ Route::get('/feedback', [ContactController::class, 'feedback'])->name('feedback.
 Route::post('/feedback_store', [ContactController::class, 'feedback_store'])->name('feedback.store.webpage');
 
 //products
-Route::get('/products',[ProductContoller::class,'all_product'])->name('all.products.webpage');
-Route::get('/product_details/{id}',[ProductContoller::class,'product_details'])->name('details.products.webpage');
+Route::get('/products', [ProductContoller::class, 'all_product'])->name('all.products.webpage');
+Route::get('/product_details/{id}', [ProductContoller::class, 'product_details'])->name('details.products.webpage');
 
 
 //categorywisedata
-Route::get('/category_wise_products/{id}',[ProductCategoryController::class,'category_wise'])->name('category.wise');
+Route::get('/category_wise_products/{id}', [ProductCategoryController::class, 'category_wise'])->name('category.wise');
 
 
 //support
@@ -157,6 +158,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'checkAdmin']], func
     Route::get('/product-category', [ProductCategoryController::class, 'view_category'])->name('category.product.view');
     Route::get('/add_product-category', [ProductCategoryController::class, 'add_category'])->name('category.product.add');
     Route::post('/store_product-category', [ProductCategoryController::class, 'store_category'])->name('product.category.store');
+    Route::get('/view/Product-category/{id}', [ProductCategoryController::class, 'view_cat'])->name('view.category');
+    Route::get('/edit/Product-category/{id}', [ProductCategoryController::class, 'edit_cat'])->name('edit.product.category');
+    Route::post('/store/Product-category/{id}', [ProductCategoryController::class, 'store_cat'])->name('store.product.category');
+    Route::get('/delete/Product-category/{id}', [ProductCategoryController::class, 'delete_cat'])->name('delete.product.category');
     //view/edit/delete/
 
 
@@ -165,7 +170,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'checkAdmin']], func
     Route::get('/product_add', [ProductContoller::class, 'product_add'])->name('product.add');
     Route::post('/product_store', [ProductContoller::class, 'product_store'])->name('product.store');
     Route::get('/product_view/{id}', [ProductContoller::class, 'product_view'])->name('product.view');
-
+    Route::get('/product_delete/{id}', [ProductContoller::class, 'product_delete'])->name('product.delete');
+    Route::get('/product_edit/{id}', [ProductContoller::class, 'edit_product'])->name('product.edit');
+    Route::post('/product_update/{id}', [ProductContoller::class, 'store_update'])->name('product.update');
 
     //Service Request
     Route::get('/service_request', [BookingController::class, 'service_request'])->name('service.request');
