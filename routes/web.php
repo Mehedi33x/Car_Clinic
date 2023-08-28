@@ -173,6 +173,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'checkAdmin']], func
     // payment
     Route::get('/payment', [PaymentController::class, 'payment'])->name('payment');
 
+    //feedback
+    Route::get('/user_feedback',[ContactController::class,'view_feedback'])->name('view.feedback');
+    Route::get('/delete_feedback/{id}',[ContactController::class,'delete_feedback'])->name('feedback.delete');
+
+
 
 
     //report

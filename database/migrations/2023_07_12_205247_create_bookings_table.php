@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
             $table->uuid('booking_code');
+            $table->foreignId('customer_id')->constrained('customers')->cascadeOnDelete();
             $table->string('name', 50);
             $table->string('contact', 20);
             $table->string('email', 50);
@@ -27,7 +28,6 @@ return new class extends Migration
             $table->string('assign')->default('none');
             $table->string('status')->default('pending');
             $table->integer('total_payment');
-            
             $table->string('payment_status');
             $table->dateTime('date');
             $table->timestamps();

@@ -36,7 +36,7 @@ class MechanicController extends Controller
             'name' => 'required',
             'email' => 'required',
             'password' => 'required',
-            'contact' => 'required',
+            'contact' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
             'address' => 'required',
         ]);
 
@@ -73,7 +73,7 @@ class MechanicController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email',
-            'contact' => 'required',
+            'contact' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
             'address' => 'required',
         ]);
 

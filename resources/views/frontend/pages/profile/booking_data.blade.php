@@ -41,6 +41,7 @@
                         <th scope="col">Status</th>
                         <th scope="col">Serive Charge</th>
                         <th scope="col">Total Payment</th>
+                        <th scope="col">Due</th>
                         <th scope="col">Payment Status</th>
                         <th scope="col">Action</th>
 
@@ -69,8 +70,9 @@
                                 @endforeach
                             </td>
                             <td class="text-capitalize">{{ $item->status }}</td>
-                            <td>{{ $item->cost }}BDT</td>
-                            <td class="text-capitalize">{{ $item->total_payment }}</td>
+                            <td>{{ $item->cost }} BDT</td>
+                            <td class="text-capitalize">{{ $item->total_payment }} BDT</td>
+                            <td class="text-capitalize">{{ $item->cost - $item->total_payment }} BDT</td>
                             <td class="text-capitalize">{{ $item->payment_status }}</td>
                             <td>
                                 <a href="{{ route('delete.booking.webpage', $item->id) }}" class="fa fa-trash"

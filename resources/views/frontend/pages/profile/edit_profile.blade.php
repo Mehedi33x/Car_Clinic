@@ -37,18 +37,27 @@
                         <label for="name" class="text-white">Name:</label>
                         <input type="text" name="name" class="form-control border-0" placeholder="Your Name"
                             style="height: 55px;" value="{{ auth('customers')?->user()?->name }}">
+                        <div class="alert-danger">
+                            {{ $errors->first('name') }}
+                        </div>
                     </div>
                     <br>
                     <div class="col-12 col-sm-10">
                         <label for="email" class="text-white">Email:</label>
                         <input type="email" name="email" class="form-control border-0" placeholder="Your Email"
                             style="height: 55px;" value="{{ auth('customers')?->user()?->email }}">
+                        <div class="alert-danger">
+                            {{ $errors->first('email') }}
+                        </div>
                     </div><br>
 
                     <div class="col-12 col-sm-10">
                         <label for="contact" class="text-white">Contact:</label>
                         <input type="tel" name="contact" class="form-control border-0" placeholder="Your contact"
                             style="height: 55px;" value="">
+                        <div class="alert-primary">
+                            {{ $errors->first('contact') }}
+                        </div>
                     </div><br>
                     <div class="col-12 col-sm-10">
                         <label for="address" class="text-white">Address:</label>

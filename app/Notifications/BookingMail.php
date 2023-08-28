@@ -43,6 +43,7 @@ class BookingMail extends Notification
             ->line('Name: ' . $this->booking->name)
             ->line('Address: ' . $this->booking->address)
             ->line('Car Registration No: ' . $this->booking->reg_num)
+            ->line('Booking Id: ' . $this->booking->booking_code)
             ->line('Services: ' . $servicesString)
             ->line('Total Charge: ' . $this->booking->cost)
             ->line('Booked On: ' . $this->booking->date)

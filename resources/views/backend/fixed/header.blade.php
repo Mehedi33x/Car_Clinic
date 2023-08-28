@@ -6,7 +6,7 @@
 
     </div>
     <div class="navbar-menu-wrapper d-flex align-items-center flex-grow-1">
-      <h5 class="mb-0 font-weight-medium d-none d-lg-flex">Welcome dashboard!</h5>
+      {{-- <h5 class="mb-0 font-weight-medium d-none d-lg-flex">Welcome dashboard!</h5> --}}
       <ul class="navbar-nav navbar-nav-right ml-auto">
         <form class="search-form d-none d-md-block" action="#">
           <i class="icon-magnifier"></i>

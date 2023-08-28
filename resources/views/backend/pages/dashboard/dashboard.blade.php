@@ -43,6 +43,7 @@
                                 <i class="icon-briefcase"></i>
                             </div>
                         </div>
+
                         <div class="col-md-6 col-xl report-inner-card">
                             <div class="inner-card-text">
                                 <span class="report-title mb-3">Total Services</span>
@@ -61,6 +62,17 @@
                             </div>
                             <div class="inner-card-icon bg-primary">
                                 <i class="icon-diamond"></i>
+                            </div>
+                        </div>
+
+                        <div class=" col-md -6 col-xl report-inner-card">
+                            <div class="inner-card-text">
+                                <span class="report-title mb-3">Total Income</span>
+                                <h4>{{ $total_payment }} BDT</h4>
+                                {{-- <span class="report-count"></span> --}}
+                            </div>
+                            <div class="inner-card-icon bg-success">
+                                <i class="icon-rocket"></i>
                             </div>
                         </div>
                     </div>

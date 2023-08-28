@@ -91,8 +91,8 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('payment') }}">
-                <span class="menu-title">Payment</span>
+            <a class="nav-link" href="{{ route('view.feedback') }}">
+                <span class="menu-title">Feedback</span>
                 <i class="icon-chart menu-icon"></i>
             </a>
         </li>

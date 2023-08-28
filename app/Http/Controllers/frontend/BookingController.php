@@ -90,7 +90,7 @@ class BookingController extends Controller
         // dd($request->all());
         $request->validate([
             'name' => 'required',
-            'contact' => 'required',
+            'contact' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
             'email' => 'required|email',
             'address' => 'required',
             'car_brand' => 'required',
@@ -105,6 +105,7 @@ class BookingController extends Controller
 
         $booking = Booking::create([
             'name' => $request->name,
+            'customer_id' => auth('customers')->user()->id,
             'booking_code' => Str::random(10),
             'contact' => $request->contact,
             'email' => $request->email,

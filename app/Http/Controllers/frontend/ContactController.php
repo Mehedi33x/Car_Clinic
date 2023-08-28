@@ -27,6 +27,7 @@ class ContactController extends Controller
             'message' => 'required',
         ]);
         Feedback::create([
+            'customer_id' => auth('customers')->user()->id,
             'name' => $request->name,
             'email' => $request->email,
             'subject' => $request->subject,
@@ -35,5 +36,20 @@ class ContactController extends Controller
 
         Toastr::success('Feedback Send Successfully', 'Success', ['options']);
         return to_route('feedback.webpage');
+    }
+
+    // backend
+    public function view_feedback()
+    {
+        $feedback = Feedback::paginate(5)->all();
+        // dd($feedback);
+        return view('backend.pages.feedback.feedback', compact('feedback'));
+    }
+    public function delete_feedback($id)
+    {
+        $feedback = Feedback::find($id);
+        $feedback->delete();
+
+        return to_route('view.feedback')->with('message', 'Data deleted successfully!!!');
     }
 }

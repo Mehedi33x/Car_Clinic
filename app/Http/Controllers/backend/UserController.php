@@ -27,7 +27,7 @@ class UserController extends Controller
             'name' => 'required',
             'email' => 'required',
             'password' => 'required',
-            'contact' => 'required',
+            'contact' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
             'address' => 'required',
 
         ]);
@@ -95,6 +95,7 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required',
+            'contact' => 'regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
         ]);
 
         $user_image = $user->image;

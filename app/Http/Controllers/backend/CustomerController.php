@@ -50,6 +50,7 @@ class CustomerController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email',
+            'contact' => 'regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
         ]);
         // dd($user);
         $user->update([

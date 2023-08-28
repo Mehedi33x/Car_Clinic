@@ -56,6 +56,9 @@
                                             <input type="text" name="name" class="form-control border-0"
                                                 placeholder="Your Name" style="height: 55px;"
                                                 value="{{ auth('customers')?->user()?->name }}" readonly>
+                                            <div class="alert-danger">
+                                                {{ $errors->first('name') }}
+                                            </div>
                                         </div>
                                         <div class="col-6 col-sm-10">
                                             <label for="contact" class="text-white">Contact:</label>
@@ -63,12 +66,18 @@
                                                 value="{{ auth('customers')?->user()?->contact }}"
                                                 class="form-control border-0" placeholder="Your Contact"
                                                 style="height: 55px;">
+                                            <div class="alert-danger">
+                                                {{ $errors->first('contact') }}
+                                            </div>
                                         </div>
                                         <div class="col-12 col-sm-6">
                                             <label for="email" class="text-white">Email:</label>
                                             <input type="email" name="email" class="form-control border-0"
                                                 placeholder="Your Email" style="height: 55px;"
                                                 value="{{ auth('customers')?->user()?->email }}" readonly>
+                                            <div class="alert-danger">
+                                                {{ $errors->first('email') }}
+                                            </div>
                                         </div>
                                         <div class="col-6 col-sm-10">
                                             <label for="address" class="text-white">Address:</label>
@@ -76,6 +85,9 @@
                                                 value="{{ auth('customers')?->user()?->address }}"
                                                 class="form-control border-0" placeholder="Your Address"
                                                 style="height: 55px;">
+                                            <div class="alert-danger">
+                                                {{ $errors->first('address') }}
+                                            </div>
                                         </div>
 
                                         {{-- car details --}}
@@ -107,6 +119,9 @@
                                             <label for="reg_num" class="text-white">Car Registration Number:</label>
                                             <input type="number" name="reg_num" class="form-control border-0"
                                                 placeholder="Car Registration Number" style="height: 55px;">
+                                            <div class="alert-danger">
+                                                {{ $errors->first('reg_num') }}
+                                            </div>
                                         </div>
 
                                         <div class="col-12 col-sm-6">
@@ -139,7 +154,7 @@
                                                 <input type="date" class="form-control border-0" name="date"
                                                     placeholder="Service Date" style="height: 55px;">
                                             </div>
-                                            <div style="color: white">
+                                            <div class="alert-danger">
                                                 {{ $errors->first('date') }}
                                             </div>
                                         </div>
@@ -148,7 +163,17 @@
                                             <label for="special_request" class="text-white">Special Request:</label>
                                             <textarea class="form-control border-0" placeholder="Special Request" name="special_request"></textarea>
                                         </div>
-                                        
+                                        {{-- <div class="d-block my-3">
+                                            <label for="special_request" class="text-white">Special Request:</label>
+                                            <div class="custom-control custom-radio">
+                                              <input value="ssl" id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
+                                              <label class="custom-control-label" for="credit">SSL Commerz</label>
+                                            </div>
+                                            <div class="custom-control custom-radio">
+                                              <input value="cod" id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
+                                              <label class="custom-control-label" for="debit">COD</label>
+                                            </div>
+                                        </div> --}}
                                         <div class="col-12">
                                             <button class="btn btn-secondary w-100 py-3" type="submit">Book Now</button>
                                         </div>
