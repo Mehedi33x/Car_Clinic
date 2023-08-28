@@ -67,8 +67,11 @@ Route::get('/contact', [ContactController::class, 'contact'])->name('contact.web
 Route::get('/feedback', [ContactController::class, 'feedback'])->name('feedback.webpage');
 Route::post('/feedback_store', [ContactController::class, 'feedback_store'])->name('feedback.store.webpage');
 
+//products
 Route::get('/products',[ProductContoller::class,'all_product'])->name('all.products.webpage');
 Route::get('/product_details/{id}',[ProductContoller::class,'product_details'])->name('details.products.webpage');
+
+
 //categorywisedata
 Route::get('/category_wise_products/{id}',[ProductCategoryController::class,'category_wise'])->name('category.wise');
 
@@ -158,7 +161,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'checkAdmin']], func
     Route::get('/product_list', [ProductContoller::class, 'product_list'])->name('product.list');
     Route::get('/product_add', [ProductContoller::class, 'product_add'])->name('product.add');
     Route::post('/product_store', [ProductContoller::class, 'product_store'])->name('product.store');
-    Route::get('/product_view', [ProductContoller::class, 'product_view'])->name('product.view');
+    Route::get('/product_view/{id}', [ProductContoller::class, 'product_view'])->name('product.view');
 
 
     //Service Request

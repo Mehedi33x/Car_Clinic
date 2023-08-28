@@ -49,6 +49,11 @@ class ProductContoller extends Controller
         return to_route('product.list')->with('message', 'Data added successfully !!!');
     }
 
+    public function product_view()
+    {
+        return view('backend.pages.product.view_product');
+    }
+
 
 
 
@@ -58,9 +63,10 @@ class ProductContoller extends Controller
         $products = Product::with('catData')->get();
         return view('frontend.pages.product.product', compact('products'));
     }
-    public function product_details($id){
+    public function product_details($id)
+    {
         $products = Product::find($id);
         // dd($products);
-        return view('frontend.pages.product.product_details',compact('products'));
+        return view('frontend.pages.product.product_details', compact('products'));
     }
 }
