@@ -6,11 +6,11 @@
                 <div class="container text-center">
                     <h1 class="display-3 text-white mb-3 animated slideInDown">Services</h1>
                     <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb justify-content-center text-uppercase">
+                        {{-- <ol class="breadcrumb justify-content-center text-uppercase">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
                             <li class="breadcrumb-item"><a href="#">Pages</a></li>
                             <li class="breadcrumb-item text-white active" aria-current="page">Services</li>
-                        </ol>
+                        </ol> --}}
                     </nav>
                 </div>
             </div>

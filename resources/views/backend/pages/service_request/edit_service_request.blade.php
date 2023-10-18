@@ -99,10 +99,18 @@
 
                     </select>
                 </div>
+
+                <div class="form-group">
+                    <label for="name">Total Bill:</label>
+                    <input type="number" min="0" id="name" name="cost" value="{{ $booking->cost }}"
+                        readonly>
+                </div>
+
                 <div class="form-group">
                     <label for="name">Payment:</label>
-                    <input type="number" min="0" id="payment" name="payment" value="" required>
+                    <input type="number" min="0" id="payment" name="payment" value="">
                 </div>
+
 
                 <hr>
                 {{-- @dd($booking) --}}

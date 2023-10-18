@@ -44,8 +44,9 @@
 
             <div id="serviceRequest">
 
+                <h1 class="mb-3" style="text-align: center">Car Clinic</h1>
                 <h2 class="mb-3" style="text-align: center">Booking Information</h2>
-
+                <hr>
                 <div class="data-item">
                     <span class="data-label">Booking Id:</span>
                     <span class="data-value">{{ $booking->booking_code }}</span>

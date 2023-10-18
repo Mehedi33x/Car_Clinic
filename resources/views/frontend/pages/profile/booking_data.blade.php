@@ -38,11 +38,11 @@
                         <th scope="col">Registration No.</th>
                         <th scope="col">Booked On</th>
                         <th scope="col">Serives</th>
-                        <th scope="col">Status</th>
                         <th scope="col">Serive Charge</th>
                         <th scope="col">Total Payment</th>
                         <th scope="col">Due</th>
                         <th scope="col">Payment Status</th>
+                        <th scope="col">Booking Status</th>
                         <th scope="col">Action</th>
 
 
@@ -69,15 +69,29 @@
                                     <p>{{ $data }}</p>
                                 @endforeach
                             </td>
-                            <td class="text-capitalize">{{ $item->status }}</td>
+
                             <td>{{ $item->cost }} BDT</td>
                             <td class="text-capitalize">{{ $item->total_payment }} BDT</td>
                             <td class="text-capitalize">{{ $item->cost - $item->total_payment }} BDT</td>
                             <td class="text-capitalize">{{ $item->payment_status }}</td>
-                            <td>
+                            <td class="text-capitalize">{{ $item->status }}</td>
+                            {{-- <td>
                                 <a href="{{ route('delete.booking.webpage', $item->id) }}" class="fa fa-trash"
                                     onclick="return confirm('Are you sure to Delete?')">Cancel</a>
-                            </td>
+                            </td> --}}
+
+
+                            @if ($item->status == !'pending')
+                                <td>
+                                    <a href="{{ route('delete.booking.webpage', $item->id) }}" class="fa fa-trash"
+                                        onclick="return confirm('Are you sure to Delete?')">Cancel</a>
+                                </td>
+                            @else
+                                <td>
+
+                                </td>
+                            @endif
+
                         </tr>
                     @endforeach
 

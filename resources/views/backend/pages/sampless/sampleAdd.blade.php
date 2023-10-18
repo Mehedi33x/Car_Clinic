@@ -36,7 +36,9 @@
 
     input[type="text"],
     input[type="file"],
-    input[type="text"],
+    input[type="number"],
+    input[type="tel"],
+    input[type="password"],
 
 
     select {

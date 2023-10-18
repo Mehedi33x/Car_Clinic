@@ -180,6 +180,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'checkAdmin']], func
     Route::get('/edit/service_request/{id}', [BookingController::class, 'edit_request'])->name('edit.request');
     Route::patch('/update/service_request/{id}', [BookingController::class, 'update_request'])->name('update.request');
     Route::get('/get/service_request/{id}', [BookingController::class, 'delete_request'])->name('delete.request');
+    Route::get('/search/service_request/', [BookingController::class, 'search_request'])->name('seacrh.request');
 
 
     //Car Brand

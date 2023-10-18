@@ -24,8 +24,14 @@ class ProductContoller extends Controller
     }
     public function product_store(Request $request)
     {
-        // dd($request->all());
-        $request->validate([]);
+        dd($request->all());
+        $request->validate([
+            'name'=>'required',
+            'category_id'=>'required',
+            'price'=>'required',
+            'stock'=>'required',
+            'description'=>'required',
+        ]);
 
 
         $product_image = null;

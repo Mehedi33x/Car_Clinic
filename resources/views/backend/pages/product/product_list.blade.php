@@ -24,7 +24,7 @@
                 {{-- @dd($products) --}}
                 @foreach ($products as $key => $item)
                     <tr>
-                        <th scope="row">{{ $key + 1 }}</th>
+                        <th scope="row">{{ $products->firstitem() + $key }}</th>
                         <td>
                             <img style="height: 100px;width:100px;" src="{{ url('/uploads/product', $item->image) }}"
                                 alt="">

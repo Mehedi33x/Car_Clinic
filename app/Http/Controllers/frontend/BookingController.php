@@ -47,7 +47,7 @@ class BookingController extends Controller
         $booking->update([
             'assign' => $request->assign_to,
             'status' => $request->status,
-            'total_payment'=>$request->payment,
+            'total_payment' => $request->payment,
             'name' => $request->name,
             'contact' => $request->contact,
             'email' => $request->email,
@@ -72,7 +72,14 @@ class BookingController extends Controller
         return to_route('service.request')->with('message', 'Data deleted successfully!!!');
     }
 
+    public function search_request(Request $request)
+    {
+        $searchKey = $request->search;
+        // dd($searchKey);
 
+        $bookings = Booking::where('email', 'LIKE', '%' . $searchKey . '%')->get();
+        return view('backend.pages.service_request.search_booking', compact('bookings'));
+    }
 
 
 
@@ -116,8 +123,8 @@ class BookingController extends Controller
             'service' => $request->service,
             'cost' => $request->service_charges,
             'special_request' => $request->special_request,
-            'total_payment'=>0,
-            'payment_status'=>'pending',
+            'total_payment' => 0,
+            'payment_status' => 'pending',
             'date' => $request->date,
 
         ]);
@@ -140,11 +147,11 @@ class BookingController extends Controller
 
     //not working...should be delete by booking id
 
-    public function delete_booking($id){
-        $booking=Booking::findOrFail($id);
+    public function delete_booking($id)
+    {
+        $booking = Booking::findOrFail($id);
         $booking->delete();
         Toastr::success('Booking Delete Successful', 'Success', ['options']);
         return to_route('booking.list');
     }
-
 }

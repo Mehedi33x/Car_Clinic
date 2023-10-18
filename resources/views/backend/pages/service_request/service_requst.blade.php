@@ -16,6 +16,15 @@
                 <button type="submit" class="btn btn-success" style="margin-bottom: 20px">+ Service Request</button>
             </a>
         </div> --}}
+        <div>
+            <nav class="navbar navbar-light bg-light">
+                <form class="form-inline" action="{{ route('seacrh.request') }}">
+                    <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search"
+                        aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </nav>
+        </div> <br>
         <table class="table table-bordered" style="border: 2px solid black">
             <thead class="table-dark">
                 <tr>
